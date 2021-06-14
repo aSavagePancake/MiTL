@@ -441,8 +441,7 @@
                     </Grid>
                     <Label
                         x:Name="VersionNumber"
-                        Margin="448,270,0,0"
-                        Content="v0.9.3"
+                        Margin="421,270,0,0"
                         Foreground="Gray" />
                 </Grid>
             </mah:Flyout>

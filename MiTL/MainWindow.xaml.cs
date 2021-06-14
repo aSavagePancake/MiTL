@@ -578,6 +578,10 @@ namespace MiTL
                     RadioTealTheme.IsChecked = true;
                 }
 
+                string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+                string fileVersion = FileVersionInfo.GetVersionInfo(assemblyLocation).FileVersion;
+                VersionNumber.Content = "v" + fileVersion;
+
                 SettingsFlyout.IsOpen = true;
             }
         }
