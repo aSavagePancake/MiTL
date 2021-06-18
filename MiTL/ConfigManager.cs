@@ -54,25 +54,50 @@ namespace MiTL
 
         public void WriteConfigDefaults()
         {
-            string powerPlanBalanced = ListManager.PowerPlanList.ElementAt(0);
-            string powerPlanPerformance = ListManager.PowerPlanList.ElementAt(1);
             string defaultMonitoringEnabled = Properties.Resources.DefaultMonitoringEnabled;
             string defaultAppTheme = Properties.Resources.DefaultAppTheme;
             string defaultGameModeHotKey = Properties.Resources.DefaultGameModeHotKey;
             string defaultAudioDeviceSwitchHotKey = Properties.Resources.DefaultAudioDeviceSwitchHotKey;
             string defaultExitAppHotKey = Properties.Resources.DefaultExitAppHotkey;
-            string audioDevice1 = ListManager.AudioDevicesList.ElementAt(0);
-            string audioDevice2 = ListManager.AudioDevicesList.ElementAt(1);
-            string defaultAudioDevice = ListManager.DefaultAudioDevice;
-            IniWrite("PowerPlanBalanced", powerPlanBalanced);
-            IniWrite("PowerPlanPerformance", powerPlanPerformance);
             IniWrite("IsMonitoringEnabled", defaultMonitoringEnabled);
             IniWrite("AppTheme", defaultAppTheme);
             IniWrite("GameModeHotKey", defaultGameModeHotKey);
             IniWrite("AudioDeviceSwitchHotKey", defaultAudioDeviceSwitchHotKey);
             IniWrite("ExitAppHotKey", defaultExitAppHotKey);
-            IniWrite("AudioDeviceNo1", audioDevice1);
-            IniWrite("AudioDeviceNo2", audioDevice2);
+
+            if (ListManager.PowerPlanList.Count == 1)
+            {
+                string powerPlanBalanced = ListManager.PowerPlanList.ElementAt(0);
+                IniWrite("PowerPlanBalanced", powerPlanBalanced);
+            }
+
+            if (ListManager.PowerPlanList.Count == 2)
+            {
+                string powerPlanBalanced = ListManager.PowerPlanList.ElementAt(0);
+                IniWrite("PowerPlanBalanced", powerPlanBalanced);
+                string powerPlanPerformance = ListManager.PowerPlanList.ElementAt(1);
+                IniWrite("PowerPlanPerformance", powerPlanPerformance);
+            }
+
+            if (ListManager.AudioDevicesList.Count == 1)
+            {
+                string audioDevice = ListManager.AudioDevicesList.ElementAt(0);
+                IniWrite("AudioDevice1", audioDevice);
+                IniWrite("AudioDevice2", "-");
+            }
+            else if (ListManager.AudioDevicesList.Count > 1)
+            {
+                foreach ((string value, int i) item in ListManager.AudioDevicesList.Select((value, i) => (value, i)))
+                {
+                    string value = item.value;
+                    int index = item.i + 1;
+                    string deviceNumber = "AudioDevice" + index.ToString();
+                    string audioDevice = ListManager.AudioDevicesList.ElementAt(index);
+                    IniWrite(deviceNumber, audioDevice);
+                }
+            }
+
+            string defaultAudioDevice = ListManager.DefaultAudioDevice;
             IniWrite("DefaultAudioDevice", defaultAudioDevice);
         }
     }

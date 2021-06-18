@@ -15,8 +15,8 @@ namespace MiTL
 {
     public partial class MainWindow
     {
-        private static readonly ConfigManager ConfigManager = new ConfigManager();
         private static readonly ListManager ListManager = new ListManager();
+        private static readonly ConfigManager ConfigManager = new ConfigManager();
         private static Grid _settingsGridName = new Grid();
         private static Tile _settingsTileName = new Tile();
         private static string _settingsPageTitle = "";
@@ -90,8 +90,8 @@ namespace MiTL
             _gameModeHotKey = ConfigManager.IniRead("GameModeHotKey");
             _audioDeviceSwitchHotKey = ConfigManager.IniRead("AudioDeviceSwitchHotKey");
             _exitAppHotKey = ConfigManager.IniRead("ExitAppHotKey");
-            _audioDevice1 = ConfigManager.IniRead("AudioDeviceNo1");
-            _audioDevice2 = ConfigManager.IniRead("AudioDeviceNo2");
+            _audioDevice1 = ConfigManager.IniRead("AudioDevice1");
+            _audioDevice2 = ConfigManager.IniRead("AudioDevice2");
             _defaultAudioDevice = ConfigManager.IniRead("DefaultAudioDevice");
         }
 
@@ -417,13 +417,13 @@ namespace MiTL
         private void AudioDevice1_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
             string audioDeviceSwitch1 = AudioDevice1.SelectedValue.ToString();
-            ConfigManager.IniWrite("AudioDeviceNo1", audioDeviceSwitch1);
+            ConfigManager.IniWrite("AudioDevice1", audioDeviceSwitch1);
         }
 
         private void AudioDevice2_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
             string audioDeviceSwitch2 = AudioDevice2.SelectedValue.ToString();
-            ConfigManager.IniWrite("AudioDeviceNo2", audioDeviceSwitch2);
+            ConfigManager.IniWrite("AudioDevice2", audioDeviceSwitch2);
         }
 
         private void GameModeHotKey_OnSelectionChanged(object sender, RoutedEventArgs e)

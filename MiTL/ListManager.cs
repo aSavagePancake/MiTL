@@ -58,7 +58,6 @@ namespace MiTL
         {
             uint sizeName = 1024;
             IntPtr pSizeName = Marshal.AllocHGlobal((int)sizeName);
-
             string friendlyName;
 
             try
@@ -77,7 +76,6 @@ namespace MiTL
         public static IEnumerable<Guid> GetAll()
         {
             Guid schemeGuid = Guid.Empty;
-
             uint sizeSchemeGuid = (uint)Marshal.SizeOf(typeof(Guid));
             uint schemeIndex = 0;
 
@@ -97,11 +95,13 @@ namespace MiTL
 
                 foreach (Guid guidPlan in guidPlans)
                 {
-                    if (ReadFriendlyName(guidPlan) == "Balanced")
+                    string compareString = ReadFriendlyName(guidPlan).ToLower();
+
+                    if (compareString.Contains("balanced"))
                     {
                         powerPlanList.Insert(0, guidPlan.ToString());
                     }
-                    if (ReadFriendlyName(guidPlan) == "High Performance")
+                    if (compareString.Contains("performance"))
                     {
                         powerPlanList.Insert(1, guidPlan.ToString());
                     }
