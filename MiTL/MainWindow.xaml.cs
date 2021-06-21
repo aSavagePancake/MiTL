@@ -248,7 +248,18 @@ namespace MiTL
             if (_defaultAudioDevice == _audioDevice1)
             {
                 device = _audioDevice2;
-                ConfigManager.IniWrite("DefaultAudioDevice", _audioDevice2);
+                if (device != "-")
+                {
+                    ConfigManager.IniWrite("DefaultAudioDevice", _audioDevice2);
+                }
+                else
+                {
+                    if (Application.Current.MainWindow is MetroWindow metroWindow)
+                    {
+                        metroWindow.ShowMessageAsync("2nd Audio Device not assigned.",
+                            "If 2 or more Audio Devices then select it in the Settings Panel");
+                    }
+                }
             }
             if (_defaultAudioDevice == _audioDevice2)
             {
@@ -256,22 +267,30 @@ namespace MiTL
                 ConfigManager.IniWrite("DefaultAudioDevice", _audioDevice1);
             }
 
-            // set default audio output device
-            Process setDefaultAudioDevice = new Process
+            SetAudioDevice(device);
+        }
+
+        private void SetAudioDevice(string device)
+        {
+            if (device != "-")
             {
-                StartInfo = new ProcessStartInfo
+                // set default audio output device
+                Process setDefaultAudioDevice = new Process
                 {
-                    CreateNoWindow = true,
-                    UseShellExecute = false,
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    FileName = @"bin\nircmdc.exe",
-                    Arguments = " setdefaultsounddevice " + "\"" + device + "\""
-                }
-            };
-            setDefaultAudioDevice.Start();
-            setDefaultAudioDevice.WaitForExit();
-            ReadSettings();
-            ShowDefaultAudioDevice();
+                    StartInfo = new ProcessStartInfo
+                    {
+                        CreateNoWindow = true,
+                        UseShellExecute = false,
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        FileName = @"bin\nircmdc.exe",
+                        Arguments = " setdefaultsounddevice " + "\"" + device + "\""
+                    }
+                };
+                setDefaultAudioDevice.Start();
+                setDefaultAudioDevice.WaitForExit();
+                ReadSettings();
+                ShowDefaultAudioDevice();
+            }
         }
 
         private void TimerResolutionTile_OnClick(object sender, RoutedEventArgs e)
@@ -281,7 +300,7 @@ namespace MiTL
             {
                 if (Application.Current.MainWindow is MetroWindow metroWindow)
                 {
-                    metroWindow.ShowMessageAsync("Service Not Found..",
+                    metroWindow.ShowMessageAsync("Service Not Found.",
                         "To change this, Install the Timer Resolution Service via Settings Panel");
                 }
             }
@@ -437,7 +456,7 @@ namespace MiTL
             {
                 if (Application.Current.MainWindow is MetroWindow metroWindow)
                 {
-                    metroWindow.ShowMessageAsync("HotKey already assigned...", "Choose another HotKey for this task");
+                    metroWindow.ShowMessageAsync("HotKey already assigned.", "Choose another HotKey for this task");
                 }
             }
         }
@@ -454,7 +473,7 @@ namespace MiTL
             {
                 if (Application.Current.MainWindow is MetroWindow metroWindow)
                 {
-                    metroWindow.ShowMessageAsync("HotKey already assigned..", "Choose another HotKey for this task");
+                    metroWindow.ShowMessageAsync("HotKey already assigned.", "Choose another HotKey for this task");
                 }
             }
         }
@@ -471,7 +490,7 @@ namespace MiTL
             {
                 if (Application.Current.MainWindow is MetroWindow metroWindow)
                 {
-                    metroWindow.ShowMessageAsync("HotKey already assigned..", "Choose another HotKey for this task");
+                    metroWindow.ShowMessageAsync("HotKey already assigned.", "Choose another HotKey for this task");
                 }
             }
         }
