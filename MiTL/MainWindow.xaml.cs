@@ -254,11 +254,7 @@ namespace MiTL
                 }
                 else
                 {
-                    if (Application.Current.MainWindow is MetroWindow metroWindow)
-                    {
-                        metroWindow.ShowMessageAsync("2nd Audio Device not assigned.",
-                            "If 2 or more Audio Devices then select it in the Settings Panel");
-                    }
+                    ShowMetroMessage("2nd Audio Device not assigned.", "If 2 or more Audio Devices then select it in the Settings Panel");
                 }
             }
             if (_defaultAudioDevice == _audioDevice2)
@@ -298,11 +294,7 @@ namespace MiTL
             ServiceManager.MiTLService.Refresh();
             if (!ServiceManager.ServiceExists())
             {
-                if (Application.Current.MainWindow is MetroWindow metroWindow)
-                {
-                    metroWindow.ShowMessageAsync("Service Not Found.",
-                        "To change this, Install the Timer Resolution Service via Settings Panel");
-                }
+                ShowMetroMessage("Service Not Found.", "To change this, Install the Timer Resolution Service via Settings Panel");
             }
             else
             {
@@ -454,10 +446,7 @@ namespace MiTL
             }
             else
             {
-                if (Application.Current.MainWindow is MetroWindow metroWindow)
-                {
-                    metroWindow.ShowMessageAsync("HotKey already assigned.", "Choose another HotKey for this task");
-                }
+                ShowMetroMessage("HotKey already assigned.", "Choose another HotKey for this task");
             }
         }
 
@@ -471,10 +460,7 @@ namespace MiTL
             }
             else
             {
-                if (Application.Current.MainWindow is MetroWindow metroWindow)
-                {
-                    metroWindow.ShowMessageAsync("HotKey already assigned.", "Choose another HotKey for this task");
-                }
+                ShowMetroMessage("HotKey already assigned.", "Choose another HotKey for this task");
             }
         }
 
@@ -488,10 +474,7 @@ namespace MiTL
             }
             else
             {
-                if (Application.Current.MainWindow is MetroWindow metroWindow)
-                {
-                    metroWindow.ShowMessageAsync("HotKey already assigned.", "Choose another HotKey for this task");
-                }
+                ShowMetroMessage("HotKey already assigned.", "Choose another HotKey for this task");
             }
         }
 
@@ -698,6 +681,14 @@ namespace MiTL
             _settingsGridName.Visibility = Visibility.Visible;
             _settingsTileName.BorderThickness = new Thickness(2);
             SettingsPageTitle.Text = _settingsPageTitle;
+        }
+
+        private void ShowMetroMessage(string title, string message)
+        {
+            if (Application.Current.MainWindow is MetroWindow metroWindow)
+            {
+                metroWindow.ShowMessageAsync(title, message);
+            }
         }
     }
 }
