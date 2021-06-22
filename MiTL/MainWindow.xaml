@@ -441,8 +441,10 @@
                     </Grid>
                     <Label
                         x:Name="VersionNumber"
-                        Margin="421,270,0,0"
-                        Foreground="Gray" />
+                        HorizontalAlignment="Right"
+                        HorizontalContentAlignment="Right"
+                        Foreground="Gray"
+                        Margin="0,271,5,2" Width="150" />
                 </Grid>
             </mah:Flyout>
         </mah:FlyoutsControl>
