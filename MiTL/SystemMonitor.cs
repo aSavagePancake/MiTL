@@ -214,7 +214,7 @@ namespace MiTL
             {
                 while (true)
                 {
-                    string timerResolution = "Current Timer: " + Math.Round(ServiceManager.CurrentTimerRes() / 10000.0, 3) + "ms";
+                    string timerResolution = "Current Timer: " + Math.Round(ServiceManager.CurrentTimerRes() / 10000.0, 2) + "ms";
                     UpdateTimerData(timerResolution);
                     await Task.Delay(Delay).ConfigureAwait(false);
                 }
