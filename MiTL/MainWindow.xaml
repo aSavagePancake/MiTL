@@ -455,84 +455,115 @@
         Width="504"
         Margin="0,0,0,-0.8"
         HorizontalAlignment="Left">
-        <mah:Tile
-            x:Name="CpuClockTile"
-            Title="CPU Clock"
-            Width="103"
-            Height="45"
-            Margin="57,30,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="11">
-            <TextBlock
-                x:Name="TbCpuClock"
-                FontSize="16"
-                FontStyle="Normal"
-                FontWeight="Bold"
-                Foreground="Black"
-                Opacity="0.8" />
-        </mah:Tile>
 
-        <mah:Tile
-            x:Name="CpuLoadTile"
-            Title="CPU Load"
-            Width="103"
-            Height="45"
-            Margin="165,30,0,0"
+        <Frame  x:Name="CpuClockFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="11">
-            <TextBlock
-                x:Name="TbCpuLoad"
-                FontSize="16"
-                FontStyle="Normal"
-                FontWeight="Bold"
-                Foreground="Black"
-                Opacity="0.8" />
-        </mah:Tile>
+            Height="40"
+            Width="103"
+            Margin="57,30,0,0" />
+        <Label x:Name="TbCpuClock"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="57,28,0,0" />
+        <Label Content="CPU Clock"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="57,48,0,0" />
 
-        <mah:Tile
-            x:Name="CpuTempTile"
-            Title="CPU Temp"
-            Width="103"
-            Height="45"
-            Margin="273,30,0,0"
+        <Frame x:Name="CpuLoadFrame"
+               Background="{DynamicResource MahApps.Brushes.Accent}"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="11">
-            <TextBlock
-                x:Name="TbCpuTemp"
-                FontSize="16"
-                FontStyle="Normal"
-                FontWeight="Bold"
-                Foreground="Black"
-                Opacity="0.8" />
-        </mah:Tile>
-        <mah:Tile
-            x:Name="MemLoadTile"
-            Title="Mem Load"
+            Height="40"
             Width="103"
-            Height="45"
-            Margin="381,30,0,0"
+            Margin="165,30,0,0" />
+        <Label x:Name="TbCpuLoad"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="11">
-            <TextBlock
-                x:Name="TbMemLoad"
-                FontSize="16"
-                FontStyle="Normal"
-                FontWeight="Bold"
-                Foreground="Black"
-                Opacity="0.8" />
-        </mah:Tile>
+            Width="103"
+            Height="27"
+            Margin="165,28,0,0" />
+        <Label Content="CPU Load"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="165,48,0,0" />
+
+        <Frame x:Name="CpuTempFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="273,30,0,0" />
+        <Label x:Name="TbCpuTemp"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="273,28,0,0" />
+        <Label Content="CPU Temp"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="273,48,0,0" />
+
+        <Frame x:Name="MemLoadFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="381,30,0,0" />
+        <Label x:Name="TbMemLoad"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="381,28,0,0" />
+        <Label Content="RAM Load"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="381,48,0,0" />
+
         <Separator
             Width="427"
             Height="34"

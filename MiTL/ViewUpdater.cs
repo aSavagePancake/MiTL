@@ -17,10 +17,10 @@ namespace MiTL
 
         public static void UpdateHardwareData(string memLoad, string coreClock, string coreLoad, string coreTemp)
         {
-            MainWindow.TbMemLoad.Text = memLoad;
-            MainWindow.TbCpuClock.Text = coreClock;
-            MainWindow.TbCpuLoad.Text = coreLoad;
-            MainWindow.TbCpuTemp.Text = coreTemp;
+            MainWindow.TbMemLoad.Content = memLoad;
+            MainWindow.TbCpuClock.Content = coreClock;
+            MainWindow.TbCpuLoad.Content = coreLoad;
+            MainWindow.TbCpuTemp.Content = coreTemp;
         }
 
         public static void UpdateTimerData(string timerResolution)

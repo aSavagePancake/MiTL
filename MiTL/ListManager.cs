@@ -124,33 +124,33 @@ namespace MiTL
             }
         }
 
-        internal IEnumerable<TextBlock> ControlsTextBlocks
+        internal IEnumerable<Label> ControlsLabels
         {
             get
             {
-                List<TextBlock> controlsTextBlocks = new List<TextBlock>
+                List<Label> ControlsLabels = new List<Label>
                 {
                     MainWindow.TbCpuClock,
                     MainWindow.TbCpuLoad,
                     MainWindow.TbCpuTemp,
                     MainWindow.TbMemLoad
                 };
-                return controlsTextBlocks;
+                return ControlsLabels;
             }
         }
 
-        internal IEnumerable<Tile> ControlsTiles
+        internal IEnumerable<Frame> ControlsFrames
         {
             get
             {
-                List<Tile> controlsTiles = new List<Tile>
+                List<Frame> ControlsFrames = new List<Frame>
                 {
-                    MainWindow.CpuClockTile,
-                    MainWindow.CpuLoadTile,
-                    MainWindow.CpuTempTile,
-                    MainWindow.MemLoadTile
+                    MainWindow.CpuClockFrame,
+                    MainWindow.CpuLoadFrame,
+                    MainWindow.CpuTempFrame,
+                    MainWindow.MemLoadFrame
                 };
-                return controlsTiles;
+                return ControlsFrames;
             }
         }
 

@@ -325,36 +325,36 @@ namespace MiTL
 
         private static void ShowMonitoring()
         {
-            MonitoringDecision(ListManager.ControlsTiles, ListManager.ControlsTextBlocks, "Enable");
+            MonitoringDecision(ListManager.ControlsFrames, ListManager.ControlsLabels, "Enable");
         }
 
         private static void HideMonitoring()
         {
-            MonitoringDecision(ListManager.ControlsTiles, ListManager.ControlsTextBlocks, "Disable");
+            MonitoringDecision(ListManager.ControlsFrames, ListManager.ControlsLabels, "Disable");
         }
 
-        private static void MonitoringDecision(IEnumerable<Tile> controlsTiles, IEnumerable<TextBlock> controlsTextBlocks, string decision)
+        private static void MonitoringDecision(IEnumerable<Frame> controlsFrames, IEnumerable<Label> controlsLabels, string decision)
         {
-            if (controlsTiles == null)
+            if (controlsFrames == null)
             {
-                throw new ArgumentNullException(nameof(controlsTiles));
+                throw new ArgumentNullException(nameof(controlsFrames));
             }
 
-            if (controlsTextBlocks == null)
+            if (controlsLabels == null)
             {
-                throw new ArgumentNullException(nameof(controlsTextBlocks));
+                throw new ArgumentNullException(nameof(controlsLabels));
             }
 
-            foreach (Tile monitorTiles in controlsTiles)
+            foreach (Frame monitorFrames in controlsFrames)
             {
                 switch (decision)
                 {
                     case "Enable":
-                        monitorTiles.IsEnabled = true;
+                        monitorFrames.Opacity = 1;
                         break;
 
                     case "Disable":
-                        monitorTiles.IsEnabled = false;
+                        monitorFrames.Opacity = 0.6;
                         break;
 
                     default:
@@ -362,17 +362,17 @@ namespace MiTL
                 }
             }
 
-            foreach (TextBlock monitorTextBlocks in controlsTextBlocks)
+            foreach (Label monitorLabels in controlsLabels)
             {
                 switch (decision)
                 {
                     case "Enable":
-                        monitorTextBlocks.Visibility = Visibility.Visible;
+                        monitorLabels.Visibility = Visibility.Visible;
                         break;
 
                     case "Disable":
-                        monitorTextBlocks.Text = null;
-                        monitorTextBlocks.Visibility = Visibility.Hidden;
+                        monitorLabels.Content = null;
+                        monitorLabels.Visibility = Visibility.Hidden;
                         break;
 
                     default:
