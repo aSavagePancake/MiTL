@@ -107,6 +107,12 @@ namespace MiTL
                                     case SensorType.Frequency:
                                         break;
 
+                                    case SensorType.Current:
+                                        break;
+
+                                    case SensorType.TimeSpan:
+                                        break;
+
                                     default:
                                         throw new ArgumentOutOfRangeException();
                                 }
@@ -352,6 +358,12 @@ namespace MiTL
                                         break;
 
                                     case SensorType.Throughput:
+                                        break;
+
+                                    case SensorType.Current:
+                                        break;
+
+                                    case SensorType.TimeSpan:
                                         break;
 
                                     default:
