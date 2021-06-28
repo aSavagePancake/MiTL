@@ -97,6 +97,24 @@ namespace MiTL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 2.
+        /// </summary>
+        internal static string DefaultGpuOCProfile {
+            get {
+                return ResourceManager.GetString("DefaultGpuOCProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.
+        /// </summary>
+        internal static string DefaultGpuStockProfile {
+            get {
+                return ResourceManager.GetString("DefaultGpuStockProfile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 1.
         /// </summary>
         internal static string DefaultMonitoringEnabled {
@@ -162,6 +180,15 @@ namespace MiTL.Properties {
             get {
                 object obj = ResourceManager.GetObject("MiTL_Icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to C:\Program Files (x86)\MSI Afterburner\MSIAfterburner.exe.
+        /// </summary>
+        internal static string MSIAB_FilePath {
+            get {
+                return ResourceManager.GetString("MSIAB_FilePath", resourceCulture);
             }
         }
         

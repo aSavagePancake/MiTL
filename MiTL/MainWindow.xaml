@@ -5,8 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="503"
-    Height="383"
+    Width="504.6"
+    Height="471"
     Background="#FF202020"
     IsWindowDraggable="True"
     KeyUp="HotKeyManager"
@@ -21,6 +21,753 @@
     WindowStyle="None"
     WindowTransitionsEnabled="True"
     mc:Ignorable="d">
+
+    <Grid
+        x:Name="GridMainWindow"
+        Width="505"
+        Margin="0,0,-0.2,0.2"
+        HorizontalAlignment="Left">
+
+        <Frame  x:Name="CpuClockFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="57,30,0,0" />
+        <Label x:Name="TbCpuClock"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="57,28,0,0" />
+        <Label Content="CPU Clock"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="57,48,0,0" />
+
+        <Frame x:Name="CpuTempFrame"
+               Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="165,30,0,0" />
+        <Label x:Name="TbCpuTemp"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="165,28,0,0" />
+        <Label Content="CPU Temp"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="165,48,0,0" />
+
+        <Frame x:Name="CpuLoadFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="273,30,0,0" />
+        <Label x:Name="TbCpuLoad"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="273,28,0,0" />
+        <Label Content="CPU Load"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="273,48,0,0" />
+
+        <Frame x:Name="MemLoadFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="381,30,0,0" />
+        <Label x:Name="TbMemLoad"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="381,28,0,0" />
+        <Label Content="RAM Load"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="381,48,0,0" />
+        <Frame  x:Name="GpuCoreClockFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="57,75,0,0" />
+        <Label x:Name="TbGpuClock"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="57,73,0,0" />
+        <Label Content="GPU Core Clock"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="57,93,0,0" />
+        <Frame  x:Name="GpuMemClockFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="57,119,0,0" />
+        <Label x:Name="TbGpuMemClock"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="57,118,0,0" />
+        <Label Content="GPU vRam Clock"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="57,138,0,0" />
+        <Frame x:Name="GpuTempFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="165,75,0,0" />
+        <Label x:Name="TbGpuTemp"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="165,73,0,0" />
+        <Label Content="GPU Temp"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="165,93,0,0" />
+        <Frame x:Name="GpuLoadFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="273,75,0,0" />
+        <Label x:Name="TbGpuLoad"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="273,73,0,0" />
+        <Label Content="GPU Load"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="273,93,0,0" />
+        <Frame x:Name="GpuMemLoadFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="381,75,0,0" />
+        <Label x:Name="TbGpuMemLoad"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="381,73,0,0" />
+        <Label Content="GPU vRAM Load"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="381,93,0,0" />
+
+        <Separator
+            Width="427"
+            Height="31"
+            Margin="57,160,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+        <mah:Tile
+            x:Name="DiscordTile"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="282,191,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="DiscordTileBadge"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top">
+                <Image
+                    Width="55"
+                    Height="55"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="Resources/Image_GPU.png" />
+            </mah:Badged>
+        </mah:Tile>
+        <mah:Tile
+            x:Name="GfNowTile"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="351,191,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="GfNowTileBadge"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top">
+                <Image
+                    Width="55"
+                    Height="55"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="Resources/Image_GPU.png" />
+            </mah:Badged>
+        </mah:Tile>
+        <mah:Tile
+            x:Name="SteamTile"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="421,191,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="SteamTileBadge"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top">
+                <Image
+                    Width="55"
+                    Height="55"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="Resources/Image_GPU.png" />
+            </mah:Badged>
+        </mah:Tile>
+        <mah:Tile
+            x:Name="PowerPlanTile"
+            Title="Windows Power Plan:"
+            Height="60"
+            Margin="57,321,0,0"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Click="PowerPlanTile_OnCLick"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Center"
+            VerticalTitleAlignment="Top"
+            IsTabStop="False"
+            TitleFontSize="13"
+            Width="201"
+            VerticalAlignment="Top" HorizontalAlignment="Left">
+            <mah:Badged
+                x:Name="PowerPlanBadge"
+                Badge=""
+                Height="24"
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Bottom" />
+        </mah:Tile>
+        <mah:Tile
+            x:Name="TimerResolutionTile"
+            Title="Windows Timer Resolution:"
+            Height="60"
+            Margin="57,191,0,0"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Click="TimerResolutionTile_OnClick"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Center"
+            VerticalTitleAlignment="Top"
+            IsTabStop="False"
+            TitleFontSize="13"
+            Width="201"
+            VerticalAlignment="Top" HorizontalAlignment="Left">
+            <mah:Badged
+                x:Name="TimerResolutionTileBadge"
+                Badge=""
+                Height="24"
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Bottom">
+            </mah:Badged>
+        </mah:Tile>
+        <mah:Tile
+            x:Name="GpuProfileTile"
+            Title="MSI Afterburner Profile:"
+            Height="60"
+            Margin="57,256,0,0"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Click="GpuProfileTile_Click"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Center"
+            VerticalTitleAlignment="Top"
+            IsTabStop="False"
+            TitleFontSize="13"
+            Width="201"
+            VerticalAlignment="Top" HorizontalAlignment="Left">
+            <mah:Badged
+                x:Name="GpuProfileTileBadge"
+                Badge=""
+                Height="24"
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Bottom">
+            </mah:Badged>
+        </mah:Tile>
+        <mah:Tile
+            x:Name="AudioDeviceSwitchTile"
+            Title="Audio Output Device:"
+            Height="60"
+            Margin="57,386,0,0"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Click="AudioDeviceSwitchTile_OnClick"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Center"
+            VerticalTitleAlignment="Top"
+            IsTabStop="False"
+            TitleFontSize="13"
+            Width="201"
+            VerticalAlignment="Top" HorizontalAlignment="Left">
+            <mah:Badged
+                x:Name="AudioDeviceBadge"
+                Badge=""
+                Height="24"
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Bottom" />
+        </mah:Tile>
+
+        <Button
+            x:Name="FlyoutButton"
+            Margin="5,29,0,0"
+            HorizontalContentAlignment="Center"
+            Background="Transparent"
+            Click="FlyoutButton_OnClick"
+            Cursor="Hand"
+            FontSize="35"
+            MouseEnter="FlyoutButton_OnMouseEnter"
+            MouseLeave="FlyoutButton_OnMouseLeave"
+            RenderTransformOrigin="0.5,0.5"
+            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Width="49">
+            <Image
+                x:Name="FlyoutButtonImage"
+                Height="35"
+                RenderTransformOrigin="0.5,0.5"
+                Source="Resources/Image_Settings.png" Width="29" />
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <mah:Tile
+            x:Name="DiscordTile_Copy"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="282,256,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="DiscordTileBadge1"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top" />
+        </mah:Tile>
+        <mah:Tile
+            x:Name="GfNowTile_Copy"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="351,256,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="GfNowTileBadge1"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top" />
+        </mah:Tile>
+        <mah:Tile
+            x:Name="SteamTile_Copy"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="421,256,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="SteamTileBadge1"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top" />
+        </mah:Tile>
+        <mah:Tile
+            x:Name="DiscordTile_Copy1"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="282,321,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="DiscordTileBadge2"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top" />
+        </mah:Tile>
+        <mah:Tile
+            x:Name="GfNowTile_Copy1"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="351,321,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="GfNowTileBadge2"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top" />
+        </mah:Tile>
+        <mah:Tile
+            x:Name="SteamTile_Copy1"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="421,321,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="SteamTileBadge2"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top" />
+        </mah:Tile>
+        <mah:Tile
+            x:Name="DiscordTile_Copy2"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="282,386,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="DiscordTileBadge3"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top" />
+        </mah:Tile>
+        <mah:Tile
+            x:Name="GfNowTile_Copy2"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="351,386,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="GfNowTileBadge3"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top">
+            </mah:Badged>
+        </mah:Tile>
+        <mah:Tile
+            x:Name="SteamTile_Copy2"
+            Title=""
+            Width="64"
+            Height="60"
+            Margin="421,386,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            Cursor="Hand"
+            HorizontalTitleAlignment="Right"
+            IsTabStop="False"
+            TitleFontSize="17">
+            <mah:Badged
+                x:Name="SteamTileBadge3"
+                Badge=""
+                BadgeBackground="DarkGray"
+                BadgeForeground="Black"
+                BadgePlacementMode="Top">
+            </mah:Badged>
+        </mah:Tile>
+        <Separator
+            Width="185"
+            Height="23"
+            Margin="281,228,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="90" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Separator.RenderTransform>
+        </Separator>
+        <Frame x:Name="GpuFanFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="165,120,0,0" />
+        <Label x:Name="TbGpuFanSpeed"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="165,118,0,0" />
+        <Label Content="GPU Fan"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="165,138,0,0" />
+        <Frame x:Name="GpuIMCFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="273,120,0,0" />
+        <Label x:Name="TbGpuIMC"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="273,118,0,0" />
+        <Label Content="GPU IMC Load"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="273,138,0,0" />
+        <Separator
+            Width="319"
+            Height="31"
+            Margin="165,160,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" />
+        <Frame x:Name="GpuVideoEngineFrame"
+            Background="{DynamicResource MahApps.Brushes.Accent}"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="40"
+            Width="103"
+            Margin="381,120,0,0" />
+        <Label x:Name="TbGpuVideoEngine"
+            Foreground="Black"
+            FontStyle="Normal"
+            FontWeight="Bold"
+            FontSize="15"
+            HorizontalContentAlignment="Center"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Width="103"
+            Height="27"
+            Margin="381,118,0,0" />
+        <Label Content="GPU VE Load"
+            FontSize="11"
+            HorizontalContentAlignment="Right"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="103"
+            Height="26"
+            Margin="381,138,0,0" />
+    </Grid>
 
     <mah:MetroWindow.Flyouts>
         <mah:FlyoutsControl>
@@ -449,411 +1196,4 @@
             </mah:Flyout>
         </mah:FlyoutsControl>
     </mah:MetroWindow.Flyouts>
-
-    <Grid
-        x:Name="GridMainWindow"
-        Width="504"
-        Margin="0,0,0,-0.8"
-        HorizontalAlignment="Left">
-
-        <Frame  x:Name="CpuClockFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="57,30,0,0" />
-        <Label x:Name="TbCpuClock"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="57,28,0,0" />
-        <Label Content="CPU Clock"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="57,48,0,0" />
-
-        <Frame x:Name="CpuLoadFrame"
-               Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="165,30,0,0" />
-        <Label x:Name="TbCpuLoad"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="165,28,0,0" />
-        <Label Content="CPU Load"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="165,48,0,0" />
-
-        <Frame x:Name="CpuTempFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="273,30,0,0" />
-        <Label x:Name="TbCpuTemp"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="273,28,0,0" />
-        <Label Content="CPU Temp"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="273,48,0,0" />
-
-        <Frame x:Name="MemLoadFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="381,30,0,0" />
-        <Label x:Name="TbMemLoad"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="381,28,0,0" />
-        <Label Content="RAM Load"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="381,48,0,0" />
-
-        <Separator
-            Width="427"
-            Height="34"
-            Margin="57,65,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderTransformOrigin="0.5,0.5" />
-        <mah:Tile
-            x:Name="DiscordTile"
-            Title=""
-            Width="67"
-            Height="78"
-            Margin="57,90,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="DiscordTileBadge"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-                <Image
-                    Width="55"
-                    Height="55"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Source="Resources/Image_GPU.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="GfNowTile"
-            Title=""
-            Width="67"
-            Height="78"
-            Margin="129,90,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="GfNowTileBadge"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-                <Image
-                    Width="55"
-                    Height="55"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Source="Resources/Image_GPU.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="SteamTile"
-            Title=""
-            Width="67"
-            Height="78"
-            Margin="201,90,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="SteamTileBadge"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-                <Image
-                    Width="55"
-                    Height="55"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Source="Resources/Image_GPU.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="EpicTile"
-            Title=""
-            Width="67"
-            Height="78"
-            Margin="57,173,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="EpicTileBadge"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-                <Image
-                    Width="55"
-                    Height="55"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Source="Resources/Image_GPU.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="OriginTile"
-            Title=""
-            Width="67"
-            Height="78"
-            Margin="129,173,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="OriginTileBadge"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-                <Image
-                    Width="55"
-                    Height="55"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Source="Resources/Image_GPU.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="UbisoftTile"
-            Title=""
-            Width="67"
-            Height="78"
-            Margin="201,173,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="UbisoftTileBadge"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-                <Image
-                    Width="55"
-                    Height="55"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Source="Resources/Image_GPU.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="PowerPlanTile"
-            Title="Windows Power Plan"
-            Width="211"
-            Height="162"
-            Margin="273,90,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Click="PowerPlanTile_OnCLick"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="14">
-            <mah:Badged
-                x:Name="PowerPlanBadge"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-                <Image
-                    Width="130"
-                    Height="130"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Source="Resources/Image_PowerPlan.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="TimerResolutionTile"
-            Title="Windows Timer Resolution"
-            Width="241"
-            Height="108"
-            Margin="57,257,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Click="TimerResolutionTile_OnClick"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="14">
-            <mah:Badged
-                x:Name="TimerResolutionTileBadge"
-                Height="76"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-                <Image
-                    Width="99"
-                    Height="76"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Source="Resources/Image_TimerResolution.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="AudioDeviceSwitchTile"
-            Title="Audio Output Device"
-            Width="181"
-            Height="108"
-            Margin="303,257,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Click="AudioDeviceSwitchTile_OnClick"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="14">
-            <mah:Badged
-                x:Name="AudioDeviceBadge"
-                Height="76"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-                <Image
-                    Width="99"
-                    Height="76"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Source="Resources/Image_DeviceSwitcher.png" />
-            </mah:Badged>
-        </mah:Tile>
-
-        <Button
-            x:Name="FlyoutButton"
-            Margin="6,30,452,309"
-            HorizontalContentAlignment="Center"
-            Background="Transparent"
-            Click="FlyoutButton_OnClick"
-            Cursor="Hand"
-            FontSize="35"
-            MouseEnter="FlyoutButton_OnMouseEnter"
-            MouseLeave="FlyoutButton_OnMouseLeave"
-            RenderTransformOrigin="0.5,0.5"
-            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
-            <Image
-                x:Name="FlyoutButtonImage"
-                Height="25"
-                RenderTransformOrigin="0.5,0.5"
-                Source="Resources/Image_Settings.png" />
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="90" />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-    </Grid>
 </mah:MetroWindow>

@@ -4,6 +4,7 @@ using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -20,6 +21,9 @@ namespace MiTL
         private static Grid _settingsGridName = new Grid();
         private static Tile _settingsTileName = new Tile();
         private static string _settingsPageTitle = "";
+        private static string _activeProfile;
+        private static string _stockProfile;
+        private static string _ocProfile;
         private static string _activePowerPlan;
         private static string _powerPlanBalanced;
         private static string _powerPlanPerformance;
@@ -44,6 +48,7 @@ namespace MiTL
 
             //run startup checks, read all config settings and set corresponding UI elements
             Startup();
+            //ShowActiveGpuProfile();
             ShowActivePowerPlan();
             ShowDefaultAudioDevice();
             SetupComboListSources();
@@ -83,6 +88,8 @@ namespace MiTL
         //read in values from ini file
         private static void ReadSettings()
         {
+            _stockProfile = ConfigManager.IniRead("StockProfile");
+            _ocProfile = ConfigManager.IniRead("OCProfile");
             _powerPlanBalanced = ConfigManager.IniRead("PowerPlanBalanced");
             _powerPlanPerformance = ConfigManager.IniRead("PowerPlanPerformance");
             _isMonitoringEnabled = ConfigManager.IniRead("IsMonitoringEnabled");
@@ -116,6 +123,51 @@ namespace MiTL
             }
         }
 
+        ////determine which profile is active by checking if power.limit is greater than default_power.limit
+        //private void ShowActiveGpuProfile()
+        //{
+        //    string programFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+        //    string nvSmiPath = programFiles + @"\NVIDIA Corporation\NVSMI";
+        //    const string nvSmiQuery = "nvidia-smi -i 0 --query-gpu=power.limit,power.default_limit --format=csv,noheader";
+        //    string fullCmdArgs = @"/c cd " + nvSmiPath + " & " + nvSmiQuery;
+
+        //    Process showProfileProcess = new Process
+        //    {
+        //        StartInfo = new ProcessStartInfo()
+        //        {
+        //            UseShellExecute = false,
+        //            CreateNoWindow = true,
+        //            WindowStyle = ProcessWindowStyle.Hidden,
+        //            FileName = "cmd.exe",
+        //            Arguments = fullCmdArgs,
+        //            RedirectStandardError = true,
+        //            RedirectStandardOutput = true
+        //        }
+        //    };
+        //    showProfileProcess.Start();
+
+        //    _activeProfile = showProfileProcess.StandardOutput.ReadToEnd();
+
+        //    showProfileProcess.WaitForExit();
+
+        //    MessageBox.Show(_activeProfile);
+
+        //string[] splitData = _activeProfile.Split(',');
+        //string activePowerLimit = Regex.Replace(splitData[0], "[^0-9]", "");
+        //string defaultPowerLimit = Regex.Replace(splitData[1], "[^0-9]", "");
+        //int activePLvalue = int.Parse(activePowerLimit);
+        //int defaultPLvalue = int.Parse(defaultPowerLimit);
+
+        //if (activePLvalue > defaultPLvalue)
+        //{
+        //    GpuProfileTileBadge.Badge = " Overclock Profile ";
+        //}
+        //else
+        //{
+        //    GpuProfileTileBadge.Badge = " Default Profile ";
+        //}
+        //}
+
         //show which Power Plan is active
         private void ShowActivePowerPlan()
         {
@@ -140,11 +192,11 @@ namespace MiTL
 
             if (activePlan.Contains(_powerPlanBalanced))
             {
-                _activePowerPlan = " " + "Balanced Profile" + " ";
+                _activePowerPlan = " " + "Balanced" + " ";
             }
             if (activePlan.Contains(_powerPlanPerformance))
             {
-                _activePowerPlan = " " + "High Performance Profile" + " ";
+                _activePowerPlan = " " + "High Performance" + " ";
             }
             if (PowerPlanBadge.ToString() != _activePowerPlan)
             {
@@ -160,7 +212,8 @@ namespace MiTL
 
             if (defaultAudioDeviceBadge != defaultAudioDevice)
             {
-                AudioDeviceBadge.Badge = " " + _defaultAudioDevice + " ";
+                string formattedTitle = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(_defaultAudioDevice.ToLower());
+                AudioDeviceBadge.Badge = " " + formattedTitle + " ";
             }
         }
 
@@ -208,11 +261,11 @@ namespace MiTL
 
             switch (badgeString)
             {
-                case " Balanced Profile ":
+                case " Balanced ":
                     ApplyPowerPlan(_powerPlanPerformance);
                     break;
 
-                case " High Performance Profile ":
+                case " High Performance ":
                     ApplyPowerPlan(_powerPlanBalanced);
                     break;
 
@@ -300,6 +353,10 @@ namespace MiTL
             {
                 ServiceManager.StartStopService();
             }
+        }
+
+        private void GpuProfileTile_Click(object sender, RoutedEventArgs e)
+        {
         }
 
         private void ToggleSwitch_MonitoringOnOff(object sender, RoutedEventArgs e)

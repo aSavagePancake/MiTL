@@ -116,8 +116,9 @@ namespace MiTL
             {
                 List<Tile> controlsMainTiles = new List<Tile>
                 {
-                    MainWindow.PowerPlanTile,
                     MainWindow.TimerResolutionTile,
+                    MainWindow.GpuProfileTile,
+                    MainWindow.PowerPlanTile,
                     MainWindow.AudioDeviceSwitchTile
                 };
                 return controlsMainTiles;
@@ -133,7 +134,15 @@ namespace MiTL
                     MainWindow.TbCpuClock,
                     MainWindow.TbCpuLoad,
                     MainWindow.TbCpuTemp,
-                    MainWindow.TbMemLoad
+                    MainWindow.TbMemLoad,
+                    MainWindow.TbGpuClock,
+                    MainWindow.TbGpuMemClock,
+                    MainWindow.TbGpuTemp,
+                    MainWindow.TbGpuLoad,
+                    MainWindow.TbMemLoad,
+                    MainWindow.TbGpuFanSpeed,
+                    MainWindow.TbGpuIMC,
+                    MainWindow.TbGpuVideoEngine
                 };
                 return ControlsLabels;
             }
@@ -148,7 +157,15 @@ namespace MiTL
                     MainWindow.CpuClockFrame,
                     MainWindow.CpuLoadFrame,
                     MainWindow.CpuTempFrame,
-                    MainWindow.MemLoadFrame
+                    MainWindow.MemLoadFrame,
+                    MainWindow.GpuCoreClockFrame,
+                    MainWindow.GpuMemClockFrame,
+                    MainWindow.GpuTempFrame,
+                    MainWindow.GpuLoadFrame,
+                    MainWindow.GpuMemLoadFrame,
+                    MainWindow.GpuFanFrame,
+                    MainWindow.GpuIMCFrame,
+                    MainWindow.GpuVideoEngineFrame,
                 };
                 return ControlsFrames;
             }
@@ -185,6 +202,22 @@ namespace MiTL
                     MainWindow.SettingsHotKeysGrid,
                 };
                 return settingsGrids;
+            }
+        }
+
+        internal static List<string> MsiAbProfileList
+        {
+            get
+            {
+                var hotKeyMsiAb = new List<string>
+                {
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                };
+                return hotKeyMsiAb;
             }
         }
 

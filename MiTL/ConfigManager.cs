@@ -59,6 +59,11 @@ namespace MiTL
             string defaultGameModeHotKey = Properties.Resources.DefaultGameModeHotKey;
             string defaultAudioDeviceSwitchHotKey = Properties.Resources.DefaultAudioDeviceSwitchHotKey;
             string defaultExitAppHotKey = Properties.Resources.DefaultExitAppHotkey;
+            string msiabFilePath = Properties.Resources.MSIAB_FilePath;
+            string defaultStockProfile = Properties.Resources.DefaultGpuStockProfile;
+            string defaultOcProfile = Properties.Resources.DefaultGpuOCProfile;
+            IniWrite("StockProfile", defaultStockProfile);
+            IniWrite("OCProfile", defaultOcProfile);
             IniWrite("IsMonitoringEnabled", defaultMonitoringEnabled);
             IniWrite("AppTheme", defaultAppTheme);
             IniWrite("GameModeHotKey", defaultGameModeHotKey);
