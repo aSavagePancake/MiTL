@@ -369,10 +369,10 @@ namespace MiTL
                                 }
                             }
                         }
-                        await Task.Delay(Delay).ConfigureAwait(false);
                     }
-
+                    await Task.Delay(Delay).ConfigureAwait(false);
                     UpdateHardwareData(_memLoad, _cpuClock, _cpuLoad, _cpuTemp, _gpuClock, _gpuMemClock, _gpuLoad, _gpuMemLoad, _gpuTemp, _gpuFan, _gpuIMC, _gpuVE);
+                    await Task.Delay(Delay).ConfigureAwait(false);
                 }
             });
         }

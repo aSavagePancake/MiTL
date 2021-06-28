@@ -21,7 +21,7 @@ namespace MiTL
         private static Grid _settingsGridName = new Grid();
         private static Tile _settingsTileName = new Tile();
         private static string _settingsPageTitle = "";
-        private static string _activeProfile;
+        //private static string _activeProfile;
         private static string _stockProfile;
         private static string _ocProfile;
         private static string _activePowerPlan;
