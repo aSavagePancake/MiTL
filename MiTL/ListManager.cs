@@ -131,18 +131,18 @@ namespace MiTL
             {
                 List<Label> ControlsLabels = new List<Label>
                 {
-                    MainWindow.TbCpuClock,
-                    MainWindow.TbCpuLoad,
-                    MainWindow.TbCpuTemp,
-                    MainWindow.TbMemLoad,
-                    MainWindow.TbGpuClock,
-                    MainWindow.TbGpuMemClock,
-                    MainWindow.TbGpuTemp,
-                    MainWindow.TbGpuLoad,
-                    MainWindow.TbMemLoad,
-                    MainWindow.TbGpuFanSpeed,
-                    MainWindow.TbGpuIMC,
-                    MainWindow.TbGpuVideoEngine
+                    MainWindow.CpuClockLabel,
+                    MainWindow.CpuLoadLabel,
+                    MainWindow.CpuTempLabel,
+                    MainWindow.MemLoadLabel,
+                    MainWindow.GpuClockLabel,
+                    MainWindow.GpuMemClockLabel,
+                    MainWindow.GpuTempLabel,
+                    MainWindow.GpuLoadLabel,
+                    MainWindow.MemLoadLabel,
+                    MainWindow.GpuFanSpeedLabel,
+                    MainWindow.GpuIMCLabel,
+                    MainWindow.GpuVideoEngineLabel
                 };
                 return ControlsLabels;
             }

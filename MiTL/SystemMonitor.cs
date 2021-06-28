@@ -21,7 +21,7 @@ namespace MiTL
         private static string _gpuIMC;
         private static string _gpuVE;
 
-        private const int Delay = 1000;
+        private const int Delay = 500;
 
         public static void StartHardwareMonitor()
         {
@@ -34,14 +34,12 @@ namespace MiTL
                 IsGpuEnabled = true
             };
 
+            ThisPc.Open();
+
             Task.Factory.StartNew(async () =>
             {
-                ThisPc.Open();
-
                 while (true)
                 {
-                    await Task.Delay(Delay).ConfigureAwait(false);
-
                     foreach (IHardware hardware in ThisPc.Hardware)
                     {
                         hardware.Update();
@@ -371,6 +369,7 @@ namespace MiTL
                                 }
                             }
                         }
+                        await Task.Delay(Delay).ConfigureAwait(false);
                     }
 
                     UpdateHardwareData(_memLoad, _cpuClock, _cpuLoad, _cpuTemp, _gpuClock, _gpuMemClock, _gpuLoad, _gpuMemLoad, _gpuTemp, _gpuFan, _gpuIMC, _gpuVE);

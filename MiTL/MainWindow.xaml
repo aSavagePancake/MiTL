@@ -35,7 +35,7 @@
             Height="40"
             Width="103"
             Margin="57,30,0,0" />
-        <Label x:Name="TbCpuClock"
+        <Label x:Name="CpuClockLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -62,7 +62,7 @@
             Height="40"
             Width="103"
             Margin="165,30,0,0" />
-        <Label x:Name="TbCpuTemp"
+        <Label x:Name="CpuTempLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -89,7 +89,7 @@
             Height="40"
             Width="103"
             Margin="273,30,0,0" />
-        <Label x:Name="TbCpuLoad"
+        <Label x:Name="CpuLoadLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -116,7 +116,7 @@
             Height="40"
             Width="103"
             Margin="381,30,0,0" />
-        <Label x:Name="TbMemLoad"
+        <Label x:Name="MemLoadLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -142,7 +142,7 @@
             Height="40"
             Width="103"
             Margin="57,75,0,0" />
-        <Label x:Name="TbGpuClock"
+        <Label x:Name="GpuClockLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -168,7 +168,7 @@
             Height="40"
             Width="103"
             Margin="57,119,0,0" />
-        <Label x:Name="TbGpuMemClock"
+        <Label x:Name="GpuMemClockLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -194,7 +194,7 @@
             Height="40"
             Width="103"
             Margin="165,75,0,0" />
-        <Label x:Name="TbGpuTemp"
+        <Label x:Name="GpuTempLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -220,7 +220,7 @@
             Height="40"
             Width="103"
             Margin="273,75,0,0" />
-        <Label x:Name="TbGpuLoad"
+        <Label x:Name="GpuLoadLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -246,7 +246,7 @@
             Height="40"
             Width="103"
             Margin="381,75,0,0" />
-        <Label x:Name="TbGpuMemLoad"
+        <Label x:Name="GpuMemLoadLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -690,7 +690,7 @@
             Height="40"
             Width="103"
             Margin="165,120,0,0" />
-        <Label x:Name="TbGpuFanSpeed"
+        <Label x:Name="GpuFanSpeedLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -716,7 +716,7 @@
             Height="40"
             Width="103"
             Margin="273,120,0,0" />
-        <Label x:Name="TbGpuIMC"
+        <Label x:Name="GpuIMCLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
@@ -748,7 +748,7 @@
             Height="40"
             Width="103"
             Margin="381,120,0,0" />
-        <Label x:Name="TbGpuVideoEngine"
+        <Label x:Name="GpuVideoEngineLabel"
             Foreground="Black"
             FontStyle="Normal"
             FontWeight="Bold"
