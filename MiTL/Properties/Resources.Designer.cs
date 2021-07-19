@@ -115,20 +115,11 @@ namespace MiTL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1.
-        /// </summary>
-        internal static string DefaultMonitoringEnabled {
-            get {
-                return ResourceManager.GetString("DefaultMonitoringEnabled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Image_DeviceSwitcher {
+        internal static System.Drawing.Bitmap Image_About {
             get {
-                object obj = ResourceManager.GetObject("Image_DeviceSwitcher", resourceCulture);
+                object obj = ResourceManager.GetObject("Image_About", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,9 +127,9 @@ namespace MiTL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Image_GPU {
+        internal static System.Drawing.Bitmap Image_Monitoring {
             get {
-                object obj = ResourceManager.GetObject("Image_GPU", resourceCulture);
+                object obj = ResourceManager.GetObject("Image_Monitoring", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,9 +137,19 @@ namespace MiTL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Image_PowerPlan {
+        internal static System.Drawing.Bitmap Image_Performance {
             get {
-                object obj = ResourceManager.GetObject("Image_PowerPlan", resourceCulture);
+                object obj = ResourceManager.GetObject("Image_Performance", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Image_Quicklaunch {
+            get {
+                object obj = ResourceManager.GetObject("Image_Quicklaunch", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -164,22 +165,32 @@ namespace MiTL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Image_TimerResolution {
-            get {
-                object obj = ResourceManager.GetObject("Image_TimerResolution", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon MiTL_Icon {
             get {
                 object obj = ResourceManager.GetObject("MiTL_Icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MiTL_Logo {
+            get {
+                object obj = ResourceManager.GetObject("MiTL_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MiTL_LogoName {
+            get {
+                object obj = ResourceManager.GetObject("MiTL_LogoName", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

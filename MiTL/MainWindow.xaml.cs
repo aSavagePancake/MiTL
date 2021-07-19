@@ -2,7 +2,6 @@
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -10,7 +9,6 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace MiTL
 {
@@ -18,16 +16,13 @@ namespace MiTL
     {
         private static readonly ListManager ListManager = new ListManager();
         private static readonly ConfigManager ConfigManager = new ConfigManager();
-        private static Grid _settingsGridName = new Grid();
-        private static Tile _settingsTileName = new Tile();
-        private static string _settingsPageTitle = "";
-        //private static string _activeProfile;
-        private static string _stockProfile;
-        private static string _ocProfile;
+        private static Grid _viewGridName = new Grid();
+        private static Border _viewIndicatorName = new Border();
+        private static string _gpuDefaultProfile;
+        private static string _gpuOCProfile;
         private static string _activePowerPlan;
         private static string _powerPlanBalanced;
         private static string _powerPlanPerformance;
-        private static string _isMonitoringEnabled;
         private static string _appTheme;
         private static string _gameModeHotKey;
         private static string _audioDeviceSwitchHotKey;
@@ -48,16 +43,13 @@ namespace MiTL
 
             //run startup checks, read all config settings and set corresponding UI elements
             Startup();
-            //ShowActiveGpuProfile();
             ShowActivePowerPlan();
             ShowDefaultAudioDevice();
             SetupComboListSources();
 
-            //start Timer Resolution Monitoring
+            //start Monitoring
             StartTimerMonitor();
-
-            //check if system monitoring is enabled and start if wanted
-            IsMonitorEnabled();
+            StartHardwareMonitor();
         }
 
         //app startup checks
@@ -88,11 +80,10 @@ namespace MiTL
         //read in values from ini file
         private static void ReadSettings()
         {
-            _stockProfile = ConfigManager.IniRead("StockProfile");
-            _ocProfile = ConfigManager.IniRead("OCProfile");
+            _gpuDefaultProfile = ConfigManager.IniRead("StockProfile");
+            _gpuOCProfile = ConfigManager.IniRead("OCProfile");
             _powerPlanBalanced = ConfigManager.IniRead("PowerPlanBalanced");
             _powerPlanPerformance = ConfigManager.IniRead("PowerPlanPerformance");
-            _isMonitoringEnabled = ConfigManager.IniRead("IsMonitoringEnabled");
             _appTheme = ConfigManager.IniRead("AppTheme");
             _gameModeHotKey = ConfigManager.IniRead("GameModeHotKey");
             _audioDeviceSwitchHotKey = ConfigManager.IniRead("AudioDeviceSwitchHotKey");
@@ -101,72 +92,6 @@ namespace MiTL
             _audioDevice2 = ConfigManager.IniRead("AudioDevice2");
             _defaultAudioDevice = ConfigManager.IniRead("DefaultAudioDevice");
         }
-
-        //set if monitoring is enabled and show if true
-        private void IsMonitorEnabled()
-        {
-            switch (_isMonitoringEnabled)
-            {
-                case "0":
-                    HideMonitoring();
-                    CheckboxEnableMonitor.IsOn = false;
-                    break;
-
-                case "1":
-                    ShowMonitoring();
-                    CheckboxEnableMonitor.IsOn = true;
-                    StartHardwareMonitor();
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        ////determine which profile is active by checking if power.limit is greater than default_power.limit
-        //private void ShowActiveGpuProfile()
-        //{
-        //    string programFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
-        //    string nvSmiPath = programFiles + @"\NVIDIA Corporation\NVSMI";
-        //    const string nvSmiQuery = "nvidia-smi -i 0 --query-gpu=power.limit,power.default_limit --format=csv,noheader";
-        //    string fullCmdArgs = @"/c cd " + nvSmiPath + " & " + nvSmiQuery;
-
-        //    Process showProfileProcess = new Process
-        //    {
-        //        StartInfo = new ProcessStartInfo()
-        //        {
-        //            UseShellExecute = false,
-        //            CreateNoWindow = true,
-        //            WindowStyle = ProcessWindowStyle.Hidden,
-        //            FileName = "cmd.exe",
-        //            Arguments = fullCmdArgs,
-        //            RedirectStandardError = true,
-        //            RedirectStandardOutput = true
-        //        }
-        //    };
-        //    showProfileProcess.Start();
-
-        //    _activeProfile = showProfileProcess.StandardOutput.ReadToEnd();
-
-        //    showProfileProcess.WaitForExit();
-
-        //    MessageBox.Show(_activeProfile);
-
-        //string[] splitData = _activeProfile.Split(',');
-        //string activePowerLimit = Regex.Replace(splitData[0], "[^0-9]", "");
-        //string defaultPowerLimit = Regex.Replace(splitData[1], "[^0-9]", "");
-        //int activePLvalue = int.Parse(activePowerLimit);
-        //int defaultPLvalue = int.Parse(defaultPowerLimit);
-
-        //if (activePLvalue > defaultPLvalue)
-        //{
-        //    GpuProfileTileBadge.Badge = " Overclock Profile ";
-        //}
-        //else
-        //{
-        //    GpuProfileTileBadge.Badge = " Default Profile ";
-        //}
-        //}
 
         //show which Power Plan is active
         private void ShowActivePowerPlan()
@@ -355,87 +280,38 @@ namespace MiTL
             }
         }
 
-        private void GpuProfileTile_Click(object sender, RoutedEventArgs e)
+        private void GpuDefaultProfileTile_Click(object sender, RoutedEventArgs e)
         {
+            ApplyProfile("SetDefault");
         }
 
-        private void ToggleSwitch_MonitoringOnOff(object sender, RoutedEventArgs e)
+        private void GpuOCProfileTile_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is ToggleSwitch toggleSwitch)
-            {
-                switch (toggleSwitch.IsOn)
-                {
-                    case true:
-                        ConfigManager.IniWrite("IsMonitoringEnabled", "1");
-                        ShowMonitoring();
-                        SystemMonitor.StartHardwareMonitor();
-                        break;
-
-                    default:
-                        ConfigManager.IniWrite("IsMonitoringEnabled", "0");
-                        SystemMonitor.ThisPc.Close();
-                        HideMonitoring();
-                        break;
-                }
-            }
+            ApplyProfile("SetOC");
         }
 
-        private static void ShowMonitoring()
+        //Apply selected profile
+        private void ApplyProfile(string profile)
         {
-            MonitoringDecision(ListManager.ControlsFrames, ListManager.ControlsLabels, "Enable");
-        }
+            string args = null;
 
-        private static void HideMonitoring()
-        {
-            MonitoringDecision(ListManager.ControlsFrames, ListManager.ControlsLabels, "Disable");
-        }
-
-        private static void MonitoringDecision(IEnumerable<Frame> controlsFrames, IEnumerable<Label> controlsLabels, string decision)
-        {
-            if (controlsFrames == null)
+            switch (profile)
             {
-                throw new ArgumentNullException(nameof(controlsFrames));
+                case "SetDefault":
+                    args = "/Profile" + _gpuDefaultProfile;
+                    break;
+
+                case "SetOC":
+                    args = "/Profile" + _gpuOCProfile;
+                    break;
+
+                default:
+                    break;
             }
 
-            if (controlsLabels == null)
-            {
-                throw new ArgumentNullException(nameof(controlsLabels));
-            }
-
-            foreach (Frame monitorFrames in controlsFrames)
-            {
-                switch (decision)
-                {
-                    case "Enable":
-                        monitorFrames.Opacity = 1;
-                        break;
-
-                    case "Disable":
-                        monitorFrames.Opacity = 0.6;
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-
-            foreach (Label monitorLabels in controlsLabels)
-            {
-                switch (decision)
-                {
-                    case "Enable":
-                        monitorLabels.Visibility = Visibility.Visible;
-                        break;
-
-                    case "Disable":
-                        monitorLabels.Content = null;
-                        monitorLabels.Visibility = Visibility.Hidden;
-                        break;
-
-                    default:
-                        break;
-                }
-            }
+            //start MSIAfterburner using appropriate /profile switch
+            string _msiabFile = Properties.Resources.MSIAB_FilePath;
+            Process.Start(_msiabFile, args);
         }
 
         private void RadioRedTheme_OnChecked(object sender, RoutedEventArgs e)
@@ -444,9 +320,9 @@ namespace MiTL
             SaveAndSetTheme(_appTheme);
         }
 
-        private void RadioAmberTheme_OnChecked(object sender, RoutedEventArgs e)
+        private void RadioOrangeTheme_OnChecked(object sender, RoutedEventArgs e)
         {
-            _appTheme = "Dark.Amber";
+            _appTheme = "Dark.Orange";
             SaveAndSetTheme(_appTheme);
         }
 
@@ -486,12 +362,14 @@ namespace MiTL
         {
             string audioDeviceSwitch1 = AudioDevice1.SelectedValue.ToString();
             ConfigManager.IniWrite("AudioDevice1", audioDeviceSwitch1);
+            ReadSettings();
         }
 
         private void AudioDevice2_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
             string audioDeviceSwitch2 = AudioDevice2.SelectedValue.ToString();
             ConfigManager.IniWrite("AudioDevice2", audioDeviceSwitch2);
+            ReadSettings();
         }
 
         private void GameModeHotKey_OnSelectionChanged(object sender, RoutedEventArgs e)
@@ -500,6 +378,7 @@ namespace MiTL
             if (gameModeHotKeyValue != _audioDeviceSwitchHotKey && gameModeHotKeyValue != _exitAppHotKey)
             {
                 ConfigManager.IniWrite("GameModeHotKey", gameModeHotKeyValue);
+                ReadSettings();
             }
             else
             {
@@ -514,6 +393,7 @@ namespace MiTL
             if (audioDeviceHotKeyValue != _gameModeHotKey && audioDeviceHotKeyValue != _exitAppHotKey)
             {
                 ConfigManager.IniWrite("AudioDeviceSwitchHotKey", audioDeviceHotKeyValue);
+                ReadSettings();
             }
             else
             {
@@ -528,6 +408,7 @@ namespace MiTL
             if (exitAppHotKeyValue != _gameModeHotKey && exitAppHotKeyValue != _audioDeviceSwitchHotKey)
             {
                 ConfigManager.IniWrite("ExitAppHotKey", exitAppHotKeyValue);
+                ReadSettings();
             }
             else
             {
@@ -566,13 +447,6 @@ namespace MiTL
             {
                 MainWindow_Closed(sender, e);
             }
-            if (keyPress.Equals("Escape"))
-            {
-                if (SettingsFlyout.IsOpen)
-                {
-                    SettingsFlyout.IsOpen = false;
-                }
-            }
         }
 
         private void InstallServiceButton_OnClick(object sender, RoutedEventArgs e)
@@ -607,18 +481,107 @@ namespace MiTL
             Close();
         }
 
-        private void FlyoutButton_OnClick(object sender, RoutedEventArgs e)
+        private void ShowMetroMessage(string title, string message)
         {
-            if (SettingsFlyout.IsOpen == false)
+            if (Application.Current.MainWindow is MetroWindow metroWindow)
             {
+                metroWindow.ShowMessageAsync(title, message);
+            }
+        }
+
+        private void NavMonitoring_Click(object sender, RoutedEventArgs e)
+        {
+            _viewGridName = GridMonitoring;
+            _viewIndicatorName = NavMonitoringIndicator;
+            NavUpdateView();
+        }
+
+        private void NavPerformance_Click(object sender, RoutedEventArgs e)
+        {
+            _viewGridName = GridPerformance;
+            _viewIndicatorName = NavPerformanceIndicator;
+            NavUpdateView();
+        }
+
+        private void NavQuickLaunch_Click(object sender, RoutedEventArgs e)
+        {
+            _viewGridName = GridQuickLaunch;
+            _viewIndicatorName = NavQuickLaunchIndicator;
+            NavUpdateView();
+        }
+
+        private void NavSettings_Click(object sender, RoutedEventArgs e)
+        {
+            _viewGridName = GridSettings;
+            _viewIndicatorName = NavSettingsIndicator;
+            NavUpdateView();
+        }
+
+        private void NavAbout_Click(object sender, RoutedEventArgs e)
+        {
+            string assemblyLocation = Assembly.GetExecutingAssembly().Location;
+            string fileVersion = FileVersionInfo.GetVersionInfo(assemblyLocation).FileVersion;
+            VersionNumber.Content = "v" + fileVersion;
+
+            _viewGridName = GridAbout;
+            _viewIndicatorName = NavAboutIndicator;
+            NavUpdateView();
+        }
+
+        private void NavUpdateView()
+        {
+            foreach (Border viewIndicator in ListManager.NavigationIndicators)
+            {
+                viewIndicator.Visibility = Visibility.Collapsed;
+            }
+
+            foreach (Grid viewGrid in ListManager.NavigationGrids)
+            {
+                viewGrid.Visibility = Visibility.Collapsed;
+            }
+
+            _viewIndicatorName.Visibility = Visibility.Visible;
+            _viewGridName.Visibility = Visibility.Visible;
+        }
+
+        private void SettingsTab_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Label senderLabel = (Label)sender;
+            string tabName = senderLabel.ToString();
+
+            foreach (Border tabIndicator in ListManager.SettingsTabIndicators)
+            {
+                tabIndicator.Visibility = Visibility.Collapsed;
+            }
+
+            if (tabName.Contains("Timer Service"))
+            {
+                SettingsTimerServiceindicator.Visibility = Visibility.Visible;
+            }
+            if (tabName.Contains("Audio Devices"))
+            {
+                SettingsAudioDevicesindicator.Visibility = Visibility.Visible;
+            }
+            if (tabName.Contains("Quick Launch"))
+            {
+                SettingsQuickLaunchindicator.Visibility = Visibility.Visible;
+            }
+            if (tabName.Contains("Hotkeys"))
+            {
+                SettingsHotkeysindicator.Visibility = Visibility.Visible;
+            }
+            if (tabName.Contains("Theme"))
+            {
+                SettingsThemeindicator.Visibility = Visibility.Visible;
+
                 Theme currentTheme = ThemeManager.Current.DetectTheme(this);
                 if (currentTheme != null && currentTheme.Name == "Dark.Red")
                 {
                     RadioRedTheme.IsChecked = true;
                 }
-                if (currentTheme != null && currentTheme.Name == "Dark.Amber")
+                if (currentTheme != null && currentTheme.Name == "Dark.Orange")
                 {
-                    RadioAmberTheme.IsChecked = true;
+                    RadioOrangeTheme.IsChecked = true;
                 }
                 if (currentTheme != null && currentTheme.Name == "Dark.Blue")
                 {
@@ -636,115 +599,6 @@ namespace MiTL
                 {
                     RadioTealTheme.IsChecked = true;
                 }
-
-                string assemblyLocation = Assembly.GetExecutingAssembly().Location;
-                string fileVersion = FileVersionInfo.GetVersionInfo(assemblyLocation).FileVersion;
-                VersionNumber.Content = "v" + fileVersion;
-
-                SettingsFlyout.IsOpen = true;
-            }
-        }
-
-        private void FlyoutButton_OnMouseEnter(object sender, MouseEventArgs e)
-        {
-            FlyoutButton.BorderBrush = Brushes.White;
-        }
-
-        private void FlyoutButton_OnMouseLeave(object sender, MouseEventArgs e)
-        {
-            if (FlyoutButton.BorderBrush == Brushes.White)
-            {
-                FlyoutButton.BorderBrush = null;
-            }
-        }
-
-        private void SettingsFlyout_OnClosingFinished(object sender, RoutedEventArgs e)
-        {
-            ReadSettings();
-        }
-
-        private void SettingsThemeTile_OnClick(object sender, RoutedEventArgs e)
-        {
-            _settingsGridName = SettingsThemeGrid;
-            _settingsTileName = SettingsThemeTile;
-            _settingsPageTitle = "Theme Changer";
-            UpdateSettingsView();
-        }
-
-        private void SettingsMonitoringTile_OnClick(object sender, RoutedEventArgs e)
-        {
-            _settingsGridName = SettingsMonitoringGrid;
-            _settingsTileName = SettingsMonitoringTile;
-            _settingsPageTitle = "Real-time System Monitoring";
-            UpdateSettingsView();
-        }
-
-        private void SettingsTimerServiceTile_OnClick(object sender, RoutedEventArgs e)
-        {
-            ServiceManager.MiTLService.Refresh();
-            if (ServiceManager.ServiceExists())
-            {
-                InstallServiceButton.IsEnabled = false;
-                UninstallServiceButton.IsEnabled = true;
-            }
-            else
-            {
-                InstallServiceButton.IsEnabled = true;
-                UninstallServiceButton.IsEnabled = false;
-            }
-
-            _settingsGridName = SettingsTimerServiceGrid;
-            _settingsTileName = SettingsTimerServiceTile;
-            _settingsPageTitle = "Windows Timer Resolution Service";
-            UpdateSettingsView();
-        }
-
-        private void SettingsAudioOutputsTile_OnClick(object sender, RoutedEventArgs e)
-        {
-            _settingsGridName = SettingsAudioOutputsGrid;
-            _settingsTileName = SettingsAudioOutputsTile;
-            _settingsPageTitle = "Audio Output Devices Selection";
-            UpdateSettingsView();
-        }
-
-        private void SettingsQuickLaunchTile_OnClick(object sender, RoutedEventArgs e)
-        {
-            _settingsGridName = SettingsQuickLaunchGrid;
-            _settingsTileName = SettingsQuickLaunchTile;
-            _settingsPageTitle = "Quick Launch Shortcuts";
-            UpdateSettingsView();
-        }
-
-        private void SettingsHotKeysTile_OnClick(object sender, RoutedEventArgs e)
-        {
-            _settingsGridName = SettingsHotKeysGrid;
-            _settingsTileName = SettingsHotKeysTile;
-            _settingsPageTitle = "HotKey Binding Configuration";
-            UpdateSettingsView();
-        }
-
-        private void UpdateSettingsView()
-        {
-            foreach (Grid settingsGrid in ListManager.SettingsGrids)
-            {
-                settingsGrid.Visibility = Visibility.Collapsed;
-            }
-
-            foreach (Tile settingsTile in ListManager.SettingsTiles)
-            {
-                settingsTile.BorderThickness = new Thickness(0);
-            }
-
-            _settingsGridName.Visibility = Visibility.Visible;
-            _settingsTileName.BorderThickness = new Thickness(2);
-            SettingsPageTitle.Text = _settingsPageTitle;
-        }
-
-        private void ShowMetroMessage(string title, string message)
-        {
-            if (Application.Current.MainWindow is MetroWindow metroWindow)
-            {
-                metroWindow.ShowMessageAsync(title, message);
             }
         }
     }

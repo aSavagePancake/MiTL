@@ -54,7 +54,6 @@ namespace MiTL
 
         public void WriteConfigDefaults()
         {
-            string defaultMonitoringEnabled = Properties.Resources.DefaultMonitoringEnabled;
             string defaultAppTheme = Properties.Resources.DefaultAppTheme;
             string defaultGameModeHotKey = Properties.Resources.DefaultGameModeHotKey;
             string defaultAudioDeviceSwitchHotKey = Properties.Resources.DefaultAudioDeviceSwitchHotKey;
@@ -64,7 +63,6 @@ namespace MiTL
             string defaultOcProfile = Properties.Resources.DefaultGpuOCProfile;
             IniWrite("StockProfile", defaultStockProfile);
             IniWrite("OCProfile", defaultOcProfile);
-            IniWrite("IsMonitoringEnabled", defaultMonitoringEnabled);
             IniWrite("AppTheme", defaultAppTheme);
             IniWrite("GameModeHotKey", defaultGameModeHotKey);
             IniWrite("AudioDeviceSwitchHotKey", defaultAudioDeviceSwitchHotKey);

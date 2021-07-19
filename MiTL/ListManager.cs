@@ -1,5 +1,4 @@
-﻿using MahApps.Metro.Controls;
-using NAudio.CoreAudioApi;
+﻿using NAudio.CoreAudioApi;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -110,98 +109,51 @@ namespace MiTL
             }
         }
 
-        internal IEnumerable<Tile> ControlsMainTiles
+        internal IEnumerable<Grid> NavigationGrids
         {
             get
             {
-                List<Tile> controlsMainTiles = new List<Tile>
+                List<Grid> navGrids = new List<Grid>
                 {
-                    MainWindow.TimerResolutionTile,
-                    MainWindow.GpuProfileTile,
-                    MainWindow.PowerPlanTile,
-                    MainWindow.AudioDeviceSwitchTile
+                    MainWindow.GridPerformance,
+                    MainWindow.GridMonitoring,
+                    MainWindow.GridQuickLaunch,
+                    MainWindow.GridSettings,
+                    MainWindow.GridAbout
                 };
-                return controlsMainTiles;
+                return navGrids;
             }
         }
 
-        internal IEnumerable<Label> ControlsLabels
+        internal IEnumerable<Border> NavigationIndicators
         {
             get
             {
-                List<Label> ControlsLabels = new List<Label>
+                List<Border> navIndicators = new List<Border>
                 {
-                    MainWindow.CpuClockLabel,
-                    MainWindow.CpuLoadLabel,
-                    MainWindow.CpuTempLabel,
-                    MainWindow.MemLoadLabel,
-                    MainWindow.GpuClockLabel,
-                    MainWindow.GpuMemClockLabel,
-                    MainWindow.GpuTempLabel,
-                    MainWindow.GpuLoadLabel,
-                    MainWindow.MemLoadLabel,
-                    MainWindow.GpuFanSpeedLabel,
-                    MainWindow.GpuIMCLabel,
-                    MainWindow.GpuVideoEngineLabel
+                    MainWindow.NavMonitoringIndicator,
+                    MainWindow.NavPerformanceIndicator,
+                    MainWindow.NavQuickLaunchIndicator,
+                    MainWindow.NavSettingsIndicator,
+                    MainWindow.NavAboutIndicator
                 };
-                return ControlsLabels;
+                return navIndicators;
             }
         }
 
-        internal IEnumerable<Frame> ControlsFrames
+        internal IEnumerable<Border> SettingsTabIndicators
         {
             get
             {
-                List<Frame> ControlsFrames = new List<Frame>
+                List<Border> tabIndicators = new List<Border>
                 {
-                    MainWindow.CpuClockFrame,
-                    MainWindow.CpuLoadFrame,
-                    MainWindow.CpuTempFrame,
-                    MainWindow.MemLoadFrame,
-                    MainWindow.GpuCoreClockFrame,
-                    MainWindow.GpuMemClockFrame,
-                    MainWindow.GpuTempFrame,
-                    MainWindow.GpuLoadFrame,
-                    MainWindow.GpuMemLoadFrame,
-                    MainWindow.GpuFanFrame,
-                    MainWindow.GpuIMCFrame,
-                    MainWindow.GpuVideoEngineFrame,
+                    MainWindow.SettingsTimerServiceindicator,
+                    MainWindow.SettingsAudioDevicesindicator,
+                    MainWindow.SettingsQuickLaunchindicator,
+                    MainWindow.SettingsHotkeysindicator,
+                    MainWindow.SettingsThemeindicator
                 };
-                return ControlsFrames;
-            }
-        }
-
-        internal IEnumerable<Tile> SettingsTiles
-        {
-            get
-            {
-                List<Tile> settingsTiles = new List<Tile>
-                {
-                    MainWindow.SettingsThemeTile,
-                    MainWindow.SettingsMonitoringTile,
-                    MainWindow.SettingsTimerServiceTile,
-                    MainWindow.SettingsAudioOutputsTile,
-                    MainWindow.SettingsQuickLaunchTile,
-                    MainWindow.SettingsHotKeysTile,
-                };
-                return settingsTiles;
-            }
-        }
-
-        internal IEnumerable<Grid> SettingsGrids
-        {
-            get
-            {
-                List<Grid> settingsGrids = new List<Grid>
-                {
-                    MainWindow.SettingsThemeGrid,
-                    MainWindow.SettingsMonitoringGrid,
-                    MainWindow.SettingsTimerServiceGrid,
-                    MainWindow.SettingsAudioOutputsGrid,
-                    MainWindow.SettingsQuickLaunchGrid,
-                    MainWindow.SettingsHotKeysGrid,
-                };
-                return settingsGrids;
+                return tabIndicators;
             }
         }
 

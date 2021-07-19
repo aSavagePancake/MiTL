@@ -1,12 +1,12 @@
 ﻿<mah:MetroWindow
     x:Class="MiTL.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="504.6"
-    Height="471"
+    Width="785.31"
+    Height="555.6"
     Background="#FF202020"
     IsWindowDraggable="True"
     KeyUp="HotKeyManager"
@@ -24,1176 +24,2143 @@
 
     <Grid
         x:Name="GridMainWindow"
-        Width="505"
-        Margin="0,0,-0.2,0.2"
+        Width="776"
+        Margin="0,0,0,-0.8"
         HorizontalAlignment="Left">
 
-        <Frame  x:Name="CpuClockFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
+        <!--  navigation grid view  -->
+        <Grid
+            x:Name="GridNavigaion"
+            Width="221"
+            Height="556"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="57,30,0,0" />
-        <Label x:Name="CpuClockLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="57,28,0,0" />
-        <Label Content="CPU Clock"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="57,48,0,0" />
-
-        <Frame x:Name="CpuTempFrame"
-               Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="165,30,0,0" />
-        <Label x:Name="CpuTempLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="165,28,0,0" />
-        <Label Content="CPU Temp"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="165,48,0,0" />
-
-        <Frame x:Name="CpuLoadFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="273,30,0,0" />
-        <Label x:Name="CpuLoadLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="273,28,0,0" />
-        <Label Content="CPU Load"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="273,48,0,0" />
-
-        <Frame x:Name="MemLoadFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="381,30,0,0" />
-        <Label x:Name="MemLoadLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="381,28,0,0" />
-        <Label Content="RAM Load"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="381,48,0,0" />
-        <Frame  x:Name="GpuCoreClockFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="57,75,0,0" />
-        <Label x:Name="GpuClockLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="57,73,0,0" />
-        <Label Content="GPU Core Clock"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="57,93,0,0" />
-        <Frame  x:Name="GpuMemClockFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="57,119,0,0" />
-        <Label x:Name="GpuMemClockLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="57,118,0,0" />
-        <Label Content="GPU vRam Clock"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="57,138,0,0" />
-        <Frame x:Name="GpuTempFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="165,75,0,0" />
-        <Label x:Name="GpuTempLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="165,73,0,0" />
-        <Label Content="GPU Temp"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="165,93,0,0" />
-        <Frame x:Name="GpuLoadFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="273,75,0,0" />
-        <Label x:Name="GpuLoadLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="273,73,0,0" />
-        <Label Content="GPU Load"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="273,93,0,0" />
-        <Frame x:Name="GpuMemLoadFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="381,75,0,0" />
-        <Label x:Name="GpuMemLoadLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="381,73,0,0" />
-        <Label Content="GPU vRAM Load"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="381,93,0,0" />
-
-        <Separator
-            Width="427"
-            Height="31"
-            Margin="57,160,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top" />
-        <mah:Tile
-            x:Name="DiscordTile"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="282,191,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="DiscordTileBadge"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
+            Background="#FF202329">
+            <Border
+                Width="221"
+                Height="87"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}">
+                <Image Margin="79,10,79.2,9.8" Source="Resources/MiTL_Logo.png" />
+            </Border>
+            <mah:Tile
+                x:Name="NavMonitoring"
+                Title="Monitoring"
+                Width="221"
+                Height="81"
+                Margin="0,116,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                VerticalContentAlignment="Top"
+                Background="#FF202329"
+                Click="NavMonitoring_Click"
+                Cursor="Hand"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="15">
                 <Image
-                    Width="55"
-                    Height="55"
+                    Width="42"
+                    Height="62"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="Resources/Image_GPU.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="GfNowTile"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="351,191,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="GfNowTileBadge"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
+                    Source="Resources/Image_Monitoring.png" />
+            </mah:Tile>
+            <Border
+                x:Name="NavMonitoringIndicator"
+                Width="13"
+                Height="81"
+                Margin="0,116,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}" />
+            <mah:Tile
+                x:Name="NavPerformance"
+                Title="Performance"
+                Width="221"
+                Height="81"
+                Margin="0,197,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                VerticalContentAlignment="Top"
+                Background="#FF202329"
+                Click="NavPerformance_Click"
+                Cursor="Hand"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="15">
                 <Image
-                    Width="55"
-                    Height="55"
+                    Width="42"
+                    Height="62"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="Resources/Image_GPU.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="SteamTile"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="421,191,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="SteamTileBadge"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
+                    Source="Resources/Image_Performance.png" />
+            </mah:Tile>
+            <Border
+                x:Name="NavPerformanceIndicator"
+                Width="13"
+                Height="81"
+                Margin="0,197,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                Visibility="Collapsed" />
+            <mah:Tile
+                x:Name="NavQuickLaunch"
+                Title="Quick Launch"
+                Width="221"
+                Height="81"
+                Margin="0,278,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                VerticalContentAlignment="Top"
+                Background="#FF202329"
+                Click="NavQuickLaunch_Click"
+                Cursor="Hand"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="15">
                 <Image
-                    Width="55"
-                    Height="55"
+                    Width="42"
+                    Height="62"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="Resources/Image_GPU.png" />
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="PowerPlanTile"
-            Title="Windows Power Plan:"
-            Height="60"
-            Margin="57,321,0,0"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Click="PowerPlanTile_OnCLick"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Center"
-            VerticalTitleAlignment="Top"
-            IsTabStop="False"
-            TitleFontSize="13"
-            Width="201"
-            VerticalAlignment="Top" HorizontalAlignment="Left">
-            <mah:Badged
-                x:Name="PowerPlanBadge"
-                Badge=""
-                Height="24"
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Bottom" />
-        </mah:Tile>
-        <mah:Tile
-            x:Name="TimerResolutionTile"
-            Title="Windows Timer Resolution:"
-            Height="60"
-            Margin="57,191,0,0"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Click="TimerResolutionTile_OnClick"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Center"
-            VerticalTitleAlignment="Top"
-            IsTabStop="False"
-            TitleFontSize="13"
-            Width="201"
-            VerticalAlignment="Top" HorizontalAlignment="Left">
-            <mah:Badged
-                x:Name="TimerResolutionTileBadge"
-                Badge=""
-                Height="24"
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Bottom">
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="GpuProfileTile"
-            Title="MSI Afterburner Profile:"
-            Height="60"
-            Margin="57,256,0,0"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Click="GpuProfileTile_Click"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Center"
-            VerticalTitleAlignment="Top"
-            IsTabStop="False"
-            TitleFontSize="13"
-            Width="201"
-            VerticalAlignment="Top" HorizontalAlignment="Left">
-            <mah:Badged
-                x:Name="GpuProfileTileBadge"
-                Badge=""
-                Height="24"
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Bottom">
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="AudioDeviceSwitchTile"
-            Title="Audio Output Device:"
-            Height="60"
-            Margin="57,386,0,0"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Click="AudioDeviceSwitchTile_OnClick"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Center"
-            VerticalTitleAlignment="Top"
-            IsTabStop="False"
-            TitleFontSize="13"
-            Width="201"
-            VerticalAlignment="Top" HorizontalAlignment="Left">
-            <mah:Badged
-                x:Name="AudioDeviceBadge"
-                Badge=""
-                Height="24"
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Bottom" />
-        </mah:Tile>
+                    Source="Resources/Image_Quicklaunch.png" />
+            </mah:Tile>
+            <Border
+                x:Name="NavQuickLaunchIndicator"
+                Width="13"
+                Height="81"
+                Margin="0,278,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                Visibility="Collapsed" />
+            <mah:Tile
+                x:Name="NavSettings"
+                Title="Settings"
+                Width="221"
+                Height="81"
+                Margin="0,359,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                VerticalContentAlignment="Top"
+                Background="#FF202329"
+                Click="NavSettings_Click"
+                Cursor="Hand"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="15">
+                <Image
+                    Width="42"
+                    Height="62"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="Resources/Image_Settings.png" />
+            </mah:Tile>
+            <Border
+                x:Name="NavSettingsIndicator"
+                Width="13"
+                Height="81"
+                Margin="0,359,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                Visibility="Collapsed" />
+            <mah:Tile
+                x:Name="NavAbout"
+                Title="About"
+                Width="221"
+                Height="81"
+                Margin="0,440,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                VerticalContentAlignment="Top"
+                Background="#FF202329"
+                Click="NavAbout_Click"
+                Cursor="Hand"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="15">
+                <Image
+                    Width="42"
+                    Height="62"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="Resources/Image_About.png" />
+            </mah:Tile>
+            <Border
+                x:Name="NavAboutIndicator"
+                Width="13"
+                Height="81"
+                Margin="0,440,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                Visibility="Collapsed" />
+        </Grid>
 
-        <Button
-            x:Name="FlyoutButton"
-            Margin="5,29,0,0"
-            HorizontalContentAlignment="Center"
-            Background="Transparent"
-            Click="FlyoutButton_OnClick"
-            Cursor="Hand"
-            FontSize="35"
-            MouseEnter="FlyoutButton_OnMouseEnter"
-            MouseLeave="FlyoutButton_OnMouseLeave"
-            RenderTransformOrigin="0.5,0.5"
-            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Height="46" VerticalAlignment="Top" HorizontalAlignment="Left" Width="49">
-            <Image
-                x:Name="FlyoutButtonImage"
-                Height="35"
-                RenderTransformOrigin="0.5,0.5"
-                Source="Resources/Image_Settings.png" Width="29" />
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="90" />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <mah:Tile
-            x:Name="DiscordTile_Copy"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="282,256,0,0"
+        <!--  monitoring grid view  -->
+        <Grid
+            x:Name="GridMonitoring"
+            Width="544"
+            Height="556"
+            Margin="232,0,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="DiscordTileBadge1"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top" />
-        </mah:Tile>
-        <mah:Tile
-            x:Name="GfNowTile_Copy"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="351,256,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="GfNowTileBadge1"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top" />
-        </mah:Tile>
-        <mah:Tile
-            x:Name="SteamTile_Copy"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="421,256,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="SteamTileBadge1"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top" />
-        </mah:Tile>
-        <mah:Tile
-            x:Name="DiscordTile_Copy1"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="282,321,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="DiscordTileBadge2"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top" />
-        </mah:Tile>
-        <mah:Tile
-            x:Name="GfNowTile_Copy1"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="351,321,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="GfNowTileBadge2"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top" />
-        </mah:Tile>
-        <mah:Tile
-            x:Name="SteamTile_Copy1"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="421,321,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="SteamTileBadge2"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top" />
-        </mah:Tile>
-        <mah:Tile
-            x:Name="DiscordTile_Copy2"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="282,386,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="DiscordTileBadge3"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top" />
-        </mah:Tile>
-        <mah:Tile
-            x:Name="GfNowTile_Copy2"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="351,386,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="GfNowTileBadge3"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-            </mah:Badged>
-        </mah:Tile>
-        <mah:Tile
-            x:Name="SteamTile_Copy2"
-            Title=""
-            Width="64"
-            Height="60"
-            Margin="421,386,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            Cursor="Hand"
-            HorizontalTitleAlignment="Right"
-            IsTabStop="False"
-            TitleFontSize="17">
-            <mah:Badged
-                x:Name="SteamTileBadge3"
-                Badge=""
-                BadgeBackground="DarkGray"
-                BadgeForeground="Black"
-                BadgePlacementMode="Top">
-            </mah:Badged>
-        </mah:Tile>
-        <Separator
-            Width="185"
-            Height="23"
-            Margin="281,228,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top">
-            <Separator.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="90" />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Separator.RenderTransform>
-        </Separator>
-        <Frame x:Name="GpuFanFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="165,120,0,0" />
-        <Label x:Name="GpuFanSpeedLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="165,118,0,0" />
-        <Label Content="GPU Fan"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="165,138,0,0" />
-        <Frame x:Name="GpuIMCFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="273,120,0,0" />
-        <Label x:Name="GpuIMCLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="273,118,0,0" />
-        <Label Content="GPU IMC Load"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="273,138,0,0" />
-        <Separator
-            Width="319"
-            Height="31"
-            Margin="165,160,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top" />
-        <Frame x:Name="GpuVideoEngineFrame"
-            Background="{DynamicResource MahApps.Brushes.Accent}"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="40"
-            Width="103"
-            Margin="381,120,0,0" />
-        <Label x:Name="GpuVideoEngineLabel"
-            Foreground="Black"
-            FontStyle="Normal"
-            FontWeight="Bold"
-            FontSize="15"
-            HorizontalContentAlignment="Center"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Width="103"
-            Height="27"
-            Margin="381,118,0,0" />
-        <Label Content="GPU VE Load"
-            FontSize="11"
-            HorizontalContentAlignment="Right"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Width="103"
-            Height="26"
-            Margin="381,138,0,0" />
-    </Grid>
-
-    <mah:MetroWindow.Flyouts>
-        <mah:FlyoutsControl>
-            <mah:Flyout
-                x:Name="SettingsFlyout"
-                Width="503"
-                Background="#FF202020"
-                ClosingFinished="SettingsFlyout_OnClosingFinished"
-                Header="Settings"
-                Position="Left">
-
-                <Grid
-                    x:Name="Settings"
-                    Width="493"
-                    Height="301"
+            Visibility="Visible">
+            <Label
+                Width="Auto"
+                Height="41"
+                Margin="0,33,35,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                VerticalContentAlignment="Center"
+                Content="Monitoring"
+                FontSize="20" />
+            <Border
+                Width="10"
+                Height="41"
+                Margin="514,33,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}" />
+            <Border
+                Width="284"
+                Height="136"
+                Margin="18,90,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Label
+                    Width="264"
+                    Height="40"
+                    Margin="9.2,-0.8,0,0"
                     HorizontalAlignment="Left"
-                    VerticalAlignment="Top">
-                    <mah:Tile
-                        x:Name="SettingsThemeTile"
-                        Title="Theme"
-                        Width="Auto"
-                        Height="42"
-                        Margin="19,2,361,0"
-                        VerticalAlignment="Top"
-                        mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-                        Background="{DynamicResource MahApps.Brushes.Accent}"
-                        BorderBrush="White"
-                        BorderThickness="2"
-                        Click="SettingsThemeTile_OnClick"
-                        Cursor="Hand"
-                        HorizontalTitleAlignment="Center"
-                        IsTabStop="False"
-                        TitleFontSize="13"
-                        VerticalTitleAlignment="Center" />
-                    <mah:Tile
-                        x:Name="SettingsMonitoringTile"
-                        Title="Monitoring"
-                        Width="Auto"
-                        Height="42"
-                        Margin="19,46,361,0"
-                        VerticalAlignment="Top"
-                        mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-                        Background="{DynamicResource MahApps.Brushes.Accent}"
-                        BorderBrush="White"
-                        Click="SettingsMonitoringTile_OnClick"
-                        Cursor="Hand"
-                        HorizontalTitleAlignment="Center"
-                        IsTabStop="False"
-                        TitleFontSize="13"
-                        VerticalTitleAlignment="Center" />
-                    <mah:Tile
-                        x:Name="SettingsTimerServiceTile"
-                        Title="Timer Service"
-                        Width="Auto"
-                        Height="42"
-                        Margin="19,91,361,0"
-                        VerticalAlignment="Top"
-                        mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-                        Background="{DynamicResource MahApps.Brushes.Accent}"
-                        BorderBrush="White"
-                        Click="SettingsTimerServiceTile_OnClick"
-                        Cursor="Hand"
-                        HorizontalTitleAlignment="Center"
-                        IsTabStop="False"
-                        TitleFontSize="13"
-                        VerticalTitleAlignment="Center" />
-                    <mah:Tile
-                        x:Name="SettingsAudioOutputsTile"
-                        Title="Audio Outputs"
-                        Width="Auto"
-                        Height="42"
-                        Margin="19,136,361,0"
-                        VerticalAlignment="Top"
-                        mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-                        Background="{DynamicResource MahApps.Brushes.Accent}"
-                        BorderBrush="White"
-                        Click="SettingsAudioOutputsTile_OnClick"
-                        Cursor="Hand"
-                        HorizontalTitleAlignment="Center"
-                        IsTabStop="False"
-                        TitleFontSize="13"
-                        VerticalTitleAlignment="Center" />
-                    <mah:Tile
-                        x:Name="SettingsQuickLaunchTile"
-                        Title="Quick Launch"
-                        Width="Auto"
-                        Height="42"
-                        Margin="19,181,361,0"
-                        VerticalAlignment="Top"
-                        mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-                        Background="{DynamicResource MahApps.Brushes.Accent}"
-                        BorderBrush="White"
-                        Click="SettingsQuickLaunchTile_OnClick"
-                        Cursor="Hand"
-                        HorizontalTitleAlignment="Center"
-                        IsTabStop="False"
-                        TitleFontSize="13"
-                        VerticalTitleAlignment="Center" />
-                    <mah:Tile
-                        x:Name="SettingsHotKeysTile"
-                        Title="HotKeys"
-                        Width="Auto"
-                        Height="42"
-                        Margin="19,226,361,0"
-                        VerticalAlignment="Top"
-                        mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-                        Background="{DynamicResource MahApps.Brushes.Accent}"
-                        BorderBrush="White"
-                        Click="SettingsHotKeysTile_OnClick"
-                        Cursor="Hand"
-                        HorizontalTitleAlignment="Center"
-                        IsTabStop="False"
-                        TitleFontSize="13"
-                        VerticalTitleAlignment="Center" />
-                    <Border
-                        Width="346"
-                        Height="266"
-                        Margin="137,2,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                        BorderThickness="1">
-                        <TextBlock
-                            x:Name="SettingsPageTitle"
-                            Height="22"
-                            Margin="-0.8,-0.8,-1,0"
-                            VerticalAlignment="Top"
-                            Background="{DynamicResource MahApps.Brushes.Accent}"
-                            FontSize="14"
-                            Text="Theme Changer"
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                    </Border>
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="CPU"
+                    FontSize="15" />
+            </Border>
+            <Frame
+                x:Name="CpuClockFrame"
+                Width="103"
+                Height="34"
+                Margin="55,133,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="CpuClockLabel"
+                Width="103"
+                Height="27"
+                Margin="55,131,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 Mhz"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="24"
+                Margin="55,146,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                VerticalContentAlignment="Bottom"
+                Content="Clock"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="CpuTempFrame"
+                Width="103"
+                Height="34"
+                Margin="163,133,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="CpuTempLabel"
+                Width="103"
+                Height="27"
+                Margin="163,131,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 °C"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="24"
+                Margin="163,146,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Temp"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="CpuLoadFrame"
+                Width="103"
+                Height="34"
+                Margin="55,172,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="CpuLoadLabel"
+                Width="103"
+                Height="27"
+                Margin="55,170,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 %"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="24"
+                Margin="55,186,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Load"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="CpuPowerFrame"
+                Width="103"
+                Height="34"
+                Margin="163,172,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="CpuPowerLabel"
+                Width="103"
+                Height="27"
+                Margin="163,170,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 W"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="24"
+                Margin="163,186,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Power"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Border
+                Width="184"
+                Height="135"
+                Margin="340,91,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Label
+                    Width="159"
+                    Height="40"
+                    Margin="9.2,-0.8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="RAM"
+                    FontSize="15" />
+            </Border>
+            <Frame
+                x:Name="MemUsageFrame"
+                Width="103"
+                Height="34"
+                Margin="380,133,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="MemUsageLabel"
+                Width="103"
+                Height="27"
+                Margin="380,131,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 %"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="24"
+                Margin="380,146,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Usage"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="MemAvailableFrame"
+                Width="103"
+                Height="34"
+                Margin="380,172,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="MemAvailableLabel"
+                Width="103"
+                Height="27"
+                Margin="380,170,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 GB"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="24"
+                Margin="380,186,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Available"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Border
+                Width="506"
+                Height="128"
+                Margin="18,245,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Label
+                    Width="484"
+                    Height="40"
+                    Margin="9.2,-0.8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="GPU"
+                    FontSize="15" />
+            </Border>
+            <Frame
+                x:Name="GpuCoreClockFrame"
+                Width="103"
+                Height="34"
+                Margin="55,287,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="GpuClockLabel"
+                Width="103"
+                Height="27"
+                Margin="55,285,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 Mhz"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="23"
+                Margin="55,301,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Core Clock"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="GpuTempFrame"
+                Width="103"
+                Height="34"
+                Margin="163,287,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="GpuTempLabel"
+                Width="103"
+                Height="27"
+                Margin="163,285,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 °C"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="23"
+                Margin="163,301,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Temp"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="GpuLoadFrame"
+                Width="103"
+                Height="34"
+                Margin="271,287,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="GpuLoadLabel"
+                Width="103"
+                Height="27"
+                Margin="271,285,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 %"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="23"
+                Margin="271,301,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Load"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="GpuVideoEngineFrame"
+                Width="103"
+                Height="34"
+                Margin="379,287,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="GpuVideoEngineLabel"
+                Width="103"
+                Height="26"
+                Margin="379,285,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 %"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="23"
+                Margin="379,300,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="VE Load"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="GpuMemClockFrame"
+                Width="103"
+                Height="34"
+                Margin="55,325,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="GpuMemClockLabel"
+                Width="103"
+                Height="26"
+                Margin="55,323,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 Mhz"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="23"
+                Margin="55,338,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Mem Clock"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="GpuFanFrame"
+                Width="103"
+                Height="34"
+                Margin="163,325,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="GpuFanSpeedLabel"
+                Width="103"
+                Height="26"
+                Margin="163,323,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 RPM"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="23"
+                Margin="163,338,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Fan"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="GpuMemUsageFrame"
+                Width="103"
+                Height="34"
+                Margin="271,325,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="GpuMemUsageLabel"
+                Width="103"
+                Height="27"
+                Margin="271,323,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 %"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="23"
+                Margin="271,339,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Mem Usage"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="GpuIMCFrame"
+                Width="103"
+                Height="34"
+                Margin="379,325,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="GpuIMCLabel"
+                Width="103"
+                Height="26"
+                Margin="379,323,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 %"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="23"
+                Margin="379,338,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="IMC Load"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Border
+                Width="284"
+                Height="135"
+                Margin="18,390,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Label
+                    Width="264"
+                    Height="40"
+                    Margin="9.2,-0.8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="Motherboard"
+                    FontSize="15" />
+            </Border>
+            <Frame
+                x:Name="fan1SpeedFrame"
+                Width="103"
+                Height="34"
+                Margin="55,435,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="fan1SpeedLabel"
+                Width="103"
+                Height="27"
+                Margin="55,433,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 RPM"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="24"
+                Margin="55,448,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                VerticalContentAlignment="Bottom"
+                Content="CPU Fan"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="fan2SpeedFrame"
+                Width="103"
+                Height="34"
+                Margin="163,435,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="fan2SpeedLabel"
+                Width="103"
+                Height="27"
+                Margin="163,433,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 RPM"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="24"
+                Margin="163,448,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Fan #2"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="fan3SpeedFrame"
+                Width="103"
+                Height="34"
+                Margin="55,474,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="fan3SpeedLabel"
+                Width="103"
+                Height="27"
+                Margin="55,472,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 RPM"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="24"
+                Margin="55,488,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Fan #3"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="fan4SpeedFrame"
+                Width="103"
+                Height="34"
+                Margin="163,474,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="fan4SpeedLabel"
+                Width="103"
+                Height="27"
+                Margin="163,472,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 RPM"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="24"
+                Margin="163,488,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Fan #4"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
 
-                    <!--  GridSettings Theme  -->
-                    <Grid
-                        x:Name="SettingsThemeGrid"
-                        Margin="165,39,26,44"
-                        Visibility="Visible">
-                        <RadioButton
-                            x:Name="RadioRedTheme"
-                            Width="120"
-                            Height="25"
-                            Margin="23,92,158.8,0"
-                            VerticalAlignment="Top"
-                            Background="#FF202020"
-                            Checked="RadioRedTheme_OnChecked"
-                            Content="Red Theme"
-                            Cursor="Hand"
-                            IsTabStop="False" />
-                        <RadioButton
-                            x:Name="RadioAmberTheme"
-                            Width="120"
-                            Height="25"
-                            Margin="167,92,14.8,0"
-                            VerticalAlignment="Top"
-                            Background="#FF202020"
-                            Checked="RadioAmberTheme_OnChecked"
-                            Content="Amber Theme"
-                            Cursor="Hand"
-                            IsTabStop="False"
-                            RenderTransformOrigin="0.5,0.5" />
-                        <RadioButton
-                            x:Name="RadioBlueTheme"
-                            Width="120"
-                            Height="25"
-                            Margin="23,122,158.8,0"
-                            VerticalAlignment="Top"
-                            Background="#FF202020"
-                            Checked="RadioBlueTheme_OnChecked"
-                            Content="Blue Theme"
-                            Cursor="Hand"
-                            IsTabStop="False" />
-                        <RadioButton
-                            x:Name="RadioPurpleTheme"
-                            Width="120"
-                            Height="25"
-                            Margin="23,152,158.8,0"
-                            VerticalAlignment="Top"
-                            Background="#FF202020"
-                            Checked="RadioPurpleTheme_OnChecked"
-                            Content="Purple Theme"
-                            Cursor="Hand"
-                            IsTabStop="False" />
-                        <RadioButton
-                            x:Name="RadioGreenTheme"
-                            Width="120"
-                            Height="25"
-                            Margin="167,152,14.8,0"
-                            VerticalAlignment="Top"
-                            Background="#FF202020"
-                            Checked="RadioGreenTheme_OnChecked"
-                            Content="Green Theme"
-                            Cursor="Hand"
-                            IsTabStop="False" />
-                        <RadioButton
-                            x:Name="RadioTealTheme"
-                            Width="120"
-                            Height="25"
-                            Margin="163,122,10.8,0"
-                            VerticalAlignment="Top"
-                            Background="#FF202020"
-                            Checked="RadioTealTheme_OnChecked"
-                            Content="Teal Theme"
-                            Cursor="Hand"
-                            IsTabStop="False" />
-                        <TextBlock
-                            Width="302"
-                            Height="48"
-                            Margin="0,34,-0.2,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            FontSize="14"
-                            Text="Select which Theme to use below.."
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                    </Grid>
+            <Border
+                Width="184"
+                Height="135"
+                Margin="340,390,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Label
+                    Width="159"
+                    Height="40"
+                    Margin="9.2,-0.8,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="Network"
+                    FontSize="15" />
+            </Border>
+            <Frame
+                x:Name="NetworkUploadFrame"
+                Width="103"
+                Height="34"
+                Margin="0,435,61,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="NetworkUploadLabel"
+                Width="103"
+                Height="26"
+                Margin="0,434,61,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 KB/s"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="23"
+                Margin="0,449,61,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Upload"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+            <Frame
+                x:Name="NetworkDownloadFrame"
+                Width="103"
+                Height="34"
+                Margin="380,474,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                IsTabStop="False" />
+            <Label
+                x:Name="NetworkDownloadLabel"
+                Width="103"
+                Height="27"
+                Margin="380,472,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="0 KB/s"
+                FontSize="13"
+                FontStyle="Normal" />
+            <Label
+                Width="103"
+                Height="23"
+                Margin="380,487,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                Content="Download"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="Black" />
+        </Grid>
 
-                    <!--  GridSettings Monitoring  -->
-                    <Grid
-                        x:Name="SettingsMonitoringGrid"
-                        Margin="165,39,26,44"
-                        Visibility="Collapsed">
-                        <TextBlock
-                            Width="302"
-                            Height="48"
-                            Margin="0,34,-0.2,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            FontSize="14"
-                            Text="Enable/Disable System Monitoring.."
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                        <mah:ToggleSwitch
-                            x:Name="CheckboxEnableMonitor"
-                            Width="95"
-                            Height="32"
-                            Margin="90,97,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Cursor="Hand"
-                            FontSize="12"
-                            IsTabStop="False"
-                            OffContent="Disabled"
-                            OnContent="Enabled"
-                            Toggled="ToggleSwitch_MonitoringOnOff" />
-                    </Grid>
+        <!--  performance grid view  -->
+        <Grid
+            x:Name="GridPerformance"
+            Width="544"
+            Height="556"
+            Margin="232,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Visibility="Collapsed">
+            <Label
+                Width="Auto"
+                Height="41"
+                Margin="0,33,35,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                VerticalContentAlignment="Center"
+                Content="Performance"
+                FontSize="20" />
+            <Border
+                Width="10"
+                Height="41"
+                Margin="514,33,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}" />
+            <Border
+                Width="506"
+                Height="107"
+                Margin="18,90,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Label
+                    Width="198"
+                    Margin="39.2,4.2,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    Content="MSI Afterburner"
+                    FontSize="15" />
+            </Border>
+            <mah:Tile
+                x:Name="GpuDefaultProfileTile"
+                Title="Default Profile"
+                Width="98"
+                Height="48"
+                Margin="55,134,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                BorderThickness="0"
+                Click="GpuDefaultProfileTile_Click"
+                Cursor="Hand"
+                FontWeight="Bold"
+                Foreground="Black"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="13"
+                VerticalTitleAlignment="Top" />
+            <mah:Tile
+                x:Name="GpuOCProfileTile"
+                Title="Overclock Profile"
+                Width="98"
+                Height="48"
+                Margin="158,134,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                BorderThickness="0"
+                Click="GpuOCProfileTile_Click"
+                Cursor="Hand"
+                FontWeight="Bold"
+                Foreground="Black"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="13"
+                VerticalTitleAlignment="Top" />
+            <TextBlock
+                Width="236"
+                Height="48"
+                Margin="264,134,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="12"
+                Foreground="White"
+                Opacity="0.7"
+                TextAlignment="Center"
+                TextWrapping="Wrap"><Run Text="Switch between 2 MSI afterburner profile's &#xA;" /><Run Text="(" /><Run Text="Needs " /><Run Text="Profile 1 &amp; Profile 2 " /><Run Text="to be " /><Run Text="configured in MSI Afterburner)" /><Run Text="&#xA;" /></TextBlock>
+            <Border
+                Width="506"
+                Height="107"
+                Margin="18,202,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Label
+                    Width="200"
+                    Margin="37.2,4.2,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    Content="Windows Timer Resolution"
+                    FontSize="15" />
+            </Border>
+            <mah:Tile
+                x:Name="TimerResolutionTile"
+                Title="Change Timer Resolution:"
+                Width="201"
+                Height="48"
+                Margin="55,244,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                Click="TimerResolutionTile_OnClick"
+                Cursor="Hand"
+                FontWeight="Bold"
+                Foreground="Black"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="13"
+                VerticalTitleAlignment="Top">
+                <mah:Badged
+                    x:Name="TimerResolutionTileBadge"
+                    Height="20"
+                    Badge=""
+                    BadgeBackground="Transparent"
+                    BadgeFontSize="13"
+                    BadgeForeground="White"
+                    BadgePlacementMode="Bottom" />
+            </mah:Tile>
+            <TextBlock
+                Width="236"
+                Height="48"
+                Margin="264,244,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="12"
+                Foreground="White"
+                Opacity="0.7"
+                TextAlignment="Center"
+                TextWrapping="Wrap"><Run Text="Switch between " /><Run Text="a lower timer of 0.5ms and the default Windows timer." /><LineBreak /><Run Text="(" /><Run Text="Needs " /><Run Text="the " /><Run Text="Timer" /><Run Text="Service " /><Run Text="to be " /><Run Text="installed)" /><Run Text="&#xA;" /></TextBlock>
+            <Border
+                Width="506"
+                Height="107"
+                Margin="18,314,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Label
+                    Width="199"
+                    Margin="38.2,3.2,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    Content="Windows Power Plan"
+                    FontSize="15" />
+            </Border>
+            <mah:Tile
+                x:Name="PowerPlanTile"
+                Title="Change Power Plan:"
+                Width="201"
+                Height="48"
+                Margin="55,356,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                Click="PowerPlanTile_OnCLick"
+                Cursor="Hand"
+                FontWeight="Bold"
+                Foreground="Black"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="13"
+                VerticalTitleAlignment="Top">
+                <mah:Badged
+                    x:Name="PowerPlanBadge"
+                    Height="20"
+                    Badge=""
+                    BadgeBackground="Transparent"
+                    BadgeFontSize="13"
+                    BadgeForeground="White"
+                    BadgePlacementMode="Bottom" />
+            </mah:Tile>
+            <TextBlock
+                Width="236"
+                Height="39"
+                Margin="264,365,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="12"
+                Foreground="White"
+                Opacity="0.7"
+                TextAlignment="Center"
+                TextWrapping="Wrap"><Run Text="Switch between " /><Run Text="High Performance and Balanced Windows power plans" /><Run Text="&#xA;" /></TextBlock>
+            <Border
+                Width="506"
+                Height="107"
+                Margin="18,426,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Label
+                    Width="200"
+                    Margin="37.2,3.2,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    Content="Audio Output Device"
+                    FontSize="15" />
+            </Border>
+            <mah:Tile
+                x:Name="AudioDeviceSwitchTile"
+                Title="Change Audio Output:"
+                Width="201"
+                Height="48"
+                Margin="55,466,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                Click="AudioDeviceSwitchTile_OnClick"
+                Cursor="Hand"
+                FontWeight="Bold"
+                Foreground="Black"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="13"
+                VerticalTitleAlignment="Top">
+                <mah:Badged
+                    x:Name="AudioDeviceBadge"
+                    Height="20"
+                    Badge=""
+                    BadgeBackground="Transparent"
+                    BadgeFontSize="13"
+                    BadgeForeground="White"
+                    BadgePlacementMode="Bottom" />
+            </mah:Tile>
+            <TextBlock
+                Width="236"
+                Height="39"
+                Margin="264,475,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="12"
+                Foreground="White"
+                Opacity="0.7"
+                TextAlignment="Center"
+                TextWrapping="Wrap"><Run Text="Switch between 2" /><Run Text=" output" /><Run Text=" " /><Run Text="audio devices." /><LineBreak /><Run Text="(Select audio devices in the settings)" /><Run Text="&#xA;" /></TextBlock>
+        </Grid>
 
-                    <!--  GridSettings Windows Timer Service  -->
-                    <Grid
-                        x:Name="SettingsTimerServiceGrid"
-                        Margin="165,39,26,44"
-                        Visibility="Collapsed">
-                        <TextBlock
-                            Width="302"
-                            Height="48"
-                            Margin="0,34,-0.2,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            FontSize="14"
-                            Text="Install/Uninstall Windows Timer Resolution Service.."
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                        <Button
-                            x:Name="InstallServiceButton"
-                            Width="106"
-                            Margin="36,109,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Click="InstallServiceButton_OnClick"
-                            Content="Install Service"
-                            Background="{DynamicResource MahApps.Brushes.Accent}"
-                            Cursor="Hand"
-                            FontWeight="Normal"
-                            IsTabStop="False" />
-                        <Button
-                            x:Name="UninstallServiceButton"
-                            Width="106"
-                            Margin="158,109,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Click="UninstallServiceButton_OnClick"
-                            Content="Uninstall Service"
-                            Background="{DynamicResource MahApps.Brushes.Accent}"
-                            Cursor="Hand"
-                            FontWeight="Normal"
-                            IsTabStop="False" />
-                    </Grid>
+        <!--  quick launch grid view  -->
+        <Grid
+            x:Name="GridQuickLaunch"
+            Width="544"
+            Height="556"
+            Margin="232,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Visibility="Collapsed">
+            <Label
+                Width="Auto"
+                Height="41"
+                Margin="0,33,35,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                VerticalContentAlignment="Center"
+                Content="Quick Launch"
+                FontSize="20" />
+            <Border
+                Width="10"
+                Height="41"
+                Margin="514,33,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}" />
+            <Border
+                Width="506"
+                Height="432"
+                Margin="18,90,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10" />
+            <Grid Margin="48,135,51,61">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <mah:Tile
+                    x:Name="QLTile1"
+                    Title=""
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile1Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top">
+                        <Image
+                            Width="55"
+                            Height="55"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                    </mah:Badged>
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile2"
+                    Title=""
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile2Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top">
+                        <Image
+                            Width="55"
+                            Height="55"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                    </mah:Badged>
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile3"
+                    Title=""
+                    Grid.Column="2"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile3Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top">
+                        <Image
+                            Width="55"
+                            Height="55"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                    </mah:Badged>
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile4"
+                    Title=""
+                    Grid.Column="3"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile4Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile5"
+                    Title=""
+                    Grid.Row="1"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile5Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile6"
+                    Title=""
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile6Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile7"
+                    Title=""
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile7Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile8"
+                    Title=""
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile8Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile9"
+                    Title=""
+                    Grid.Row="2"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile9Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile10"
+                    Title=""
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile10Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile11"
+                    Title=""
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile11Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile12"
+                    Title=""
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile12Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile13"
+                    Title=""
+                    Grid.Row="3"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile13Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile14"
+                    Title=""
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile14Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile15"
+                    Title=""
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile15Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+                <mah:Tile
+                    x:Name="QLTile16"
+                    Title=""
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Width="Auto"
+                    Height="Auto"
+                    mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                    Background="{DynamicResource MahApps.Brushes.Accent}"
+                    Cursor="Hand"
+                    HorizontalTitleAlignment="Right"
+                    IsTabStop="False"
+                    TitleFontSize="17">
+                    <mah:Badged
+                        x:Name="QLTile16Badge"
+                        Badge=""
+                        BadgeBackground="DarkGray"
+                        BadgeForeground="Black"
+                        BadgePlacementMode="Top" />
+                </mah:Tile>
+            </Grid>
+        </Grid>
 
-                    <!--  Grid Audio Outputs  -->
-                    <Grid
-                        x:Name="SettingsAudioOutputsGrid"
-                        Margin="165,39,26,44"
-                        Visibility="Collapsed">
-                        <TextBlock
-                            Width="302"
-                            Height="48"
-                            Margin="0,34,-0.2,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            FontSize="14"
-                            Text="Select the 2 Audio Output Devices to switch between.. "
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                        <ComboBox
-                            x:Name="AudioDevice1"
-                            Width="122"
-                            Margin="14,112,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            HorizontalContentAlignment="Center"
-                            Cursor="Hand"
-                            Background="{DynamicResource MahApps.Brushes.Accent}"
-                            IsTabStop="False"
-                            SelectionChanged="AudioDevice1_OnSelectionChanged" />
-                        <ComboBox
-                            x:Name="AudioDevice2"
-                            Width="122"
-                            Margin="170,113,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            HorizontalContentAlignment="Center"
-                            Cursor="Hand"
-                            Background="{DynamicResource MahApps.Brushes.Accent}"
-                            IsTabStop="False"
-                            SelectionChanged="AudioDevice2_OnSelectionChanged" />
-                    </Grid>
+        <!--  settings grid view  -->
+        <Grid
+            x:Name="GridSettings"
+            Width="544"
+            Height="556"
+            Margin="232,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Visibility="Collapsed">
+            <Label
+                Width="Auto"
+                Height="41"
+                Margin="0,33,35,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                VerticalContentAlignment="Center"
+                Content="Settings"
+                FontSize="20" />
+            <Border
+                Width="10"
+                Height="41"
+                Margin="514,33,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}" />
+            <Border
+                Width="506"
+                Height="432"
+                Margin="18,90,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <TabControl Margin="9.2,14.2,8.8,9.2" Background="#FF202329">
+                    <TabItem
+                        x:Name="SettingsTabTimer"
+                        Width="auto"
+                        Margin="2,0,-2,0">
+                        <TabItem.Header>
+                            <Label
+                                Margin="-6,0"
+                                HorizontalContentAlignment="Center"
+                                Content="Timer Service"
+                                Cursor="Hand"
+                                FontSize="16"
+                                MouseDown="SettingsTab_MouseDown" />
+                        </TabItem.Header>
+                        <Grid Margin="0,0,0.4,-0.2" Background="#FF202329">
+                            <TextBlock
+                                Width="403"
+                                Height="Auto"
+                                Margin="37,25,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                FontSize="12"
+                                Foreground="White"
+                                Opacity="0.7"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"><Run Text="To change to the " /><Run Text="Windows Timer" /><Run Text=" Resolution" /><Run Text=", install the Timer" /><Run Text=" Service" /><Run Text=" below" /><Run Text=": " /></TextBlock>
+                            <Button
+                                x:Name="InstallServiceButton"
+                                Width="106"
+                                Margin="37,113,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource MahApps.Brushes.Accent}"
+                                Click="InstallServiceButton_OnClick"
+                                Content="Install Service"
+                                Cursor="Hand"
+                                FontWeight="Normal"
+                                IsTabStop="False" />
+                            <Button
+                                x:Name="UninstallServiceButton"
+                                Width="106"
+                                Margin="37,145,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource MahApps.Brushes.Accent}"
+                                Click="UninstallServiceButton_OnClick"
+                                Content="Uninstall Service"
+                                Cursor="Hand"
+                                FontWeight="Normal"
+                                IsTabStop="False" />
+                            <TextBlock
+                                Width="268"
+                                Height="67"
+                                Margin="172,110,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"><Run Text="Install/Uninstall the " /><Run Text="Timer S" /><Run Text="ervice" /><Run Text="." /><LineBreak /><Run Text="Setting the Windows Timer Resolution to 0.5ms can sometimes help with gaming performance/input consistency etc." /><Run Text=" " /><Run Text="This is usually not " /><Run Text="needed" /><LineBreak /></TextBlock>
+                        </Grid>
+                    </TabItem>
+                    <TabItem
+                        x:Name="SettingsTabAudioDevices"
+                        Width="auto"
+                        Margin="7,0,-6.6,0">
+                        <TabItem.Header>
+                            <Label
+                                Margin="-6,0"
+                                HorizontalContentAlignment="Center"
+                                Content="Audio Devices"
+                                Cursor="Hand"
+                                FontSize="16"
+                                MouseDown="SettingsTab_MouseDown" />
+                        </TabItem.Header>
+                        <Grid Margin="0,0,0.4,-0.2">
+                            <TextBlock
+                                Width="403"
+                                Height="Auto"
+                                Margin="37,25,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                FontSize="12"
+                                Foreground="White"
+                                Opacity="0.7"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"><Run Text="Choose " /><Run Text="2 " /><Run Text="Audio output devices to be able to switch between below: " /></TextBlock>
+                            <ComboBox
+                                x:Name="AudioDevice1"
+                                Width="122"
+                                Margin="37,114,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                HorizontalContentAlignment="Center"
+                                Background="{DynamicResource MahApps.Brushes.Accent}"
+                                Cursor="Hand"
+                                IsTabStop="False"
+                                SelectionChanged="AudioDevice1_OnSelectionChanged" />
+                            <ComboBox
+                                x:Name="AudioDevice2"
+                                Width="122"
+                                Margin="37,145,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                HorizontalContentAlignment="Center"
+                                Background="{DynamicResource MahApps.Brushes.Accent}"
+                                Cursor="Hand"
+                                IsTabStop="False"
+                                SelectionChanged="AudioDevice2_OnSelectionChanged" />
+                            <TextBlock
+                                Width="262"
+                                Height="67"
+                                Margin="178,110,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"><Run Text="Select both Audio Output Devices" /><Run Text="." /><LineBreak /><Run Text="When having more than one Audio output, i.e. Speakers and Headset etc, you can " /><Run Text="use this " /><Run Text="to switch between" /><Run Text=" them both" /><Run Text=" on the fly" /><LineBreak /></TextBlock>
+                        </Grid>
+                    </TabItem>
+                    <TabItem
+                        x:Name="SettingsTabQuickLaunch"
+                        Width="auto"
+                        Margin="16.6,0,-17,0">
+                        <TabItem.Header>
+                            <Label
+                                Margin="-6,0"
+                                HorizontalContentAlignment="Center"
+                                Content="Quick Launch"
+                                Cursor="Hand"
+                                FontSize="16"
+                                MouseDown="SettingsTab_MouseDown" />
+                        </TabItem.Header>
+                        <Grid Margin="0,0,0.4,-0.2">
+                            <TextBlock
+                                Width="403"
+                                Height="Auto"
+                                Margin="37,25,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                FontSize="12"
+                                Foreground="White"
+                                Opacity="0.7"
+                                Text="Add/Remove quick launch shortcuts:"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
+                        </Grid>
+                    </TabItem>
+                    <TabItem
+                        x:Name="SettingsTabHotkeys"
+                        Width="auto"
+                        Margin="22.8,0,-30.6,0">
+                        <TabItem.Header>
+                            <Label
+                                Margin="-6,0"
+                                HorizontalContentAlignment="Center"
+                                Content="Hotkeys"
+                                Cursor="Hand"
+                                FontSize="16"
+                                MouseDown="SettingsTab_MouseDown" />
+                        </TabItem.Header>
+                        <Grid Margin="0,0,0.4,-0.2">
+                            <TextBlock
+                                Width="403"
+                                Height="Auto"
+                                Margin="37,25,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                FontSize="12"
+                                Foreground="White"
+                                Opacity="0.7"
+                                Text="Set the required application hotkeys from the selections below:"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                Width="Auto"
+                                Height="26"
+                                Margin="31,90,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"><Run Text="Performance Mode On/Off" /><Run Text=": " /></TextBlock>
+                            <ComboBox
+                                x:Name="GameModeHotKey"
+                                Width="62"
+                                Margin="71,116,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource MahApps.Brushes.Accent}"
+                                Cursor="Hand"
+                                IsTabStop="False"
+                                SelectionChanged="GameModeHotKey_OnSelectionChanged" />
+                            <TextBlock
+                                Width="244"
+                                Height="60"
+                                Margin="205,103,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"><Run Text="This will set Windows Power Plan to High Performance, Timer Resolution to 0.5ms" /><Run Text=" and MSI afterburner profile to OC profile" /></TextBlock>
+                            <TextBlock
+                                Width="Auto"
+                                Height="25"
+                                Margin="31,181,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"><Run Text="Audio Output Device" /><Run Text=" Switcher" /><Run Text=": " /></TextBlock>
+                            <ComboBox
+                                x:Name="AudioDeviceHotKey"
+                                Width="62"
+                                Margin="71,206,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource MahApps.Brushes.Accent}"
+                                Cursor="Hand"
+                                IsTabStop="False"
+                                RenderTransformOrigin="0.994,1.25"
+                                SelectionChanged="AudioDeviceHotKey_OnSelectionChanged" />
+                            <TextBlock
+                                Width="244"
+                                Height="47"
+                                Margin="205,193,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"><Run Text="This will " /><Run Text="switch between the " /><Run Text="chosen two Audio Output Devices" /></TextBlock>
+                            <TextBlock
+                                Width="Auto"
+                                Height="25"
+                                Margin="59,268,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"><Run Text="Exit App" /><Run Text="lication" /><Run Text=": " /></TextBlock>
+                            <ComboBox
+                                x:Name="ExitAppHotKey"
+                                Width="62"
+                                Margin="71,293,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="{DynamicResource MahApps.Brushes.Accent}"
+                                Cursor="Hand"
+                                IsTabStop="False"
+                                SelectionChanged="ExitAppHotKey_OnSelectionChanged" />
+                            <TextBlock
+                                Width="244"
+                                Height="47"
+                                Margin="205,280,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap"><Run Text="This will.. well, it will exit the app. " /><LineBreak /><Run Text="Not much more to say about this one!" /></TextBlock>
+                        </Grid>
+                    </TabItem>
+                    <TabItem
+                        x:Name="SettingsTabTheme"
+                        Width="auto"
+                        Margin="32.6,0,-42,0">
+                        <TabItem.Header>
+                            <Label
+                                Margin="-6,0"
+                                HorizontalContentAlignment="Center"
+                                Content="Theme"
+                                Cursor="Hand"
+                                FontSize="16"
+                                MouseDown="SettingsTab_MouseDown" />
+                        </TabItem.Header>
+                        <Grid Margin="0,0,0.4,-0.2" Background="#FF202329">
+                            <RadioButton
+                                x:Name="RadioBlueTheme"
+                                Height="25"
+                                Margin="104,109,109.4,0"
+                                VerticalAlignment="Top"
+                                Background="Transparent"
+                                Checked="RadioBlueTheme_OnChecked"
+                                Content="Blue Theme"
+                                Cursor="Hand"
+                                IsTabStop="False" />
+                            <RadioButton
+                                x:Name="RadioRedTheme"
+                                Height="25"
+                                Margin="104,139,109.4,0"
+                                VerticalAlignment="Top"
+                                Background="Transparent"
+                                Checked="RadioRedTheme_OnChecked"
+                                Content="Red Theme"
+                                Cursor="Hand"
+                                IsTabStop="False" />
+                            <RadioButton
+                                x:Name="RadioPurpleTheme"
+                                Height="25"
+                                Margin="104,169,109.4,0"
+                                VerticalAlignment="Top"
+                                Background="Transparent"
+                                Checked="RadioPurpleTheme_OnChecked"
+                                Content="Purple Theme"
+                                Cursor="Hand"
+                                IsTabStop="False" />
+                            <RadioButton
+                                x:Name="RadioOrangeTheme"
+                                Height="25"
+                                Margin="104,199,109.4,0"
+                                VerticalAlignment="Top"
+                                Background="Transparent"
+                                Checked="RadioOrangeTheme_OnChecked"
+                                Content="Orange Theme"
+                                Cursor="Hand"
+                                IsTabStop="False"
+                                RenderTransformOrigin="0.5,0.5" />
+                            <RadioButton
+                                x:Name="RadioGreenTheme"
+                                Height="25"
+                                Margin="104,259,109.4,0"
+                                VerticalAlignment="Top"
+                                Background="Transparent"
+                                Checked="RadioGreenTheme_OnChecked"
+                                Content="Green Theme"
+                                Cursor="Hand"
+                                IsTabStop="False" />
+                            <RadioButton
+                                x:Name="RadioTealTheme"
+                                Height="25"
+                                Margin="104,229,109.4,0"
+                                VerticalAlignment="Top"
+                                Background="Transparent"
+                                Checked="RadioTealTheme_OnChecked"
+                                Content="Teal Theme"
+                                Cursor="Hand"
+                                IsTabStop="False" />
+                            <Label
+                                Height="25"
+                                Margin="348,109,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top" />
+                            <Label
+                                Width="23"
+                                Height="25"
+                                Margin="348,139,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="#BD1708" />
+                            <Label
+                                Width="23"
+                                Height="25"
+                                Margin="348,169,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="#564EBA" />
+                            <Label
+                                Width="23"
+                                Height="25"
+                                Margin="348,199,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="#CE5A08" />
+                            <Label
+                                Width="23"
+                                Height="25"
+                                Margin="348,229,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="#06908F" />
+                            <Label
+                                Width="23"
+                                Height="25"
+                                Margin="348,259,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="#538E1A" />
+                            <Label
+                                Width="23"
+                                Height="25"
+                                Margin="348,109,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                Background="#0667B4" />
+                            <TextBlock
+                                Width="403"
+                                Height="Auto"
+                                Margin="37,25,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top"
+                                FontSize="12"
+                                Foreground="White"
+                                Opacity="0.7"
+                                Text="Choose an application theme from the selection below:"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Border>
 
-                    <!--  Grid Quick Launch  -->
-                    <Grid
-                        x:Name="SettingsQuickLaunchGrid"
-                        Margin="165,39,26,44"
-                        Visibility="Collapsed">
-                        <TextBlock
-                            Width="302"
-                            Height="48"
-                            Margin="0,34,-0.2,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            FontSize="14"
-                            Text="Select Applications for Quick Launch.. "
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                    </Grid>
+            <!--  settings tabitem indicators  -->
+            <Border
+                x:Name="SettingsTimerServiceindicator"
+                Width="4"
+                Height="90"
+                Margin="79,91,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                RenderTransformOrigin="0.5,0.5">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="90" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+            <Border
+                x:Name="SettingsAudioDevicesindicator"
+                Width="4"
+                Height="98"
+                Margin="191,87,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                RenderTransformOrigin="0.5,0.5"
+                Visibility="Collapsed">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="90" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+            <Border
+                x:Name="SettingsQuickLaunchindicator"
+                Width="4"
+                Height="92"
+                Margin="308,90,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                RenderTransformOrigin="0.5,0.5"
+                Visibility="Collapsed">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="90" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+            <Border
+                x:Name="SettingsHotkeysindicator"
+                Width="4"
+                Height="56"
+                Margin="407,108,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                RenderTransformOrigin="0.5,0.5"
+                Visibility="Collapsed">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="90" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+            <Border
+                x:Name="SettingsThemeindicator"
+                Width="4"
+                Height="48"
+                Margin="479,112,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                RenderTransformOrigin="0.5,0.5"
+                Visibility="Collapsed">
+                <Border.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="90" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Border.RenderTransform>
+            </Border>
+        </Grid>
 
-                    <!--  Grid HotKeys  -->
-                    <Grid
-                        x:Name="SettingsHotKeysGrid"
-                        Margin="165,39,26,44"
-                        Visibility="Collapsed">
-                        <TextBlock
-                            Width="302"
-                            Height="48"
-                            Margin="0,34,-0.2,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            FontSize="14"
-                            Text="Set HotKey binds for various actions.. "
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                        <TextBlock
-                            Width="70"
-                            Height="25"
-                            Margin="27,71,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Text="Game Mode"
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                        <ComboBox
-                            x:Name="GameModeHotKey"
-                            Width="70"
-                            Margin="27,92,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Cursor="Hand"
-                            Background="{DynamicResource MahApps.Brushes.Accent}"
-                            IsTabStop="False"
-                            SelectionChanged="GameModeHotKey_OnSelectionChanged" />
-                        <TextBlock
-                            Width="70"
-                            Height="25"
-                            Margin="117,71,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Text="Audio Device"
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                        <ComboBox
-                            x:Name="AudioDeviceHotKey"
-                            Width="70"
-                            Margin="117,92,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Cursor="Hand"
-                            Background="{DynamicResource MahApps.Brushes.Accent}"
-                            IsTabStop="False"
-                            SelectionChanged="AudioDeviceHotKey_OnSelectionChanged" />
-                        <TextBlock
-                            Width="70"
-                            Height="25"
-                            Margin="206,71,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Text="Exit App"
-                            TextAlignment="Center"
-                            TextWrapping="Wrap" />
-                        <ComboBox
-                            x:Name="ExitAppHotKey"
-                            Width="70"
-                            Margin="206,92,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Cursor="Hand"
-                            Background="{DynamicResource MahApps.Brushes.Accent}"
-                            IsTabStop="False"
-                            SelectionChanged="ExitAppHotKey_OnSelectionChanged" />
-                    </Grid>
-                    <Label
-                        x:Name="VersionNumber"
-                        HorizontalAlignment="Right"
-                        HorizontalContentAlignment="Right"
-                        Foreground="Gray"
-                        Margin="0,271,5,2" Width="150" />
-                </Grid>
-            </mah:Flyout>
-        </mah:FlyoutsControl>
-    </mah:MetroWindow.Flyouts>
+        <!--  about grid view  -->
+        <Grid
+            x:Name="GridAbout"
+            Width="544"
+            Height="556"
+            Margin="232,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Visibility="Collapsed">
+            <Label
+                Width="Auto"
+                Height="41"
+                Margin="0,33,35,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                VerticalContentAlignment="Center"
+                Content="About"
+                FontSize="20" />
+            <Border
+                Width="10"
+                Height="41"
+                Margin="514,33,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}" />
+            <Border
+                Width="506"
+                Height="432"
+                Margin="18,90,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10">
+                <Label
+                    x:Name="VersionNumber"
+                    Width="136"
+                    Margin="0,394.2,18.8,-0.8"
+                    HorizontalAlignment="Right"
+                    HorizontalContentAlignment="Right"
+                    Foreground="Gray" />
+            </Border>
+        </Grid>
+    </Grid>
 </mah:MetroWindow>

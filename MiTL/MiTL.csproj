@@ -166,9 +166,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Image_GPU.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
@@ -181,19 +178,25 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Image_PowerPlan.png" />
+    <None Include="Resources\MiTL_Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Image_DeviceSwitcher.png" />
+    <Resource Include="Resources\MiTL_Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Image_TimerResolution.png" />
+    <Resource Include="Resources\Image_About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image_Monitoring.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image_Performance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image_Quicklaunch.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Image_Settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MiTL_Icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
