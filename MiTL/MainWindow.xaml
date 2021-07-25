@@ -208,7 +208,7 @@
             Margin="232,0,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Visibility="Collapsed">
+            Visibility="Visible">
             <Label
                 Width="Auto"
                 Height="41"
@@ -959,7 +959,7 @@
             Margin="232,0,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Visibility="Visible">
+            Visibility="Collapsed">
             <Label
                 Width="Auto"
                 Height="41"
