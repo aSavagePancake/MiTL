@@ -61,8 +61,10 @@ namespace MiTL
             string msiabFilePath = Properties.Resources.MSIAB_FilePath;
             string defaultStockProfile = Properties.Resources.DefaultGpuStockProfile;
             string defaultOcProfile = Properties.Resources.DefaultGpuOCProfile;
+            string closeAfterburner = Properties.Resources.CloseAfterburner;
             IniWrite("StockProfile", defaultStockProfile);
             IniWrite("OCProfile", defaultOcProfile);
+            IniWrite("CloseAfterburner", closeAfterburner);
             IniWrite("AppTheme", defaultAppTheme);
             IniWrite("GameModeHotKey", defaultGameModeHotKey);
             IniWrite("AudioDeviceSwitchHotKey", defaultAudioDeviceSwitchHotKey);
@@ -102,6 +104,38 @@ namespace MiTL
 
             string defaultAudioDevice = ListManager.DefaultAudioDevice;
             IniWrite("DefaultAudioDevice", defaultAudioDevice);
+            IniWrite("Quicklaunch1Name", "");
+            IniWrite("Quicklaunch2Name", "");
+            IniWrite("Quicklaunch3Name", "");
+            IniWrite("Quicklaunch4Name", "");
+            IniWrite("Quicklaunch5Name", "");
+            IniWrite("Quicklaunch6Name", "");
+            IniWrite("Quicklaunch7Name", "");
+            IniWrite("Quicklaunch8Name", "");
+            IniWrite("Quicklaunch9Name", "");
+            IniWrite("Quicklaunch10Name", "");
+            IniWrite("Quicklaunch11Name", "");
+            IniWrite("Quicklaunch12Name", "");
+            IniWrite("Quicklaunch13Name", "");
+            IniWrite("Quicklaunch14Name", "");
+            IniWrite("Quicklaunch15Name", "");
+            IniWrite("Quicklaunch16Name", "");
+            IniWrite("Quicklaunch1Path", "");
+            IniWrite("Quicklaunch2Path", "");
+            IniWrite("Quicklaunch3Path", "");
+            IniWrite("Quicklaunch4Path", "");
+            IniWrite("Quicklaunch5Path", "");
+            IniWrite("Quicklaunch6Path", "");
+            IniWrite("Quicklaunch7Path", "");
+            IniWrite("Quicklaunch8Path", "");
+            IniWrite("Quicklaunch9Path", "");
+            IniWrite("Quicklaunch10Path", "");
+            IniWrite("Quicklaunch11Path", "");
+            IniWrite("Quicklaunch12Path", "");
+            IniWrite("Quicklaunch13Path", "");
+            IniWrite("Quicklaunch14Path", "");
+            IniWrite("Quicklaunch15Path", "");
+            IniWrite("Quicklaunch16Path", "");
         }
     }
 }
