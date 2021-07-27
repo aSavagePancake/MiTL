@@ -9,7 +9,7 @@ namespace MiTL
         public static void GrabAndSaveIcon(string quickLaunchTile, string executablePath)
         {
             string iconPath = Environment.CurrentDirectory + @"\ql_icons\";
-            string iconFile = quickLaunchTile + ".ico";
+            string iconFile = "ql" + quickLaunchTile + ".ico";
 
             Icon exeIcon = ExtractIconFromFilePath(executablePath);
 

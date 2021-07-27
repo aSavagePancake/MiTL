@@ -1,4 +1,5 @@
-﻿using NAudio.CoreAudioApi;
+﻿using MahApps.Metro.Controls;
+using NAudio.CoreAudioApi;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -154,6 +155,60 @@ namespace MiTL
                     MainWindow.SettingsThemeindicator
                 };
                 return tabIndicators;
+            }
+        }
+
+        internal IEnumerable<Tile> QuicklaunchTiles
+        {
+            get
+            {
+                List<Tile> qlTiles = new List<Tile>
+                {
+                    MainWindow.QLTile1,
+                    MainWindow.QLTile2,
+                    MainWindow.QLTile3,
+                    MainWindow.QLTile4,
+                    MainWindow.QLTile5,
+                    MainWindow.QLTile6,
+                    MainWindow.QLTile7,
+                    MainWindow.QLTile8,
+                    MainWindow.QLTile9,
+                    MainWindow.QLTile10,
+                    MainWindow.QLTile11,
+                    MainWindow.QLTile12,
+                    MainWindow.QLTile13,
+                    MainWindow.QLTile14,
+                    MainWindow.QLTile15,
+                    MainWindow.QLTile16,
+                };
+                return qlTiles;
+            }
+        }
+
+        internal IEnumerable<Image> QuicklaunchTileImages
+        {
+            get
+            {
+                List<Image> qlTileImages = new List<Image>
+                {
+                    MainWindow.QLTile1Image,
+                    MainWindow.QLTile2Image,
+                    MainWindow.QLTile3Image,
+                    MainWindow.QLTile4Image,
+                    MainWindow.QLTile5Image,
+                    MainWindow.QLTile6Image,
+                    MainWindow.QLTile7Image,
+                    MainWindow.QLTile8Image,
+                    MainWindow.QLTile9Image,
+                    MainWindow.QLTile10Image,
+                    MainWindow.QLTile11Image,
+                    MainWindow.QLTile12Image,
+                    MainWindow.QLTile13Image,
+                    MainWindow.QLTile14Image,
+                    MainWindow.QLTile15Image,
+                    MainWindow.QLTile16Image,
+                };
+                return qlTileImages;
             }
         }
 

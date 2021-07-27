@@ -313,7 +313,7 @@
                 x:Name="CpuLoadFrame"
                 Width="103"
                 Height="34"
-                Margin="55,172,0,0"
+                Margin="55,171,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
@@ -332,7 +332,7 @@
             <Label
                 Width="103"
                 Height="24"
-                Margin="55,186,0,0"
+                Margin="55,185,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Right"
@@ -344,7 +344,7 @@
                 x:Name="CpuPowerFrame"
                 Width="103"
                 Height="34"
-                Margin="163,172,0,0"
+                Margin="163,171,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
@@ -363,7 +363,7 @@
             <Label
                 Width="103"
                 Height="24"
-                Margin="163,186,0,0"
+                Margin="163,185,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Right"
@@ -426,7 +426,7 @@
                 x:Name="MemAvailableFrame"
                 Width="103"
                 Height="34"
-                Margin="380,172,0,0"
+                Margin="380,171,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
@@ -445,7 +445,7 @@
             <Label
                 Width="103"
                 Height="24"
-                Margin="380,186,0,0"
+                Margin="380,185,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Right"
@@ -477,7 +477,7 @@
                 x:Name="GpuCoreClockFrame"
                 Width="103"
                 Height="34"
-                Margin="55,287,0,0"
+                Margin="55,286,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
@@ -495,8 +495,8 @@
                 FontStyle="Normal" />
             <Label
                 Width="103"
-                Height="23"
-                Margin="55,301,0,0"
+                Height="24"
+                Margin="55,300,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Right"
@@ -508,7 +508,7 @@
                 x:Name="GpuTempFrame"
                 Width="103"
                 Height="34"
-                Margin="163,287,0,0"
+                Margin="163,286,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
@@ -526,8 +526,8 @@
                 FontStyle="Normal" />
             <Label
                 Width="103"
-                Height="23"
-                Margin="163,301,0,0"
+                Height="24"
+                Margin="163,300,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Right"
@@ -539,7 +539,7 @@
                 x:Name="GpuLoadFrame"
                 Width="103"
                 Height="34"
-                Margin="271,287,0,0"
+                Margin="271,286,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
@@ -557,8 +557,8 @@
                 FontStyle="Normal" />
             <Label
                 Width="103"
-                Height="23"
-                Margin="271,301,0,0"
+                Height="24"
+                Margin="271,300,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Right"
@@ -570,7 +570,7 @@
                 x:Name="GpuVideoEngineFrame"
                 Width="103"
                 Height="34"
-                Margin="379,287,0,0"
+                Margin="379,286,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
@@ -578,7 +578,7 @@
             <Label
                 x:Name="GpuVideoEngineLabel"
                 Width="103"
-                Height="26"
+                Height="27"
                 Margin="379,285,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -588,7 +588,7 @@
                 FontStyle="Normal" />
             <Label
                 Width="103"
-                Height="23"
+                Height="24"
                 Margin="379,300,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -609,7 +609,7 @@
             <Label
                 x:Name="GpuMemClockLabel"
                 Width="103"
-                Height="26"
+                Height="27"
                 Margin="55,323,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -619,7 +619,7 @@
                 FontStyle="Normal" />
             <Label
                 Width="103"
-                Height="23"
+                Height="24"
                 Margin="55,338,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -640,7 +640,7 @@
             <Label
                 x:Name="GpuFanSpeedLabel"
                 Width="103"
-                Height="26"
+                Height="27"
                 Margin="163,323,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -650,7 +650,7 @@
                 FontStyle="Normal" />
             <Label
                 Width="103"
-                Height="23"
+                Height="24"
                 Margin="163,338,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -681,8 +681,8 @@
                 FontStyle="Normal" />
             <Label
                 Width="103"
-                Height="23"
-                Margin="271,339,0,0"
+                Height="24"
+                Margin="271,338,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Right"
@@ -702,7 +702,7 @@
             <Label
                 x:Name="GpuIMCLabel"
                 Width="103"
-                Height="26"
+                Height="27"
                 Margin="379,323,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -712,7 +712,7 @@
                 FontStyle="Normal" />
             <Label
                 Width="103"
-                Height="23"
+                Height="24"
                 Margin="379,338,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -899,7 +899,7 @@
             <Label
                 x:Name="NetworkUploadLabel"
                 Width="103"
-                Height="26"
+                Height="27"
                 Margin="0,434,61,0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
@@ -1262,7 +1262,7 @@
                 Background="#FF202329"
                 BorderThickness="1"
                 CornerRadius="10" />
-            <Grid Margin="48,135,51,61">
+            <Grid Margin="53,125,56,71">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="1*" />
@@ -1280,25 +1280,22 @@
                     Title=""
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile1_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile1Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top">
-                        <Image
-                            Width="55"
-                            Height="55"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center" />
-                    </mah:Badged>
+                    Tag="1"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile1Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile2"
@@ -1306,25 +1303,22 @@
                     Grid.Column="1"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile2_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile2Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top">
-                        <Image
-                            Width="55"
-                            Height="55"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center" />
-                    </mah:Badged>
+                    Tag="2"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile2Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile3"
@@ -1332,25 +1326,22 @@
                     Grid.Column="2"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile3_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile3Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top">
-                        <Image
-                            Width="55"
-                            Height="55"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center" />
-                    </mah:Badged>
+                    Tag="3"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile3Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile4"
@@ -1358,19 +1349,22 @@
                     Grid.Column="3"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile4_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile4Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="4"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile4Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile5"
@@ -1378,19 +1372,22 @@
                     Grid.Row="1"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile5_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile5Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="5"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile5Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile6"
@@ -1399,19 +1396,22 @@
                     Grid.Column="1"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile6_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile6Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="6"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile6Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile7"
@@ -1420,19 +1420,22 @@
                     Grid.Column="2"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile7_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile7Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="7"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile7Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile8"
@@ -1441,19 +1444,22 @@
                     Grid.Column="3"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile8_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile8Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="8"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile8Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile9"
@@ -1461,19 +1467,22 @@
                     Grid.Row="2"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile9_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile9Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="9"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile9Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile10"
@@ -1482,19 +1491,22 @@
                     Grid.Column="1"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile10_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile10Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="10"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile10Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile11"
@@ -1503,19 +1515,22 @@
                     Grid.Column="2"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile11_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile11Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="11"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile11Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile12"
@@ -1524,19 +1539,22 @@
                     Grid.Column="3"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile12_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile12Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="12"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile12Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile13"
@@ -1544,19 +1562,22 @@
                     Grid.Row="3"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile13_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile13Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="13"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile13Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile14"
@@ -1565,19 +1586,22 @@
                     Grid.Column="1"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile14_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile14Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="14"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile14Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile15"
@@ -1586,19 +1610,22 @@
                     Grid.Column="2"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile15_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile15Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="15"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile15Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
                     x:Name="QLTile16"
@@ -1607,19 +1634,22 @@
                     Grid.Column="3"
                     Width="Auto"
                     Height="Auto"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile16_Click"
+                    Click="QLTile_Click"
                     Cursor="Hand"
-                    HorizontalTitleAlignment="Right"
+                    HorizontalTitleAlignment="Center"
                     IsTabStop="False"
-                    TitleFontSize="17">
-                    <mah:Badged
-                        x:Name="QLTile16Badge"
-                        Badge=""
-                        BadgeBackground="DarkGray"
-                        BadgeForeground="Black"
-                        BadgePlacementMode="Top" />
+                    Tag="16"
+                    TitleFontSize="13"
+                    VerticalTitleAlignment="Bottom">
+                    <Image
+                        x:Name="QLTile16Image"
+                        Width="40"
+                        Height="40"
+                        Margin="0,8,0,0" />
                 </mah:Tile>
             </Grid>
         </Grid>
@@ -1791,9 +1821,9 @@
                         </TabItem.Header>
                         <Grid Margin="0,0,0.4,-0.2">
                             <TextBlock
-                                Width="403"
+                                Width="397"
                                 Height="Auto"
-                                Margin="37,25,0,0"
+                                Margin="43,25,0,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Top"
                                 FontSize="12"
@@ -1802,6 +1832,577 @@
                                 Text="Add/Remove quick launch shortcuts:"
                                 TextAlignment="Center"
                                 TextWrapping="Wrap" />
+                            <ScrollViewer
+                                Width="420"
+                                Height="280"
+                                Margin="23,61,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Grid
+                                    Width="388"
+                                    Height="481"
+                                    Margin="0,10,0,10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="30*" />
+                                        <RowDefinition Height="1*" />
+                                    </Grid.RowDefinitions>
+                                    <Label
+                                        Margin="0,-3,355,3.4"
+                                        Content=" 1"
+                                        FontSize="15" />
+                                    <Button
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="1" />
+                                    <TextBox
+                                        x:Name="QlTextBox1"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="1" />
+                                    <Button
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="1" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Margin="0,-3,355,3.4"
+                                        Content=" 2"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="1"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="2" />
+                                    <TextBox
+                                        x:Name="QlTextBox2"
+                                        Grid.Row="1"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="2" />
+                                    <Button
+                                        Grid.Row="1"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="2" />
+                                    <Label
+                                        Grid.Row="2"
+                                        Margin="0,-3,355,3.4"
+                                        Content=" 3"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="2"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="3" />
+                                    <TextBox
+                                        x:Name="QlTextBox3"
+                                        Grid.Row="2"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="3" />
+                                    <Button
+                                        Grid.Row="2"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="3" />
+                                    <Label
+                                        Grid.Row="3"
+                                        Margin="0,-3,355,3.4"
+                                        Content=" 4"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="3"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="4" />
+                                    <TextBox
+                                        x:Name="QlTextBox4"
+                                        Grid.Row="3"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="4" />
+                                    <Button
+                                        Grid.Row="3"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="4" />
+                                    <Label
+                                        Grid.Row="4"
+                                        Margin="0,-3,355,3.4"
+                                        Content=" 5"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="4"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="5" />
+                                    <TextBox
+                                        x:Name="QlTextBox5"
+                                        Grid.Row="4"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="5" />
+                                    <Button
+                                        Grid.Row="4"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="5" />
+                                    <Label
+                                        Grid.Row="5"
+                                        Margin="0,-3,355,3.4"
+                                        Content=" 6"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="5"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="6" />
+                                    <TextBox
+                                        x:Name="QlTextBox6"
+                                        Grid.Row="5"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="6" />
+                                    <Button
+                                        Grid.Row="5"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="6" />
+                                    <Label
+                                        Grid.Row="6"
+                                        Margin="0,-3,355,3.4"
+                                        Content=" 7"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="6"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="7" />
+                                    <TextBox
+                                        x:Name="QlTextBox7"
+                                        Grid.Row="6"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="7" />
+                                    <Button
+                                        Grid.Row="6"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="7" />
+                                    <Label
+                                        Grid.Row="7"
+                                        Margin="0,-3,355,3.4"
+                                        Content=" 8"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="7"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="8" />
+                                    <TextBox
+                                        x:Name="QlTextBox8"
+                                        Grid.Row="7"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="8" />
+                                    <Button
+                                        Grid.Row="7"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="8" />
+                                    <Label
+                                        Grid.Row="8"
+                                        Margin="0,-3,355,3.4"
+                                        Content=" 9"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="8"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="9" />
+                                    <TextBox
+                                        x:Name="QlTextBox9"
+                                        Grid.Row="8"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="9" />
+                                    <Button
+                                        Grid.Row="8"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="9" />
+                                    <Label
+                                        Grid.Row="9"
+                                        Margin="0,-3,355,3.4"
+                                        Content="10"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="9"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="10" />
+                                    <TextBox
+                                        x:Name="QlTextBox10"
+                                        Grid.Row="9"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="10" />
+                                    <Button
+                                        Grid.Row="9"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="10" />
+                                    <Label
+                                        Grid.Row="10"
+                                        Margin="0,-3,355,3.4"
+                                        Content="11"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="10"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="11" />
+                                    <TextBox
+                                        x:Name="QlTextBox11"
+                                        Grid.Row="10"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="11" />
+                                    <Button
+                                        Grid.Row="10"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="11" />
+                                    <Label
+                                        Grid.Row="11"
+                                        Margin="0,-3,355,3.4"
+                                        Content="12"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="11"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="12" />
+                                    <TextBox
+                                        x:Name="QlTextBox12"
+                                        Grid.Row="11"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="12" />
+                                    <Button
+                                        Grid.Row="11"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="12" />
+                                    <Label
+                                        Grid.Row="12"
+                                        Margin="0,-3,355,3.4"
+                                        Content="13"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="12"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="13" />
+                                    <TextBox
+                                        x:Name="QlTextBox13"
+                                        Grid.Row="12"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="13" />
+                                    <Button
+                                        Grid.Row="12"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="13" />
+                                    <Label
+                                        Grid.Row="13"
+                                        Margin="0,-3,355,3.4"
+                                        Content="14"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="13"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="14" />
+                                    <TextBox
+                                        x:Name="QlTextBox14"
+                                        Grid.Row="13"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="14" />
+                                    <Button
+                                        Grid.Row="13"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="14" />
+                                    <Label
+                                        Grid.Row="14"
+                                        Margin="0,-3,355,3.4"
+                                        Content="15"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="14"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="15" />
+                                    <TextBox
+                                        x:Name="QlTextBox15"
+                                        Grid.Row="14"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="15" />
+                                    <Button
+                                        Grid.Row="14"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="15" />
+                                    <Label
+                                        Grid.Row="15"
+                                        Margin="0,-3,355,3.4"
+                                        Content="16"
+                                        FontSize="15" />
+                                    <Button
+                                        Grid.Row="15"
+                                        Height="26"
+                                        Margin="33,0,286,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="Filepicker_OnClick"
+                                        Content="File"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="16" />
+                                    <TextBox
+                                        x:Name="QlTextBox16"
+                                        Grid.Row="15"
+                                        Margin="108,0,50,4.4"
+                                        HorizontalContentAlignment="Center"
+                                        KeyDown="QlNameEnter"
+                                        Tag="16" />
+                                    <Button
+                                        Grid.Row="15"
+                                        Height="26"
+                                        Margin="343,0,8,0"
+                                        VerticalAlignment="Top"
+                                        Background="{DynamicResource MahApps.Brushes.Accent}"
+                                        Click="QlResetTile"
+                                        Content="x"
+                                        Cursor="Hand"
+                                        FontSize="10"
+                                        Tag="16" />
+                                </Grid>
+                            </ScrollViewer>
                         </Grid>
                     </TabItem>
                     <TabItem

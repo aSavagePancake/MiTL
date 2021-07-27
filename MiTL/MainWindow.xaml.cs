@@ -1,6 +1,7 @@
 ﻿using ControlzEx.Theming;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.Globalization;
@@ -10,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace MiTL
 {
@@ -33,37 +36,38 @@ namespace MiTL
         private static string _audioDevice2;
         private static string _defaultAudioDevice;
         private static string _quicklaunch1Name;
-        private static string _quicklaunch2Name;
-        private static string _quicklaunch3Name;
-        private static string _quicklaunch4Name;
-        private static string _quicklaunch5Name;
-        private static string _quicklaunch6Name;
-        private static string _quicklaunch7Name;
-        private static string _quicklaunch8Name;
-        private static string _quicklaunch9Name;
-        private static string _quicklaunch10Name;
-        private static string _quicklaunch11Name;
-        private static string _quicklaunch12Name;
-        private static string _quicklaunch13Name;
-        private static string _quicklaunch14Name;
-        private static string _quicklaunch15Name;
-        private static string _quicklaunch16Name;
         private static string _quicklaunch1Path;
+        private static string _quicklaunch2Name;
         private static string _quicklaunch2Path;
+        private static string _quicklaunch3Name;
         private static string _quicklaunch3Path;
+        private static string _quicklaunch4Name;
         private static string _quicklaunch4Path;
+        private static string _quicklaunch5Name;
         private static string _quicklaunch5Path;
+        private static string _quicklaunch6Name;
         private static string _quicklaunch6Path;
+        private static string _quicklaunch7Name;
         private static string _quicklaunch7Path;
+        private static string _quicklaunch8Name;
         private static string _quicklaunch8Path;
+        private static string _quicklaunch9Name;
         private static string _quicklaunch9Path;
+        private static string _quicklaunch10Name;
         private static string _quicklaunch10Path;
+        private static string _quicklaunch11Name;
         private static string _quicklaunch11Path;
+        private static string _quicklaunch12Name;
         private static string _quicklaunch12Path;
+        private static string _quicklaunch13Name;
         private static string _quicklaunch13Path;
+        private static string _quicklaunch14Name;
         private static string _quicklaunch14Path;
+        private static string _quicklaunch15Name;
         private static string _quicklaunch15Path;
+        private static string _quicklaunch16Name;
         private static string _quicklaunch16Path;
+        private static string qlTileNumber = "";
 
         public MainWindow()
         {
@@ -80,7 +84,6 @@ namespace MiTL
             ShowActivePowerPlan();
             ShowDefaultAudioDevice();
             SetupComboListSources();
-            ShowQuicklaunchTiles();
 
             //start Monitoring
             StartTimerMonitor();
@@ -101,12 +104,8 @@ namespace MiTL
             if (!File.Exists(myConfigManager))
             {
                 ConfigManager.WriteConfigDefaults();
-                ReadSettings();
             }
-            else
-            {
-                ReadSettings();
-            }
+            ReadSettings();
 
             //set app theme
             ViewUpdater.SetAppTheme(this, _appTheme);
@@ -128,36 +127,36 @@ namespace MiTL
             _audioDevice2 = ConfigManager.IniRead("AudioDevice2");
             _defaultAudioDevice = ConfigManager.IniRead("DefaultAudioDevice");
             _quicklaunch1Name = ConfigManager.IniRead("Quicklaunch1Name");
-            _quicklaunch2Name = ConfigManager.IniRead("Quicklaunch2Name");
-            _quicklaunch3Name = ConfigManager.IniRead("Quicklaunch3Name");
-            _quicklaunch4Name = ConfigManager.IniRead("Quicklaunch4Name");
-            _quicklaunch5Name = ConfigManager.IniRead("Quicklaunch5Name");
-            _quicklaunch6Name = ConfigManager.IniRead("Quicklaunch6Name");
-            _quicklaunch7Name = ConfigManager.IniRead("Quicklaunch7Name");
-            _quicklaunch8Name = ConfigManager.IniRead("Quicklaunch8Name");
-            _quicklaunch9Name = ConfigManager.IniRead("Quicklaunch9Name");
-            _quicklaunch10Name = ConfigManager.IniRead("Quicklaunch10Name");
-            _quicklaunch11Name = ConfigManager.IniRead("Quicklaunch11Name");
-            _quicklaunch12Name = ConfigManager.IniRead("Quicklaunch12Name");
-            _quicklaunch13Name = ConfigManager.IniRead("Quicklaunch13Name");
-            _quicklaunch14Name = ConfigManager.IniRead("Quicklaunch14Name");
-            _quicklaunch15Name = ConfigManager.IniRead("Quicklaunch15Name");
-            _quicklaunch16Name = ConfigManager.IniRead("Quicklaunch16Name");
             _quicklaunch1Path = ConfigManager.IniRead("Quicklaunch1Path");
+            _quicklaunch2Name = ConfigManager.IniRead("Quicklaunch2Name");
             _quicklaunch2Path = ConfigManager.IniRead("Quicklaunch2Path");
+            _quicklaunch3Name = ConfigManager.IniRead("Quicklaunch3Name");
             _quicklaunch3Path = ConfigManager.IniRead("Quicklaunch3Path");
+            _quicklaunch4Name = ConfigManager.IniRead("Quicklaunch4Name");
             _quicklaunch4Path = ConfigManager.IniRead("Quicklaunch4Path");
+            _quicklaunch5Name = ConfigManager.IniRead("Quicklaunch5Name");
             _quicklaunch5Path = ConfigManager.IniRead("Quicklaunch5Path");
+            _quicklaunch6Name = ConfigManager.IniRead("Quicklaunch6Name");
             _quicklaunch6Path = ConfigManager.IniRead("Quicklaunch6Path");
+            _quicklaunch7Name = ConfigManager.IniRead("Quicklaunch7Name");
             _quicklaunch7Path = ConfigManager.IniRead("Quicklaunch7Path");
+            _quicklaunch8Name = ConfigManager.IniRead("Quicklaunch8Name");
             _quicklaunch8Path = ConfigManager.IniRead("Quicklaunch8Path");
+            _quicklaunch9Name = ConfigManager.IniRead("Quicklaunch9Name");
             _quicklaunch9Path = ConfigManager.IniRead("Quicklaunch9Path");
+            _quicklaunch10Name = ConfigManager.IniRead("Quicklaunch10Name");
             _quicklaunch10Path = ConfigManager.IniRead("Quicklaunch10Path");
+            _quicklaunch11Name = ConfigManager.IniRead("Quicklaunch11Name");
             _quicklaunch11Path = ConfigManager.IniRead("Quicklaunch11Path");
+            _quicklaunch12Name = ConfigManager.IniRead("Quicklaunch12Name");
             _quicklaunch12Path = ConfigManager.IniRead("Quicklaunch12Path");
+            _quicklaunch13Name = ConfigManager.IniRead("Quicklaunch13Name");
             _quicklaunch13Path = ConfigManager.IniRead("Quicklaunch13Path");
+            _quicklaunch14Name = ConfigManager.IniRead("Quicklaunch14Name");
             _quicklaunch14Path = ConfigManager.IniRead("Quicklaunch14Path");
+            _quicklaunch15Name = ConfigManager.IniRead("Quicklaunch15Name");
             _quicklaunch15Path = ConfigManager.IniRead("Quicklaunch15Path");
+            _quicklaunch16Name = ConfigManager.IniRead("Quicklaunch16Name");
             _quicklaunch16Path = ConfigManager.IniRead("Quicklaunch16Path");
         }
 
@@ -185,11 +184,11 @@ namespace MiTL
 
             if (activePlan.Contains(_powerPlanBalanced))
             {
-                _activePowerPlan = " " + "Balanced" + " ";
+                _activePowerPlan = " Balanced ";
             }
             if (activePlan.Contains(_powerPlanPerformance))
             {
-                _activePowerPlan = " " + "High Performance" + " ";
+                _activePowerPlan = " High Performance ";
             }
             if (PowerPlanBadge.ToString() != _activePowerPlan)
             {
@@ -239,6 +238,120 @@ namespace MiTL
 
         private void ShowQuicklaunchTiles()
         {
+            ReadSettings();
+
+            string iconFolder = Environment.CurrentDirectory + @"\ql_icons\";
+            string iconExtension = ".ico";
+
+            if (_quicklaunch1Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql1" + iconExtension;
+                QLTile1Image.Source = BitmapFromFile(iconPath);
+                QLTile1.Title = _quicklaunch1Name;
+            }
+            if (_quicklaunch2Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql2" + iconExtension;
+                QLTile2Image.Source = BitmapFromFile(iconPath);
+                QLTile2.Title = _quicklaunch2Name;
+            }
+            if (_quicklaunch3Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql3" + iconExtension;
+                QLTile3Image.Source = BitmapFromFile(iconPath);
+                QLTile3.Title = _quicklaunch3Name;
+            }
+            if (_quicklaunch4Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql4" + iconExtension;
+                QLTile4Image.Source = BitmapFromFile(iconPath);
+                QLTile4.Title = _quicklaunch4Name;
+            }
+            if (_quicklaunch5Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql5" + iconExtension;
+                QLTile5Image.Source = BitmapFromFile(iconPath);
+                QLTile5.Title = _quicklaunch5Name;
+            }
+            if (_quicklaunch6Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql6" + iconExtension;
+                QLTile6Image.Source = BitmapFromFile(iconPath);
+                QLTile6.Title = _quicklaunch6Name;
+            }
+            if (_quicklaunch7Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql7" + iconExtension;
+                QLTile7Image.Source = BitmapFromFile(iconPath);
+                QLTile7.Title = _quicklaunch7Name;
+            }
+            if (_quicklaunch8Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql8" + iconExtension;
+                QLTile8Image.Source = BitmapFromFile(iconPath);
+                QLTile8.Title = _quicklaunch8Name;
+            }
+            if (_quicklaunch9Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql9" + iconExtension;
+                QLTile9Image.Source = BitmapFromFile(iconPath);
+                QLTile9.Title = _quicklaunch9Name;
+            }
+            if (_quicklaunch10Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql10" + iconExtension;
+                QLTile10Image.Source = BitmapFromFile(iconPath);
+                QLTile10.Title = _quicklaunch10Name;
+            }
+            if (_quicklaunch11Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql11" + iconExtension;
+                QLTile11Image.Source = BitmapFromFile(iconPath);
+                QLTile11.Title = _quicklaunch11Name;
+            }
+            if (_quicklaunch12Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql12" + iconExtension;
+                QLTile12Image.Source = BitmapFromFile(iconPath);
+                QLTile12.Title = _quicklaunch12Name;
+            }
+            if (_quicklaunch13Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql13" + iconExtension;
+                QLTile13Image.Source = BitmapFromFile(iconPath);
+                QLTile13.Title = _quicklaunch13Name;
+            }
+            if (_quicklaunch14Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql4" + iconExtension;
+                QLTile14Image.Source = BitmapFromFile(iconPath);
+                QLTile14.Title = _quicklaunch14Name;
+            }
+            if (_quicklaunch15Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql15" + iconExtension;
+                QLTile15Image.Source = BitmapFromFile(iconPath);
+                QLTile15.Title = _quicklaunch15Name;
+            }
+            if (_quicklaunch16Name.Length > 1)
+            {
+                string iconPath = iconFolder + "ql16" + iconExtension;
+                QLTile16Image.Source = BitmapFromFile(iconPath);
+                QLTile16.Title = _quicklaunch16Name;
+            }
+        }
+
+        private ImageSource BitmapFromFile(string iconPath)
+        {
+            BitmapImage bitmap = new BitmapImage();
+            using (FileStream fs = new FileStream(iconPath, FileMode.Open))
+            {
+                bitmap.BeginInit();
+                bitmap.StreamSource = fs;
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.EndInit();
+            }
+            return bitmap;
         }
 
         private static void StartTimerMonitor()
@@ -408,131 +521,172 @@ namespace MiTL
             ConfigManager.IniWrite("CloseAfterburner", "false");
         }
 
-        private void QLTile1_Click(object sender, RoutedEventArgs e)
+        private void QLTile_Click(object sender, RoutedEventArgs e)
         {
-            if (_quicklaunch1Name.Length > 1)
+            if (sender is Tile SenderTile)
             {
-                Process.Start(_quicklaunch1Path);
+                qlTileNumber = SenderTile.Tag.ToString();
             }
-        }
 
-        private void QLTile2_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch2Name.Length > 1)
+            if (qlTileNumber == "1")
             {
-                Process.Start(_quicklaunch2Path);
+                if (_quicklaunch1Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch1Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile3_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch3Name.Length > 1)
+            if (qlTileNumber == "2")
             {
-                Process.Start(_quicklaunch3Path);
+                if (_quicklaunch2Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch2Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile4_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch4Name.Length > 1)
+            if (qlTileNumber == "3")
             {
-                Process.Start(_quicklaunch4Path);
+                if (_quicklaunch3Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch3Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile5_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch5Name.Length > 1)
+            if (qlTileNumber == "4")
             {
-                Process.Start(_quicklaunch5Path);
+                if (_quicklaunch4Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch4Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile6_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch6Name.Length > 1)
+            if (qlTileNumber == "5")
             {
-                Process.Start(_quicklaunch6Path);
+                if (_quicklaunch5Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch5Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile7_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch7Name.Length > 1)
+            if (qlTileNumber == "6")
             {
-                Process.Start(_quicklaunch7Path);
+                if (_quicklaunch6Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch6Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile8_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch8Name.Length > 1)
+            if (qlTileNumber == "7")
             {
-                Process.Start(_quicklaunch8Path);
+                if (_quicklaunch7Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch7Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile9_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch9Name.Length > 1)
+            if (qlTileNumber == "8")
             {
-                Process.Start(_quicklaunch9Path);
+                if (_quicklaunch8Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch8Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile10_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch10Name.Length > 1)
+            if (qlTileNumber == "9")
             {
-                Process.Start(_quicklaunch10Path);
+                if (_quicklaunch9Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch9Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile11_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch11Name.Length > 1)
+            if (qlTileNumber == "10")
             {
-                Process.Start(_quicklaunch11Path);
+                if (_quicklaunch10Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch10Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile12_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch12Name.Length > 1)
+            if (qlTileNumber == "11")
             {
-                Process.Start(_quicklaunch12Path);
+                if (_quicklaunch11Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch11Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile13_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch13Name.Length > 1)
+            if (qlTileNumber == "12")
             {
-                Process.Start(_quicklaunch13Path);
+                if (_quicklaunch12Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch12Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile14_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch14Name.Length > 1)
+            if (qlTileNumber == "13")
             {
-                Process.Start(_quicklaunch14Path);
+                if (_quicklaunch13Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch13Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile15_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch15Name.Length > 1)
+            if (qlTileNumber == "14")
             {
-                Process.Start(_quicklaunch15Path);
+                if (_quicklaunch14Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch14Path);
+                    }
+                }
             }
-        }
-
-        private void QLTile16_Click(object sender, RoutedEventArgs e)
-        {
-            if (_quicklaunch16Name.Length > 1)
+            if (qlTileNumber == "15")
             {
-                Process.Start(_quicklaunch16Path);
+                if (_quicklaunch15Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch15Path);
+                    }
+                }
+            }
+            if (qlTileNumber == "16")
+            {
+                if (_quicklaunch16Name.Length > 1)
+                {
+                    if (File.Exists(_quicklaunch1Path))
+                    {
+                        Process.Start(_quicklaunch16Path);
+                    }
+                }
             }
         }
 
@@ -643,31 +797,34 @@ namespace MiTL
             string keyPress = e.Key.ToString();
             double currentTimer = ServiceManager.CurrentTimerRes() / 10000.0;
 
-            if (keyPress.Equals(_gameModeHotKey))
+            if (GridSettings.Visibility == Visibility.Collapsed)
             {
-                switch (PowerPlanBadge.Badge.ToString())
+                if (keyPress.Equals(_gameModeHotKey))
                 {
-                    case " High Performance Profile " when currentTimer > 0.6:
-                        TimerResolutionTile_OnClick(sender, e);
-                        break;
+                    switch (PowerPlanBadge.Badge.ToString())
+                    {
+                        case " High Performance " when currentTimer > 0.6:
+                            TimerResolutionTile_OnClick(sender, e);
+                            break;
 
-                    case " Balanced Profile " when currentTimer < 0.6:
-                        PowerPlanTile_OnCLick(sender, e);
-                        break;
+                        case " Balanced " when currentTimer < 0.6:
+                            PowerPlanTile_OnCLick(sender, e);
+                            break;
 
-                    default:
-                        TimerResolutionTile_OnClick(sender, e);
-                        PowerPlanTile_OnCLick(sender, e);
-                        break;
+                        default:
+                            TimerResolutionTile_OnClick(sender, e);
+                            PowerPlanTile_OnCLick(sender, e);
+                            break;
+                    }
                 }
-            }
-            if (keyPress.Equals(_audioDeviceSwitchHotKey))
-            {
-                AudioDeviceSwitchTile_OnClick(sender, e);
-            }
-            if (keyPress.Equals(_exitAppHotKey))
-            {
-                MainWindow_Closed(sender, e);
+                if (keyPress.Equals(_audioDeviceSwitchHotKey))
+                {
+                    AudioDeviceSwitchTile_OnClick(sender, e);
+                }
+                if (keyPress.Equals(_exitAppHotKey))
+                {
+                    MainWindow_Closed(sender, e);
+                }
             }
         }
 
@@ -720,8 +877,6 @@ namespace MiTL
 
         private void NavPerformance_Click(object sender, RoutedEventArgs e)
         {
-            ReadSettings();
-
             if (_closeAfterburner == "true")
             {
                 ToggleCloseAfterburner.IsChecked = true;
@@ -738,6 +893,7 @@ namespace MiTL
 
         private void NavQuickLaunch_Click(object sender, RoutedEventArgs e)
         {
+            ShowQuicklaunchTiles();
             _viewGridName = GridQuickLaunch;
             _viewIndicatorName = NavQuickLaunchIndicator;
             NavUpdateView();
@@ -748,6 +904,16 @@ namespace MiTL
             _viewGridName = GridSettings;
             _viewIndicatorName = NavSettingsIndicator;
             NavUpdateView();
+
+            foreach (Image qlTileImage in ListManager.QuicklaunchTileImages)
+            {
+                qlTileImage.Source = null;
+            }
+
+            foreach (Tile qlTiles in ListManager.QuicklaunchTiles)
+            {
+                qlTiles.Title = null;
+            }
         }
 
         private void NavAbout_Click(object sender, RoutedEventArgs e)
@@ -755,7 +921,6 @@ namespace MiTL
             string assemblyLocation = Assembly.GetExecutingAssembly().Location;
             string fileVersion = FileVersionInfo.GetVersionInfo(assemblyLocation).FileVersion;
             VersionNumber.Content = "v" + fileVersion;
-
             _viewGridName = GridAbout;
             _viewIndicatorName = NavAboutIndicator;
             NavUpdateView();
@@ -779,6 +944,8 @@ namespace MiTL
 
         private void SettingsTab_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            ReadSettings();
+
             Label senderLabel = (Label)sender;
             string tabName = senderLabel.ToString();
 
@@ -798,6 +965,22 @@ namespace MiTL
             if (tabName.Contains("Quick Launch"))
             {
                 SettingsQuickLaunchindicator.Visibility = Visibility.Visible;
+                QlTextBox1.Text = _quicklaunch1Name;
+                QlTextBox2.Text = _quicklaunch2Name;
+                QlTextBox3.Text = _quicklaunch3Name;
+                QlTextBox4.Text = _quicklaunch4Name;
+                QlTextBox5.Text = _quicklaunch5Name;
+                QlTextBox6.Text = _quicklaunch6Name;
+                QlTextBox7.Text = _quicklaunch7Name;
+                QlTextBox8.Text = _quicklaunch8Name;
+                QlTextBox9.Text = _quicklaunch9Name;
+                QlTextBox10.Text = _quicklaunch10Name;
+                QlTextBox11.Text = _quicklaunch11Name;
+                QlTextBox12.Text = _quicklaunch12Name;
+                QlTextBox13.Text = _quicklaunch13Name;
+                QlTextBox14.Text = _quicklaunch14Name;
+                QlTextBox15.Text = _quicklaunch15Name;
+                QlTextBox16.Text = _quicklaunch16Name;
             }
             if (tabName.Contains("Hotkeys"))
             {
@@ -831,6 +1014,323 @@ namespace MiTL
                 if (currentTheme != null && currentTheme.Name == "Dark.Teal")
                 {
                     RadioTealTheme.IsChecked = true;
+                }
+            }
+        }
+
+        private void Filepicker_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button SenderButton)
+            {
+                qlTileNumber = SenderButton.Tag.ToString();
+            }
+
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Title = "Browse EXE Files",
+                DefaultExt = "exe",
+                Filter = "exe files (*.exe)|*.exe",
+                FilterIndex = 2,
+                CheckFileExists = true,
+                CheckPathExists = true,
+                RestoreDirectory = true,
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string fullFilename = openFileDialog.FileName;
+                string friendlyFileName = Path.GetFileNameWithoutExtension(openFileDialog.SafeFileName);
+                string configPath = "Quicklaunch" + qlTileNumber + "Path";
+                string configName = "Quicklaunch" + qlTileNumber + "Name";
+                ConfigManager.IniWrite(configPath, fullFilename);
+                ConfigManager.IniWrite(configName, friendlyFileName);
+                string labelName = "QlTextBox" + qlTileNumber;
+                TextBox qlTextBox = (TextBox)FindName(labelName);
+                qlTextBox.Text = friendlyFileName;
+                IconManager.GrabAndSaveIcon(qlTileNumber, fullFilename);
+                ReadSettings();
+            }
+        }
+
+        private void QlResetTile(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button SenderButton)
+            {
+                qlTileNumber = SenderButton.Tag.ToString();
+            }
+
+            string messageString = "Reset Quicklaunch Tile " + qlTileNumber + " ?";
+            if (MessageBox.Show(messageString, "Reset", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                string configPath = "Quicklaunch" + qlTileNumber + "Path";
+                string configName = "Quicklaunch" + qlTileNumber + "Name";
+                string iconPath = Environment.CurrentDirectory + @"\ql_icons\";
+                string iconFile = iconPath + "ql" + qlTileNumber + ".ico";
+                ConfigManager.IniWrite(configPath, "");
+                ConfigManager.IniWrite(configName, "");
+
+                if (File.Exists(iconFile))
+                {
+                    File.Delete(iconFile);
+                }
+
+                if (qlTileNumber == "1")
+                {
+                    if (_quicklaunch1Path.Length > 1)
+                    {
+                        QlTextBox1.Text = "";
+                    }
+                }
+                if (qlTileNumber == "2")
+                {
+                    if (_quicklaunch2Path.Length > 1)
+                    {
+                        QlTextBox2.Text = "";
+                    }
+                }
+                if (qlTileNumber == "3")
+                {
+                    if (_quicklaunch3Path.Length > 1)
+                    {
+                        QlTextBox3.Text = "";
+                    }
+                }
+                if (qlTileNumber == "4")
+                {
+                    if (_quicklaunch4Path.Length > 1)
+                    {
+                        QlTextBox4.Text = "";
+                    }
+                }
+                if (qlTileNumber == "5")
+                {
+                    if (_quicklaunch5Path.Length > 1)
+                    {
+                        QlTextBox5.Text = "";
+                    }
+                }
+                if (qlTileNumber == "6")
+                {
+                    if (_quicklaunch6Path.Length > 1)
+                    {
+                        QlTextBox6.Text = "";
+                    }
+                }
+                if (qlTileNumber == "7")
+                {
+                    if (_quicklaunch7Path.Length > 1)
+                    {
+                        QlTextBox7.Text = "";
+                    }
+                }
+                if (qlTileNumber == "8")
+                {
+                    if (_quicklaunch8Path.Length > 1)
+                    {
+                        QlTextBox8.Text = "";
+                    }
+                }
+                if (qlTileNumber == "9")
+                {
+                    if (_quicklaunch9Path.Length > 1)
+                    {
+                        QlTextBox9.Text = "";
+                    }
+                }
+                if (qlTileNumber == "10")
+                {
+                    if (_quicklaunch10Path.Length > 1)
+                    {
+                        QlTextBox10.Text = "";
+                    }
+                }
+                if (qlTileNumber == "11")
+                {
+                    if (_quicklaunch11Path.Length > 1)
+                    {
+                        QlTextBox11.Text = "";
+                    }
+                }
+                if (qlTileNumber == "12")
+                {
+                    if (_quicklaunch12Path.Length > 1)
+                    {
+                        QlTextBox12.Text = "";
+                    }
+                }
+                if (qlTileNumber == "13")
+                {
+                    if (_quicklaunch13Path.Length > 1)
+                    {
+                        QlTextBox13.Text = "";
+                    }
+                }
+                if (qlTileNumber == "14")
+                {
+                    if (_quicklaunch14Path.Length > 1)
+                    {
+                        QlTextBox14.Text = "";
+                    }
+                }
+                if (qlTileNumber == "15")
+                {
+                    if (_quicklaunch15Path.Length > 1)
+                    {
+                        QlTextBox15.Text = "";
+                    }
+                }
+                if (qlTileNumber == "16")
+                {
+                    if (_quicklaunch16Path.Length > 1)
+                    {
+                        QlTextBox16.Text = "";
+                    }
+                }
+            }
+        }
+
+        private void QlNameEnter(object sender, KeyEventArgs e)
+        {
+            if (sender is TextBox SenderTextBox)
+            {
+                qlTileNumber = SenderTextBox.Tag.ToString();
+            }
+
+            string configName = "Quicklaunch" + qlTileNumber + "Name";
+            if (e.Key == Key.Enter)
+            {
+                string configValue;
+
+                if (qlTileNumber == "1")
+                {
+                    if (_quicklaunch1Path.Length > 1)
+                    {
+                        configValue = QlTextBox1.Text.ToString();
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "2")
+                {
+                    if (_quicklaunch2Path.Length > 1)
+                    {
+                        configValue = QlTextBox2.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "3")
+                {
+                    if (_quicklaunch3Path.Length > 1)
+                    {
+                        configValue = QlTextBox3.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "4")
+                {
+                    if (_quicklaunch4Path.Length > 1)
+                    {
+                        configValue = QlTextBox4.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "5")
+                {
+                    if (_quicklaunch5Path.Length > 1)
+                    {
+                        configValue = QlTextBox5.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "6")
+                {
+                    if (_quicklaunch6Path.Length > 1)
+                    {
+                        configValue = QlTextBox6.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "7")
+                {
+                    if (_quicklaunch7Path.Length > 1)
+                    {
+                        configValue = QlTextBox7.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "8")
+                {
+                    if (_quicklaunch8Path.Length > 1)
+                    {
+                        configValue = QlTextBox8.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "9")
+                {
+                    if (_quicklaunch9Path.Length > 1)
+                    {
+                        configValue = QlTextBox9.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "10")
+                {
+                    if (_quicklaunch10Path.Length > 1)
+                    {
+                        configValue = QlTextBox10.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "11")
+                {
+                    if (_quicklaunch11Path.Length > 1)
+                    {
+                        configValue = QlTextBox11.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "12")
+                {
+                    if (_quicklaunch12Path.Length > 1)
+                    {
+                        configValue = QlTextBox12.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "13")
+                {
+                    if (_quicklaunch13Path.Length > 1)
+                    {
+                        configValue = QlTextBox13.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "14")
+                {
+                    if (_quicklaunch14Path.Length > 1)
+                    {
+                        configValue = QlTextBox14.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "15")
+                {
+                    if (_quicklaunch15Path.Length > 1)
+                    {
+                        configValue = QlTextBox15.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
+                }
+                if (qlTileNumber == "16")
+                {
+                    if (_quicklaunch16Path.Length > 1)
+                    {
+                        configValue = QlTextBox16.Text;
+                        ConfigManager.IniWrite(configName, configValue);
+                    }
                 }
             }
         }
