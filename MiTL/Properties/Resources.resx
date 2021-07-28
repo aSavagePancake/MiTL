@@ -120,6 +120,9 @@
   <data name="CloseAfterburner" xml:space="preserve">
     <value>false</value>
   </data>
+  <data name="CloseOnQuicklaunch" xml:space="preserve">
+    <value>false</value>
+  </data>
   <data name="DefaultAppTheme" xml:space="preserve">
     <value>Dark.Blue</value>
   </data>

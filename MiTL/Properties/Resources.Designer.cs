@@ -70,6 +70,15 @@ namespace MiTL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to false.
+        /// </summary>
+        internal static string CloseOnQuicklaunch {
+            get {
+                return ResourceManager.GetString("CloseOnQuicklaunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dark.Blue.
         /// </summary>
         internal static string DefaultAppTheme {

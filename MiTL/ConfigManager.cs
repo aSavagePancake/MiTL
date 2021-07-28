@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Xml.Linq;
 
 namespace MiTL
 {
@@ -37,39 +36,22 @@ namespace MiTL
             WritePrivateProfileString(section ?? _exe, key, value, _path);
         }
 
-        //xml file management ... >
-        public static string XmlRead(string fullXmlFilePath)
-        {
-            string str = string.Empty;
-
-            XDocument doc = XDocument.Load(fullXmlFilePath);
-            System.Collections.Generic.IEnumerable<XElement> selectors = from elements in doc.Elements("profile").Elements("info")
-                                                                         select elements;
-
-            foreach (XElement element in selectors)
-            {
-                str = element.Element("profile_name")?.Value;
-            }
-            return str;
-        }
-
         public void WriteConfigDefaults()
         {
             string defaultAppTheme = Properties.Resources.DefaultAppTheme;
             string defaultGameModeHotKey = Properties.Resources.DefaultGameModeHotKey;
             string defaultAudioDeviceSwitchHotKey = Properties.Resources.DefaultAudioDeviceSwitchHotKey;
             string defaultExitAppHotKey = Properties.Resources.DefaultExitAppHotkey;
-            string msiabFilePath = Properties.Resources.MSIAB_FilePath;
+            string closeAfterburner = Properties.Resources.CloseAfterburner;
             string defaultStockProfile = Properties.Resources.DefaultGpuStockProfile;
             string defaultOcProfile = Properties.Resources.DefaultGpuOCProfile;
-            string closeAfterburner = Properties.Resources.CloseAfterburner;
-            IniWrite("StockProfile", defaultStockProfile);
-            IniWrite("OCProfile", defaultOcProfile);
-            IniWrite("CloseAfterburner", closeAfterburner);
             IniWrite("AppTheme", defaultAppTheme);
             IniWrite("GameModeHotKey", defaultGameModeHotKey);
             IniWrite("AudioDeviceSwitchHotKey", defaultAudioDeviceSwitchHotKey);
             IniWrite("ExitAppHotKey", defaultExitAppHotKey);
+            IniWrite("CloseAfterburner", closeAfterburner);
+            IniWrite("StockProfile", defaultStockProfile);
+            IniWrite("OCProfile", defaultOcProfile);
 
             if (ListManager.PowerPlanList.Count == 1)
             {
@@ -93,10 +75,10 @@ namespace MiTL
             }
             else if (ListManager.AudioDevicesList.Count > 1)
             {
-                foreach ((string value, int i) item in ListManager.AudioDevicesList.Select((value, i) => (value, i)))
+                foreach ((string value, int i) device in ListManager.AudioDevicesList.Select((value, i) => (value, i)))
                 {
-                    string value = item.value;
-                    int index = item.i + 1;
+                    string value = device.value;
+                    int index = device.i + 1;
                     string deviceNumber = "AudioDevice" + index.ToString();
                     string audioDevice = ListManager.AudioDevicesList.ElementAt(index);
                     IniWrite(deviceNumber, audioDevice);
@@ -106,7 +88,10 @@ namespace MiTL
             string defaultAudioDevice = ListManager.DefaultAudioDevice;
             IniWrite("DefaultAudioDevice", defaultAudioDevice);
 
-            List<string> qlConfig = new List<string>
+            string closeOnQuicklaunch = Properties.Resources.CloseOnQuicklaunch;
+            IniWrite("CloseOnQuicklaunch", closeOnQuicklaunch);
+
+            List<string> qlConfigTitles = new List<string>
             {
                 "Quicklaunch1Name",
                 "Quicklaunch1Path",
@@ -142,7 +127,7 @@ namespace MiTL
                 "Quicklaunch16Path",
             };
 
-            foreach (string qlConfigTitle in qlConfig)
+            foreach (string qlConfigTitle in qlConfigTitles)
             {
                 IniWrite(qlConfigTitle, "");
             }

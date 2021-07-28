@@ -1652,6 +1652,18 @@
                         Margin="0,8,0,0" />
                 </mah:Tile>
             </Grid>
+            <CheckBox
+                x:Name="ToggleCloseOnQuicklaunch"
+                Width="auto"
+                Height="18"
+                Margin="176,492,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Left"
+                Checked="ToggleCloseOnQuicklaunch_Checked"
+                Content="Close MiTL after launching application"
+                FontSize="10"
+                Unchecked="ToggleCloseOnQuicklaunch_Unchecked" />
         </Grid>
 
         <!--  settings grid view  -->

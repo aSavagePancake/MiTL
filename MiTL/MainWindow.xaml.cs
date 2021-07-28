@@ -36,6 +36,7 @@ namespace MiTL
         private static string _audioDevice1;
         private static string _audioDevice2;
         private static string _defaultAudioDevice;
+        private static string _closeOnQuicklaunch;
         private static string _quicklaunch1Name;
         private static string _quicklaunch1Path;
         private static string _quicklaunch2Name;
@@ -124,6 +125,7 @@ namespace MiTL
             _audioDevice1 = ConfigManager.IniRead("AudioDevice1");
             _audioDevice2 = ConfigManager.IniRead("AudioDevice2");
             _defaultAudioDevice = ConfigManager.IniRead("DefaultAudioDevice");
+            _closeOnQuicklaunch = ConfigManager.IniRead("CloseOnQuicklaunch");
             _quicklaunch1Name = ConfigManager.IniRead("Quicklaunch1Name");
             _quicklaunch1Path = ConfigManager.IniRead("Quicklaunch1Path");
             _quicklaunch2Name = ConfigManager.IniRead("Quicklaunch2Name");
@@ -236,12 +238,12 @@ namespace MiTL
 
         private void ShowQuicklaunchTiles()
         {
-            ReadSettings();
+            //ReadSettings();
 
             string iconFolder = Environment.CurrentDirectory + @"\ql_icons\";
             string iconExtension = ".ico";
 
-            List<string> qlIconName = new List<string>
+            List<string> qlIconNames = new List<string>
             {
                 "ql1",
                 "ql2",
@@ -261,10 +263,10 @@ namespace MiTL
                 "ql16"
             };
 
-            foreach (string item in qlIconName)
+            foreach (string qlIconName in qlIconNames)
             {
-                string qlTileNumber = item;
-                int index = qlIconName.IndexOf(qlTileNumber);
+                string qlTileNumber = qlIconName;
+                int index = qlIconNames.IndexOf(qlTileNumber);
 
                 string qlName = QlNames[index];
                 Tile qlTile = ListManager.QuicklaunchTiles[index];
@@ -475,10 +477,23 @@ namespace MiTL
             {
                 if (File.Exists(qlPath))
                 {
-                    //ProcessManager.CloseAfterProcessStart(qlName);
+                    if (ToggleCloseOnQuicklaunch.IsChecked == true)
+                    {
+                        ProcessManager.CloseAfterProcessStart(qlName);
+                    }
                     Process.Start(qlPath);
                 }
             }
+        }
+
+        private void ToggleCloseOnQuicklaunch_Checked(object sender, RoutedEventArgs e)
+        {
+            ConfigManager.IniWrite("CloseOnQuicklaunch", "true");
+        }
+
+        private void ToggleCloseOnQuicklaunch_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ConfigManager.IniWrite("CloseOnQuicklaunch", "false");
         }
 
         private void RadioRedTheme_OnChecked(object sender, RoutedEventArgs e)
@@ -668,6 +683,8 @@ namespace MiTL
 
         private void NavPerformance_Click(object sender, RoutedEventArgs e)
         {
+            ReadSettings();
+
             if (_closeAfterburner == "true")
             {
                 ToggleCloseAfterburner.IsChecked = true;
@@ -684,7 +701,19 @@ namespace MiTL
 
         private void NavQuickLaunch_Click(object sender, RoutedEventArgs e)
         {
+            ReadSettings();
+
+            if (_closeOnQuicklaunch == "true")
+            {
+                ToggleCloseOnQuicklaunch.IsChecked = true;
+            }
+            else
+            {
+                ToggleCloseOnQuicklaunch.IsChecked = false;
+            }
+
             ShowQuicklaunchTiles();
+
             _viewGridName = GridQuickLaunch;
             _viewIndicatorName = NavQuickLaunchIndicator;
             NavUpdateView();
@@ -719,14 +748,14 @@ namespace MiTL
 
         private void NavUpdateView()
         {
-            foreach (Border viewIndicator in ListManager.NavigationIndicators)
+            foreach (Border navIndicator in ListManager.NavigationIndicators)
             {
-                viewIndicator.Visibility = Visibility.Collapsed;
+                navIndicator.Visibility = Visibility.Collapsed;
             }
 
-            foreach (Grid viewGrid in ListManager.NavigationGrids)
+            foreach (Grid navGrid in ListManager.NavigationGrids)
             {
-                viewGrid.Visibility = Visibility.Collapsed;
+                navGrid.Visibility = Visibility.Collapsed;
             }
 
             _viewIndicatorName.Visibility = Visibility.Visible;
@@ -759,9 +788,9 @@ namespace MiTL
 
                 int index = 0;
 
-                foreach (TextBox item in ListManager.QuicklaunchTexBoxes)
+                foreach (TextBox qlTextBox in ListManager.QuicklaunchTexBoxes)
                 {
-                    item.Text = QlNames[index];
+                    qlTextBox.Text = QlNames[index];
                     index++;
                 }
             }
