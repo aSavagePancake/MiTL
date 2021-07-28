@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -104,38 +105,47 @@ namespace MiTL
 
             string defaultAudioDevice = ListManager.DefaultAudioDevice;
             IniWrite("DefaultAudioDevice", defaultAudioDevice);
-            IniWrite("Quicklaunch1Name", "");
-            IniWrite("Quicklaunch1Path", "");
-            IniWrite("Quicklaunch2Name", "");
-            IniWrite("Quicklaunch2Path", "");
-            IniWrite("Quicklaunch3Name", "");
-            IniWrite("Quicklaunch3Path", "");
-            IniWrite("Quicklaunch4Name", "");
-            IniWrite("Quicklaunch4Path", "");
-            IniWrite("Quicklaunch5Name", "");
-            IniWrite("Quicklaunch5Path", "");
-            IniWrite("Quicklaunch6Name", "");
-            IniWrite("Quicklaunch6Path", "");
-            IniWrite("Quicklaunch7Name", "");
-            IniWrite("Quicklaunch7Path", "");
-            IniWrite("Quicklaunch8Name", "");
-            IniWrite("Quicklaunch8Path", "");
-            IniWrite("Quicklaunch9Name", "");
-            IniWrite("Quicklaunch9Path", "");
-            IniWrite("Quicklaunch10Name", "");
-            IniWrite("Quicklaunch10Path", "");
-            IniWrite("Quicklaunch11Name", "");
-            IniWrite("Quicklaunch11Path", "");
-            IniWrite("Quicklaunch12Name", "");
-            IniWrite("Quicklaunch12Path", "");
-            IniWrite("Quicklaunch13Name", "");
-            IniWrite("Quicklaunch13Path", "");
-            IniWrite("Quicklaunch14Name", "");
-            IniWrite("Quicklaunch14Path", "");
-            IniWrite("Quicklaunch15Name", "");
-            IniWrite("Quicklaunch15Path", "");
-            IniWrite("Quicklaunch16Name", "");
-            IniWrite("Quicklaunch16Path", "");
+
+            List<string> qlConfig = new List<string>
+            {
+                "Quicklaunch1Name",
+                "Quicklaunch1Path",
+                "Quicklaunch2Name",
+                "Quicklaunch2Path",
+                "Quicklaunch3Name",
+                "Quicklaunch3Path",
+                "Quicklaunch4Name",
+                "Quicklaunch4Path",
+                "Quicklaunch5Name",
+                "Quicklaunch5Path",
+                "Quicklaunch6Name",
+                "Quicklaunch6Path",
+                "Quicklaunch7Name",
+                "Quicklaunch7Path",
+                "Quicklaunch8Name",
+                "Quicklaunch8Path",
+                "Quicklaunch9Name",
+                "Quicklaunch9Path",
+                "Quicklaunch10Name",
+                "Quicklaunch10Path",
+                "Quicklaunch11Name",
+                "Quicklaunch11Path",
+                "Quicklaunch12Name",
+                "Quicklaunch12Path",
+                "Quicklaunch13Name",
+                "Quicklaunch13Path",
+                "Quicklaunch14Name",
+                "Quicklaunch14Path",
+                "Quicklaunch15Name",
+                "Quicklaunch15Path",
+                "Quicklaunch16Name",
+                "Quicklaunch16Path",
+            };
+
+            foreach (string qlConfigTitle in qlConfig)
+            {
+                IniWrite(qlConfigTitle, "");
+            }
         }
     }
 }

@@ -242,24 +242,24 @@ namespace MiTL
             string iconExtension = ".ico";
 
             List<string> qlIconName = new List<string>
-                {
-                    "ql1",
-                    "ql2",
-                    "ql3",
-                    "ql4",
-                    "ql5",
-                    "ql6",
-                    "ql7",
-                    "ql8",
-                    "ql9",
-                    "ql10",
-                    "ql11",
-                    "ql12",
-                    "ql13",
-                    "ql14",
-                    "ql15",
-                    "ql16"
-                };
+            {
+                "ql1",
+                "ql2",
+                "ql3",
+                "ql4",
+                "ql5",
+                "ql6",
+                "ql7",
+                "ql8",
+                "ql9",
+                "ql10",
+                "ql11",
+                "ql12",
+                "ql13",
+                "ql14",
+                "ql15",
+                "ql16"
+            };
 
             foreach (string item in qlIconName)
             {

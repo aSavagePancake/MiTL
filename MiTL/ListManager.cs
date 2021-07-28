@@ -179,7 +179,7 @@ namespace MiTL
                     MainWindow.QLTile13,
                     MainWindow.QLTile14,
                     MainWindow.QLTile15,
-                    MainWindow.QLTile16,
+                    MainWindow.QLTile16
                 };
                 return qlTiles;
             }
@@ -206,7 +206,7 @@ namespace MiTL
                     MainWindow.QLTile13Image,
                     MainWindow.QLTile14Image,
                     MainWindow.QLTile15Image,
-                    MainWindow.QLTile16Image,
+                    MainWindow.QLTile16Image
                 };
                 return qlTileImages;
             }
@@ -233,7 +233,7 @@ namespace MiTL
                     MainWindow.QlTextBox13,
                     MainWindow.QlTextBox14,
                     MainWindow.QlTextBox15,
-                    MainWindow.QlTextBox16,
+                    MainWindow.QlTextBox16
                 };
                 return qlTextBoxes;
             }
