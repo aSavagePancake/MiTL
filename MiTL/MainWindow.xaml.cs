@@ -734,6 +734,18 @@ namespace MiTL
             {
                 qlTiles.Title = null;
             }
+
+            ServiceManager.MiTLService.Refresh();
+            if (ServiceManager.ServiceExists())
+            {
+                InstallServiceButton.IsEnabled = false;
+                UninstallServiceButton.IsEnabled = true;
+            }
+            else
+            {
+                InstallServiceButton.IsEnabled = true;
+                UninstallServiceButton.IsEnabled = false;
+            }
         }
 
         private void NavAbout_Click(object sender, RoutedEventArgs e)
