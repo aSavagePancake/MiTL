@@ -158,7 +158,7 @@ namespace MiTL
             }
         }
 
-        internal IEnumerable<Tile> QuicklaunchTiles
+        internal List<Tile> QuicklaunchTiles
         {
             get
             {
@@ -185,7 +185,7 @@ namespace MiTL
             }
         }
 
-        internal IEnumerable<Image> QuicklaunchTileImages
+        internal List<Image> QuicklaunchTileImages
         {
             get
             {
@@ -212,19 +212,30 @@ namespace MiTL
             }
         }
 
-        internal static List<string> MsiAbProfileList
+        internal List<TextBox> QuicklaunchTexBoxes
         {
             get
             {
-                var hotKeyMsiAb = new List<string>
+                List<TextBox> qlTextBoxes = new List<TextBox>
                 {
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5"
+                    MainWindow.QlTextBox1,
+                    MainWindow.QlTextBox2,
+                    MainWindow.QlTextBox3,
+                    MainWindow.QlTextBox4,
+                    MainWindow.QlTextBox5,
+                    MainWindow.QlTextBox6,
+                    MainWindow.QlTextBox7,
+                    MainWindow.QlTextBox8,
+                    MainWindow.QlTextBox9,
+                    MainWindow.QlTextBox10,
+                    MainWindow.QlTextBox11,
+                    MainWindow.QlTextBox12,
+                    MainWindow.QlTextBox13,
+                    MainWindow.QlTextBox14,
+                    MainWindow.QlTextBox15,
+                    MainWindow.QlTextBox16,
                 };
-                return hotKeyMsiAb;
+                return qlTextBoxes;
             }
         }
 

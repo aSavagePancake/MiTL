@@ -3,6 +3,7 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -94,10 +95,7 @@ namespace MiTL
         private void Startup()
         {
             //check for duplicate process instances
-            if (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly()?.Location)).Length > 1)
-            {
-                Process.GetCurrentProcess().Kill();
-            }
+            ProcessManager.TerminateDuplicate();
 
             //check if config file exists, if not write default config file
             string myConfigManager = Properties.Resources.MyConfigManager;
@@ -243,101 +241,42 @@ namespace MiTL
             string iconFolder = Environment.CurrentDirectory + @"\ql_icons\";
             string iconExtension = ".ico";
 
-            if (_quicklaunch1Name.Length > 1)
+            List<string> qlIconName = new List<string>
+                {
+                    "ql1",
+                    "ql2",
+                    "ql3",
+                    "ql4",
+                    "ql5",
+                    "ql6",
+                    "ql7",
+                    "ql8",
+                    "ql9",
+                    "ql10",
+                    "ql11",
+                    "ql12",
+                    "ql13",
+                    "ql14",
+                    "ql15",
+                    "ql16"
+                };
+
+            foreach (string item in qlIconName)
             {
-                string iconPath = iconFolder + "ql1" + iconExtension;
-                QLTile1Image.Source = BitmapFromFile(iconPath);
-                QLTile1.Title = _quicklaunch1Name;
-            }
-            if (_quicklaunch2Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql2" + iconExtension;
-                QLTile2Image.Source = BitmapFromFile(iconPath);
-                QLTile2.Title = _quicklaunch2Name;
-            }
-            if (_quicklaunch3Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql3" + iconExtension;
-                QLTile3Image.Source = BitmapFromFile(iconPath);
-                QLTile3.Title = _quicklaunch3Name;
-            }
-            if (_quicklaunch4Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql4" + iconExtension;
-                QLTile4Image.Source = BitmapFromFile(iconPath);
-                QLTile4.Title = _quicklaunch4Name;
-            }
-            if (_quicklaunch5Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql5" + iconExtension;
-                QLTile5Image.Source = BitmapFromFile(iconPath);
-                QLTile5.Title = _quicklaunch5Name;
-            }
-            if (_quicklaunch6Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql6" + iconExtension;
-                QLTile6Image.Source = BitmapFromFile(iconPath);
-                QLTile6.Title = _quicklaunch6Name;
-            }
-            if (_quicklaunch7Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql7" + iconExtension;
-                QLTile7Image.Source = BitmapFromFile(iconPath);
-                QLTile7.Title = _quicklaunch7Name;
-            }
-            if (_quicklaunch8Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql8" + iconExtension;
-                QLTile8Image.Source = BitmapFromFile(iconPath);
-                QLTile8.Title = _quicklaunch8Name;
-            }
-            if (_quicklaunch9Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql9" + iconExtension;
-                QLTile9Image.Source = BitmapFromFile(iconPath);
-                QLTile9.Title = _quicklaunch9Name;
-            }
-            if (_quicklaunch10Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql10" + iconExtension;
-                QLTile10Image.Source = BitmapFromFile(iconPath);
-                QLTile10.Title = _quicklaunch10Name;
-            }
-            if (_quicklaunch11Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql11" + iconExtension;
-                QLTile11Image.Source = BitmapFromFile(iconPath);
-                QLTile11.Title = _quicklaunch11Name;
-            }
-            if (_quicklaunch12Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql12" + iconExtension;
-                QLTile12Image.Source = BitmapFromFile(iconPath);
-                QLTile12.Title = _quicklaunch12Name;
-            }
-            if (_quicklaunch13Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql13" + iconExtension;
-                QLTile13Image.Source = BitmapFromFile(iconPath);
-                QLTile13.Title = _quicklaunch13Name;
-            }
-            if (_quicklaunch14Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql4" + iconExtension;
-                QLTile14Image.Source = BitmapFromFile(iconPath);
-                QLTile14.Title = _quicklaunch14Name;
-            }
-            if (_quicklaunch15Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql15" + iconExtension;
-                QLTile15Image.Source = BitmapFromFile(iconPath);
-                QLTile15.Title = _quicklaunch15Name;
-            }
-            if (_quicklaunch16Name.Length > 1)
-            {
-                string iconPath = iconFolder + "ql16" + iconExtension;
-                QLTile16Image.Source = BitmapFromFile(iconPath);
-                QLTile16.Title = _quicklaunch16Name;
+                string qlTileNumber = item;
+                int index = qlIconName.IndexOf(qlTileNumber);
+
+                string qlName = QlNames[index];
+                Tile qlTile = ListManager.QuicklaunchTiles[index];
+                Image qlImage = ListManager.QuicklaunchTileImages[index];
+
+                string iconPath = iconFolder + qlTileNumber + iconExtension;
+
+                if (qlName.Length > 1)
+                {
+                    qlImage.Source = BitmapFromFile(iconPath);
+                    qlTile.Title = qlName;
+                }
             }
         }
 
@@ -503,10 +442,10 @@ namespace MiTL
                 Task.Factory.StartNew(async () =>
                 {
                     await Task.Delay(1500);
-                    TerminateApp("MSIAfterburner");
-                    TerminateApp("RTSS");
-                    TerminateApp("RTSSHooksLoader");
-                    TerminateApp("RTSSHooksLoader64");
+                    ProcessManager.TerminateApp("MSIAfterburner");
+                    ProcessManager.TerminateApp("RTSS");
+                    ProcessManager.TerminateApp("RTSSHooksLoader");
+                    ProcessManager.TerminateApp("RTSSHooksLoader64");
                 });
             }
         }
@@ -528,164 +467,16 @@ namespace MiTL
                 qlTileNumber = SenderTile.Tag.ToString();
             }
 
-            if (qlTileNumber == "1")
+            int qlindexNumber = int.Parse(qlTileNumber) - 1;
+            string qlName = QlNames[qlindexNumber];
+            string qlPath = QlPaths[qlindexNumber];
+
+            if (qlName.Length > 1)
             {
-                if (_quicklaunch1Name.Length > 1)
+                if (File.Exists(qlPath))
                 {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch1Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "2")
-            {
-                if (_quicklaunch2Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch2Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "3")
-            {
-                if (_quicklaunch3Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch3Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "4")
-            {
-                if (_quicklaunch4Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch4Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "5")
-            {
-                if (_quicklaunch5Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch5Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "6")
-            {
-                if (_quicklaunch6Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch6Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "7")
-            {
-                if (_quicklaunch7Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch7Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "8")
-            {
-                if (_quicklaunch8Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch8Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "9")
-            {
-                if (_quicklaunch9Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch9Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "10")
-            {
-                if (_quicklaunch10Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch10Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "11")
-            {
-                if (_quicklaunch11Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch11Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "12")
-            {
-                if (_quicklaunch12Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch12Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "13")
-            {
-                if (_quicklaunch13Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch13Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "14")
-            {
-                if (_quicklaunch14Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch14Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "15")
-            {
-                if (_quicklaunch15Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch15Path);
-                    }
-                }
-            }
-            if (qlTileNumber == "16")
-            {
-                if (_quicklaunch16Name.Length > 1)
-                {
-                    if (File.Exists(_quicklaunch1Path))
-                    {
-                        Process.Start(_quicklaunch16Path);
-                    }
+                    //ProcessManager.CloseAfterProcessStart(qlName);
+                    Process.Start(qlPath);
                 }
             }
         }
@@ -965,22 +756,14 @@ namespace MiTL
             if (tabName.Contains("Quick Launch"))
             {
                 SettingsQuickLaunchindicator.Visibility = Visibility.Visible;
-                QlTextBox1.Text = _quicklaunch1Name;
-                QlTextBox2.Text = _quicklaunch2Name;
-                QlTextBox3.Text = _quicklaunch3Name;
-                QlTextBox4.Text = _quicklaunch4Name;
-                QlTextBox5.Text = _quicklaunch5Name;
-                QlTextBox6.Text = _quicklaunch6Name;
-                QlTextBox7.Text = _quicklaunch7Name;
-                QlTextBox8.Text = _quicklaunch8Name;
-                QlTextBox9.Text = _quicklaunch9Name;
-                QlTextBox10.Text = _quicklaunch10Name;
-                QlTextBox11.Text = _quicklaunch11Name;
-                QlTextBox12.Text = _quicklaunch12Name;
-                QlTextBox13.Text = _quicklaunch13Name;
-                QlTextBox14.Text = _quicklaunch14Name;
-                QlTextBox15.Text = _quicklaunch15Name;
-                QlTextBox16.Text = _quicklaunch16Name;
+
+                int index = 0;
+
+                foreach (TextBox item in ListManager.QuicklaunchTexBoxes)
+                {
+                    item.Text = QlNames[index];
+                    index++;
+                }
             }
             if (tabName.Contains("Hotkeys"))
             {
@@ -1077,117 +860,13 @@ namespace MiTL
                     File.Delete(iconFile);
                 }
 
-                if (qlTileNumber == "1")
+                int qlindexNumber = int.Parse(qlTileNumber) - 1;
+                string qlPath = QlPaths[qlindexNumber];
+                TextBox qlTexbBox = ListManager.QuicklaunchTexBoxes[qlindexNumber];
+
+                if (qlPath.Length > 1)
                 {
-                    if (_quicklaunch1Path.Length > 1)
-                    {
-                        QlTextBox1.Text = "";
-                    }
-                }
-                if (qlTileNumber == "2")
-                {
-                    if (_quicklaunch2Path.Length > 1)
-                    {
-                        QlTextBox2.Text = "";
-                    }
-                }
-                if (qlTileNumber == "3")
-                {
-                    if (_quicklaunch3Path.Length > 1)
-                    {
-                        QlTextBox3.Text = "";
-                    }
-                }
-                if (qlTileNumber == "4")
-                {
-                    if (_quicklaunch4Path.Length > 1)
-                    {
-                        QlTextBox4.Text = "";
-                    }
-                }
-                if (qlTileNumber == "5")
-                {
-                    if (_quicklaunch5Path.Length > 1)
-                    {
-                        QlTextBox5.Text = "";
-                    }
-                }
-                if (qlTileNumber == "6")
-                {
-                    if (_quicklaunch6Path.Length > 1)
-                    {
-                        QlTextBox6.Text = "";
-                    }
-                }
-                if (qlTileNumber == "7")
-                {
-                    if (_quicklaunch7Path.Length > 1)
-                    {
-                        QlTextBox7.Text = "";
-                    }
-                }
-                if (qlTileNumber == "8")
-                {
-                    if (_quicklaunch8Path.Length > 1)
-                    {
-                        QlTextBox8.Text = "";
-                    }
-                }
-                if (qlTileNumber == "9")
-                {
-                    if (_quicklaunch9Path.Length > 1)
-                    {
-                        QlTextBox9.Text = "";
-                    }
-                }
-                if (qlTileNumber == "10")
-                {
-                    if (_quicklaunch10Path.Length > 1)
-                    {
-                        QlTextBox10.Text = "";
-                    }
-                }
-                if (qlTileNumber == "11")
-                {
-                    if (_quicklaunch11Path.Length > 1)
-                    {
-                        QlTextBox11.Text = "";
-                    }
-                }
-                if (qlTileNumber == "12")
-                {
-                    if (_quicklaunch12Path.Length > 1)
-                    {
-                        QlTextBox12.Text = "";
-                    }
-                }
-                if (qlTileNumber == "13")
-                {
-                    if (_quicklaunch13Path.Length > 1)
-                    {
-                        QlTextBox13.Text = "";
-                    }
-                }
-                if (qlTileNumber == "14")
-                {
-                    if (_quicklaunch14Path.Length > 1)
-                    {
-                        QlTextBox14.Text = "";
-                    }
-                }
-                if (qlTileNumber == "15")
-                {
-                    if (_quicklaunch15Path.Length > 1)
-                    {
-                        QlTextBox15.Text = "";
-                    }
-                }
-                if (qlTileNumber == "16")
-                {
-                    if (_quicklaunch16Path.Length > 1)
-                    {
-                        QlTextBox16.Text = "";
-                    }
+                    qlTexbBox.Text = "";
                 }
             }
         }
@@ -1204,142 +883,69 @@ namespace MiTL
             {
                 string configValue;
 
-                if (qlTileNumber == "1")
+                int qlindexNumber = int.Parse(qlTileNumber) - 1;
+                string qlPath = QlPaths[qlindexNumber];
+                TextBox qlTexbBox = ListManager.QuicklaunchTexBoxes[qlindexNumber];
+
+                if (qlPath.Length > 1)
                 {
-                    if (_quicklaunch1Path.Length > 1)
-                    {
-                        configValue = QlTextBox1.Text.ToString();
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "2")
-                {
-                    if (_quicklaunch2Path.Length > 1)
-                    {
-                        configValue = QlTextBox2.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "3")
-                {
-                    if (_quicklaunch3Path.Length > 1)
-                    {
-                        configValue = QlTextBox3.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "4")
-                {
-                    if (_quicklaunch4Path.Length > 1)
-                    {
-                        configValue = QlTextBox4.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "5")
-                {
-                    if (_quicklaunch5Path.Length > 1)
-                    {
-                        configValue = QlTextBox5.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "6")
-                {
-                    if (_quicklaunch6Path.Length > 1)
-                    {
-                        configValue = QlTextBox6.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "7")
-                {
-                    if (_quicklaunch7Path.Length > 1)
-                    {
-                        configValue = QlTextBox7.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "8")
-                {
-                    if (_quicklaunch8Path.Length > 1)
-                    {
-                        configValue = QlTextBox8.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "9")
-                {
-                    if (_quicklaunch9Path.Length > 1)
-                    {
-                        configValue = QlTextBox9.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "10")
-                {
-                    if (_quicklaunch10Path.Length > 1)
-                    {
-                        configValue = QlTextBox10.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "11")
-                {
-                    if (_quicklaunch11Path.Length > 1)
-                    {
-                        configValue = QlTextBox11.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "12")
-                {
-                    if (_quicklaunch12Path.Length > 1)
-                    {
-                        configValue = QlTextBox12.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "13")
-                {
-                    if (_quicklaunch13Path.Length > 1)
-                    {
-                        configValue = QlTextBox13.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "14")
-                {
-                    if (_quicklaunch14Path.Length > 1)
-                    {
-                        configValue = QlTextBox14.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "15")
-                {
-                    if (_quicklaunch15Path.Length > 1)
-                    {
-                        configValue = QlTextBox15.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
-                }
-                if (qlTileNumber == "16")
-                {
-                    if (_quicklaunch16Path.Length > 1)
-                    {
-                        configValue = QlTextBox16.Text;
-                        ConfigManager.IniWrite(configName, configValue);
-                    }
+                    configValue = qlTexbBox.Text;
+                    ConfigManager.IniWrite(configName, configValue);
                 }
             }
         }
 
-        private static void TerminateApp(string processName)
+        private List<string> QlNames
         {
-            foreach (Process process in Process.GetProcessesByName(processName))
+            get
             {
-                process.Kill();
+                List<string> qlNames = new List<string>
+                {
+                    _quicklaunch1Name,
+                    _quicklaunch2Name,
+                    _quicklaunch3Name,
+                    _quicklaunch4Name,
+                    _quicklaunch5Name,
+                    _quicklaunch6Name,
+                    _quicklaunch7Name,
+                    _quicklaunch8Name,
+                    _quicklaunch9Name,
+                    _quicklaunch10Name,
+                    _quicklaunch11Name,
+                    _quicklaunch12Name,
+                    _quicklaunch13Name,
+                    _quicklaunch14Name,
+                    _quicklaunch15Name,
+                    _quicklaunch16Name
+                };
+                return qlNames;
+            }
+        }
+
+        private List<string> QlPaths
+        {
+            get
+            {
+                List<string> qlPaths = new List<string>
+                {
+                    _quicklaunch1Path,
+                    _quicklaunch2Path,
+                    _quicklaunch3Path,
+                    _quicklaunch4Path,
+                    _quicklaunch5Path,
+                    _quicklaunch6Path,
+                    _quicklaunch7Path,
+                    _quicklaunch8Path,
+                    _quicklaunch9Path,
+                    _quicklaunch10Path,
+                    _quicklaunch11Path,
+                    _quicklaunch12Path,
+                    _quicklaunch13Path,
+                    _quicklaunch14Path,
+                    _quicklaunch15Path,
+                    _quicklaunch16Path
+                };
+                return qlPaths;
             }
         }
     }

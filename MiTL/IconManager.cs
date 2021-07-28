@@ -22,6 +22,7 @@ namespace MiTL
                 using (FileStream stream = new FileStream(iconPath + iconFile, FileMode.Create))
                 {
                     exeIcon.Save(stream);
+                    exeIcon.Dispose();
                 }
             }
         }
