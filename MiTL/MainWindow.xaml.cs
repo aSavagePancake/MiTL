@@ -27,9 +27,6 @@ namespace MiTL
         private static string _powerPlanBalanced;
         private static string _powerPlanPerformance;
         private static string _appTheme;
-        private static string _gameModeHotKey;
-        private static string _audioDeviceSwitchHotKey;
-        private static string _exitAppHotKey;
         private static string _audioDevice1;
         private static string _audioDevice2;
         private static string _defaultAudioDevice;
@@ -113,9 +110,6 @@ namespace MiTL
             _powerPlanBalanced = ConfigManager.IniRead("PowerPlanBalanced");
             _powerPlanPerformance = ConfigManager.IniRead("PowerPlanPerformance");
             _appTheme = ConfigManager.IniRead("AppTheme");
-            _gameModeHotKey = ConfigManager.IniRead("GameModeHotKey");
-            _audioDeviceSwitchHotKey = ConfigManager.IniRead("AudioDeviceSwitchHotKey");
-            _exitAppHotKey = ConfigManager.IniRead("ExitAppHotKey");
             _audioDevice1 = ConfigManager.IniRead("AudioDevice1");
             _audioDevice2 = ConfigManager.IniRead("AudioDevice2");
             _defaultAudioDevice = ConfigManager.IniRead("DefaultAudioDevice");
@@ -206,11 +200,8 @@ namespace MiTL
         private void SetupComboListSources()
         {
             //define List sources
-            GameModeHotKey.ItemsSource = ListManager.HotKey;
             AudioDevice1.ItemsSource = ListManager.AudioDevicesList;
             AudioDevice2.ItemsSource = ListManager.AudioDevicesList;
-            AudioDeviceHotKey.ItemsSource = ListManager.HotKey;
-            ExitAppHotKey.ItemsSource = ListManager.HotKey;
 
             //show relative list indexes
             SetComboListIndexes();
@@ -218,16 +209,10 @@ namespace MiTL
 
         private void SetComboListIndexes()
         {
-            int hotKeyGameMode = ListManager.HotKey.FindIndex(a => a.Contains(_gameModeHotKey));
-            GameModeHotKey.SelectedIndex = hotKeyGameMode;
             int audioDeviceSwitcher1 = ListManager.AudioDevicesList.FindIndex(a => a.Contains(_audioDevice1));
             AudioDevice1.SelectedIndex = audioDeviceSwitcher1;
             int audioDeviceSwitcher2 = ListManager.AudioDevicesList.FindIndex(a => a.Contains(_audioDevice2));
             AudioDevice2.SelectedIndex = audioDeviceSwitcher2;
-            int hotKeyAudioSwitcher = ListManager.HotKey.FindIndex(a => a.Contains(_audioDeviceSwitchHotKey));
-            AudioDeviceHotKey.SelectedIndex = hotKeyAudioSwitcher;
-            int hotKeyExitApp = ListManager.HotKey.FindIndex(a => a.Contains(_exitAppHotKey));
-            ExitAppHotKey.SelectedIndex = hotKeyExitApp;
         }
 
         private void ShowQuicklaunchTiles()
@@ -543,86 +528,6 @@ namespace MiTL
             ReadSettings();
         }
 
-        private void GameModeHotKey_OnSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            string gameModeHotKeyValue = GameModeHotKey.SelectedValue.ToString();
-            if (gameModeHotKeyValue != _audioDeviceSwitchHotKey && gameModeHotKeyValue != _exitAppHotKey)
-            {
-                ConfigManager.IniWrite("GameModeHotKey", gameModeHotKeyValue);
-                ReadSettings();
-            }
-            else
-            {
-                ShowMetroMessage("HotKey already assigned.", "Choose another HotKey for this task");
-            }
-        }
-
-        private void AudioDeviceHotKey_OnSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            string audioDeviceHotKeyValue = AudioDeviceHotKey.SelectedValue.ToString();
-
-            if (audioDeviceHotKeyValue != _gameModeHotKey && audioDeviceHotKeyValue != _exitAppHotKey)
-            {
-                ConfigManager.IniWrite("AudioDeviceSwitchHotKey", audioDeviceHotKeyValue);
-                ReadSettings();
-            }
-            else
-            {
-                ShowMetroMessage("HotKey already assigned.", "Choose another HotKey for this task");
-            }
-        }
-
-        private void ExitAppHotKey_OnSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            string exitAppHotKeyValue = ExitAppHotKey.SelectedValue.ToString();
-
-            if (exitAppHotKeyValue != _gameModeHotKey && exitAppHotKeyValue != _audioDeviceSwitchHotKey)
-            {
-                ConfigManager.IniWrite("ExitAppHotKey", exitAppHotKeyValue);
-                ReadSettings();
-            }
-            else
-            {
-                ShowMetroMessage("HotKey already assigned.", "Choose another HotKey for this task");
-            }
-        }
-
-        private void HotKeyManager(object sender, KeyEventArgs e)
-        {
-            string keyPress = e.Key.ToString();
-            double currentTimer = ServiceManager.CurrentTimerRes() / 10000.0;
-
-            if (GridSettings.Visibility == Visibility.Collapsed)
-            {
-                if (keyPress.Equals(_gameModeHotKey))
-                {
-                    switch (PowerPlanLabel.ToString())
-                    {
-                        case " High Performance " when currentTimer > 0.6:
-                            TimerResolutionTile_OnClick(sender, e);
-                            break;
-
-                        case " Balanced " when currentTimer < 0.6:
-                            PowerPlanTile_OnCLick(sender, e);
-                            break;
-
-                        default:
-                            TimerResolutionTile_OnClick(sender, e);
-                            PowerPlanTile_OnCLick(sender, e);
-                            break;
-                    }
-                }
-                if (keyPress.Equals(_audioDeviceSwitchHotKey))
-                {
-                    AudioDeviceSwitchTile_OnClick(sender, e);
-                }
-                if (keyPress.Equals(_exitAppHotKey))
-                {
-                    MainWindow_Closed(sender, e);
-                }
-            }
-        }
-
         private void InstallServiceButton_OnClick(object sender, RoutedEventArgs e)
         {
             ServiceManager.MiTLService.Refresh();
@@ -785,10 +690,6 @@ namespace MiTL
                     qlTextBox.Text = QlNames[index];
                     index++;
                 }
-            }
-            if (tabName.Contains("Hotkeys"))
-            {
-                SettingsHotkeysindicator.Visibility = Visibility.Visible;
             }
             if (tabName.Contains("Theme"))
             {

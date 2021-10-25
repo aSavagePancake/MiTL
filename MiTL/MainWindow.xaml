@@ -9,7 +9,6 @@
     Height="555.6"
     Background="#FF202020"
     IsWindowDraggable="True"
-    KeyUp="HotKeyManager"
     NonActiveWindowTitleBrush="{DynamicResource MahApps.Brushes.Accent}"
     ResizeMode="NoResize"
     ShowSystemMenu="False"
@@ -1767,7 +1766,7 @@
                     <TabItem
                         x:Name="SettingsTabTimer"
                         Width="auto"
-                        Margin="2,0,-2,0">
+                        Margin="26,0,-26,0">
                         <TabItem.Header>
                             <Label
                                 Margin="-6,0"
@@ -1826,7 +1825,7 @@
                     <TabItem
                         x:Name="SettingsTabAudioDevices"
                         Width="auto"
-                        Margin="7,0,-6.6,0">
+                        Margin="47,0,-46.6,0">
                         <TabItem.Header>
                             <Label
                                 Margin="-6,0"
@@ -1883,7 +1882,7 @@
                     <TabItem
                         x:Name="SettingsTabQuickLaunch"
                         Width="auto"
-                        Margin="16.6,0,-17,0">
+                        Margin="66.6,0,-67,0">
                         <TabItem.Header>
                             <Label
                                 Margin="-6,0"
@@ -2479,117 +2478,11 @@
                             </ScrollViewer>
                         </Grid>
                     </TabItem>
-                    <TabItem
-                        x:Name="SettingsTabHotkeys"
-                        Width="auto"
-                        Margin="22.8,0,-30.6,0">
-                        <TabItem.Header>
-                            <Label
-                                Margin="-6,0"
-                                HorizontalContentAlignment="Center"
-                                Content="Hotkeys"
-                                Cursor="Hand"
-                                FontSize="16"
-                                MouseDown="SettingsTab_MouseDown" />
-                        </TabItem.Header>
-                        <Grid Margin="0,0,0.4,-0.2">
-                            <TextBlock
-                                Width="403"
-                                Height="Auto"
-                                Margin="37,25,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                FontSize="12"
-                                Foreground="White"
-                                Opacity="0.7"
-                                Text="Set the required application hotkeys from the selections below:"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap" />
-                            <TextBlock
-                                Width="Auto"
-                                Height="26"
-                                Margin="31,90,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap"><Run Text="Performance Mode On/Off" /><Run Text=": " /></TextBlock>
-                            <ComboBox
-                                x:Name="GameModeHotKey"
-                                Width="62"
-                                Margin="71,116,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                Background="{DynamicResource MahApps.Brushes.Accent}"
-                                Cursor="Hand"
-                                IsTabStop="False"
-                                SelectionChanged="GameModeHotKey_OnSelectionChanged" />
-                            <TextBlock
-                                Width="244"
-                                Height="60"
-                                Margin="205,103,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap"><Run Text="This will set Windows Power Plan to High Performance, Timer Resolution to 0.5ms" /><Run Text=" and MSI afterburner profile to OC profile" /></TextBlock>
-                            <TextBlock
-                                Width="Auto"
-                                Height="25"
-                                Margin="31,181,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap"><Run Text="Audio Output Device" /><Run Text=" Switcher" /><Run Text=": " /></TextBlock>
-                            <ComboBox
-                                x:Name="AudioDeviceHotKey"
-                                Width="62"
-                                Margin="71,206,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                Background="{DynamicResource MahApps.Brushes.Accent}"
-                                Cursor="Hand"
-                                IsTabStop="False"
-                                RenderTransformOrigin="0.994,1.25"
-                                SelectionChanged="AudioDeviceHotKey_OnSelectionChanged" />
-                            <TextBlock
-                                Width="244"
-                                Height="47"
-                                Margin="205,193,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap"><Run Text="This will " /><Run Text="switch between the " /><Run Text="chosen two Audio Output Devices" /></TextBlock>
-                            <TextBlock
-                                Width="Auto"
-                                Height="25"
-                                Margin="59,268,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap"><Run Text="Exit App" /><Run Text="lication" /><Run Text=": " /></TextBlock>
-                            <ComboBox
-                                x:Name="ExitAppHotKey"
-                                Width="62"
-                                Margin="71,293,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                Background="{DynamicResource MahApps.Brushes.Accent}"
-                                Cursor="Hand"
-                                IsTabStop="False"
-                                SelectionChanged="ExitAppHotKey_OnSelectionChanged" />
-                            <TextBlock
-                                Width="244"
-                                Height="47"
-                                Margin="205,280,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap"><Run Text="This will.. well, it will exit the app. " /><LineBreak /><Run Text="Not much more to say about this one!" /></TextBlock>
-                        </Grid>
-                    </TabItem>
+
                     <TabItem
                         x:Name="SettingsTabTheme"
                         Width="auto"
-                        Margin="32.6,0,-42,0">
+                        Margin="80.2,0,-89.6,0">
                         <TabItem.Header>
                             <Label
                                 Margin="-6,0"
@@ -2730,7 +2623,7 @@
                 x:Name="SettingsTimerServiceindicator"
                 Width="4"
                 Height="90"
-                Margin="79,91,0,0"
+                Margin="103,91,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
@@ -2748,7 +2641,7 @@
                 x:Name="SettingsAudioDevicesindicator"
                 Width="4"
                 Height="98"
-                Margin="191,87,0,0"
+                Margin="231,87,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
@@ -2767,26 +2660,7 @@
                 x:Name="SettingsQuickLaunchindicator"
                 Width="4"
                 Height="92"
-                Margin="308,90,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Background="{DynamicResource MahApps.Brushes.Accent}"
-                RenderTransformOrigin="0.5,0.5"
-                Visibility="Collapsed">
-                <Border.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform />
-                        <RotateTransform Angle="90" />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </Border.RenderTransform>
-            </Border>
-            <Border
-                x:Name="SettingsHotkeysindicator"
-                Width="4"
-                Height="56"
-                Margin="407,108,0,0"
+                Margin="359,90,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
@@ -2805,7 +2679,7 @@
                 x:Name="SettingsThemeindicator"
                 Width="4"
                 Height="48"
-                Margin="479,112,0,0"
+                Margin="458,112,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{DynamicResource MahApps.Brushes.Accent}"

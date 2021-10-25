@@ -39,15 +39,7 @@ namespace MiTL
         public void WriteConfigDefaults()
         {
             string defaultAppTheme = Properties.Resources.DefaultAppTheme;
-            string defaultGameModeHotKey = Properties.Resources.DefaultGameModeHotKey;
-            string defaultAudioDeviceSwitchHotKey = Properties.Resources.DefaultAudioDeviceSwitchHotKey;
-            string defaultExitAppHotKey = Properties.Resources.DefaultExitAppHotkey;
-            string closeAfterburner = Properties.Resources.CloseAfterburner;
             IniWrite("AppTheme", defaultAppTheme);
-            IniWrite("GameModeHotKey", defaultGameModeHotKey);
-            IniWrite("AudioDeviceSwitchHotKey", defaultAudioDeviceSwitchHotKey);
-            IniWrite("ExitAppHotKey", defaultExitAppHotKey);
-            IniWrite("CloseAfterburner", closeAfterburner);
 
             if (ListManager.PowerPlanList.Count == 1)
             {

@@ -151,7 +151,6 @@ namespace MiTL
                     MainWindow.SettingsTimerServiceindicator,
                     MainWindow.SettingsAudioDevicesindicator,
                     MainWindow.SettingsQuickLaunchindicator,
-                    MainWindow.SettingsHotkeysindicator,
                     MainWindow.SettingsThemeindicator
                 };
                 return tabIndicators;
