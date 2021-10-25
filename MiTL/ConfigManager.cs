@@ -43,15 +43,11 @@ namespace MiTL
             string defaultAudioDeviceSwitchHotKey = Properties.Resources.DefaultAudioDeviceSwitchHotKey;
             string defaultExitAppHotKey = Properties.Resources.DefaultExitAppHotkey;
             string closeAfterburner = Properties.Resources.CloseAfterburner;
-            string defaultStockProfile = Properties.Resources.DefaultGpuStockProfile;
-            string defaultOcProfile = Properties.Resources.DefaultGpuOCProfile;
             IniWrite("AppTheme", defaultAppTheme);
             IniWrite("GameModeHotKey", defaultGameModeHotKey);
             IniWrite("AudioDeviceSwitchHotKey", defaultAudioDeviceSwitchHotKey);
             IniWrite("ExitAppHotKey", defaultExitAppHotKey);
             IniWrite("CloseAfterburner", closeAfterburner);
-            IniWrite("StockProfile", defaultStockProfile);
-            IniWrite("OCProfile", defaultOcProfile);
 
             if (ListManager.PowerPlanList.Count == 1)
             {

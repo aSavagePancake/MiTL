@@ -16,7 +16,7 @@ namespace MiTL
         }
 
         public static void UpdateHardwareData(string memLoad, string memAvailable, string cpuClock, string cpuLoad, string cpuTemp, string cpuPower
-            , string gpuClock, string gpuMemClock, string gpuLoad, string gpuMemLoad, string gpuTemp, string gpuFan, string gpuIMC, string gpuVE, string netUpload, string netDownload
+            , string gpuClock, string gpuMemClock, string gpuLoad, string gpuMemLoad, string gpuTemp, string gpuPower, string gpuIMC, string gpuVE, string netUpload, string netDownload
             , string _fan1Speed, string _fan2Speed, string _fan3Speed, string _fan4Speed)
         {
             MainWindow.MemUsageLabel.Content = memLoad;
@@ -30,7 +30,7 @@ namespace MiTL
             MainWindow.GpuTempLabel.Content = gpuTemp;
             MainWindow.GpuLoadLabel.Content = gpuLoad;
             MainWindow.GpuMemUsageLabel.Content = gpuMemLoad;
-            MainWindow.GpuFanSpeedLabel.Content = gpuFan;
+            MainWindow.GpuPowerLabel.Content = gpuPower;
             MainWindow.GpuIMCLabel.Content = gpuIMC;
             MainWindow.GpuVideoEngineLabel.Content = gpuVE;
             MainWindow.NetworkUploadLabel.Content = netUpload;
@@ -43,9 +43,9 @@ namespace MiTL
 
         public static void UpdateTimerData(string timerResolution)
         {
-            if (MainWindow.TimerResolutionTileBadge.Badge.ToString() != timerResolution)
+            if (MainWindow.TimerResolutionLabel.ToString() != timerResolution)
             {
-                MainWindow.TimerResolutionTileBadge.Badge = timerResolution;
+                MainWindow.TimerResolutionLabel.Content = timerResolution;
             }
         }
     }

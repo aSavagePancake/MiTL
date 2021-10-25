@@ -23,9 +23,6 @@ namespace MiTL
         private static readonly ConfigManager ConfigManager = new ConfigManager();
         private static Grid _viewGridName = new Grid();
         private static Border _viewIndicatorName = new Border();
-        private static string _gpuDefaultProfile;
-        private static string _gpuOCProfile;
-        private static string _closeAfterburner;
         private static string _activePowerPlan;
         private static string _powerPlanBalanced;
         private static string _powerPlanPerformance;
@@ -113,9 +110,6 @@ namespace MiTL
         //read in values from ini file
         private static void ReadSettings()
         {
-            _gpuDefaultProfile = ConfigManager.IniRead("StockProfile");
-            _gpuOCProfile = ConfigManager.IniRead("OCProfile");
-            _closeAfterburner = ConfigManager.IniRead("CloseAfterburner");
             _powerPlanBalanced = ConfigManager.IniRead("PowerPlanBalanced");
             _powerPlanPerformance = ConfigManager.IniRead("PowerPlanPerformance");
             _appTheme = ConfigManager.IniRead("AppTheme");
@@ -190,9 +184,9 @@ namespace MiTL
             {
                 _activePowerPlan = " High Performance ";
             }
-            if (PowerPlanBadge.ToString() != _activePowerPlan)
+            if (PowerPlanLabel.ToString() != _activePowerPlan)
             {
-                PowerPlanBadge.Badge = _activePowerPlan;
+                PowerPlanLabel.Content = _activePowerPlan;
             }
         }
 
@@ -200,12 +194,12 @@ namespace MiTL
         private void ShowDefaultAudioDevice()
         {
             string defaultAudioDevice = " " + _defaultAudioDevice + " ";
-            string defaultAudioDeviceBadge = AudioDeviceBadge.Badge.ToString();
+            string defaultAudioDeviceBadge = AudioDeviceLabel.ToString();
 
             if (defaultAudioDeviceBadge != defaultAudioDevice)
             {
                 string formattedTitle = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(_defaultAudioDevice.ToLower());
-                AudioDeviceBadge.Badge = " " + formattedTitle + " ";
+                AudioDeviceLabel.Content = " " + formattedTitle + " ";
             }
         }
 
@@ -308,20 +302,15 @@ namespace MiTL
         //set Power Plan Scheme
         private void PowerPlanTile_OnCLick(object sender, RoutedEventArgs e)
         {
-            string badgeString = PowerPlanBadge.Badge.ToString();
+            string powerPlan = PowerPlanLabel.ToString();
 
-            switch (badgeString)
+            if (powerPlan.Contains(" Balanced "))
             {
-                case " Balanced ":
-                    ApplyPowerPlan(_powerPlanPerformance);
-                    break;
-
-                case " High Performance ":
-                    ApplyPowerPlan(_powerPlanBalanced);
-                    break;
-
-                default:
-                    break;
+                ApplyPowerPlan(_powerPlanPerformance);
+            }
+            if (powerPlan.Contains(" High Performance "))
+            {
+                ApplyPowerPlan(_powerPlanBalanced);
             }
         }
 
@@ -406,14 +395,29 @@ namespace MiTL
             }
         }
 
-        private void GpuDefaultProfileTile_Click(object sender, RoutedEventArgs e)
+        private void GpuProfile1Tile_Click(object sender, RoutedEventArgs e)
         {
-            ApplyProfile("SetDefault");
+            ApplyProfile("1");
         }
 
-        private void GpuOCProfileTile_Click(object sender, RoutedEventArgs e)
+        private void GpuProfile2Tile_Click(object sender, RoutedEventArgs e)
         {
-            ApplyProfile("SetOC");
+            ApplyProfile("2");
+        }
+
+        private void GpuProfile3Tile_Click(object sender, RoutedEventArgs e)
+        {
+            ApplyProfile("3");
+        }
+
+        private void GpuProfile4Tile_Click(object sender, RoutedEventArgs e)
+        {
+            ApplyProfile("4");
+        }
+
+        private void GpuProfile5Tile_Click(object sender, RoutedEventArgs e)
+        {
+            ApplyProfile("5");
         }
 
         //Apply selected profile
@@ -421,35 +425,20 @@ namespace MiTL
         {
             string args = null;
 
-            switch (profile)
-            {
-                case "SetDefault":
-                    args = "/Profile" + _gpuDefaultProfile;
-                    break;
-
-                case "SetOC":
-                    args = "/Profile" + _gpuOCProfile;
-                    break;
-
-                default:
-                    break;
-            }
+            args = "/Profile" + profile;
 
             //start MSIAfterburner using appropriate /profile switch
             string _msiabFile = Properties.Resources.MSIAB_FilePath;
             Process.Start(_msiabFile, args);
 
-            if (ToggleCloseAfterburner.IsChecked == true)
+            Task.Factory.StartNew(async () =>
             {
-                Task.Factory.StartNew(async () =>
-                {
-                    await Task.Delay(1500);
-                    ProcessManager.TerminateApp("MSIAfterburner");
-                    ProcessManager.TerminateApp("RTSS");
-                    ProcessManager.TerminateApp("RTSSHooksLoader");
-                    ProcessManager.TerminateApp("RTSSHooksLoader64");
-                });
-            }
+                await Task.Delay(1500);
+                ProcessManager.TerminateApp("MSIAfterburner");
+                ProcessManager.TerminateApp("RTSS");
+                ProcessManager.TerminateApp("RTSSHooksLoader");
+                ProcessManager.TerminateApp("RTSSHooksLoader64");
+            });
         }
 
         private void ToggleCloseAfterburner_Checked(object sender, RoutedEventArgs e)
@@ -607,7 +596,7 @@ namespace MiTL
             {
                 if (keyPress.Equals(_gameModeHotKey))
                 {
-                    switch (PowerPlanBadge.Badge.ToString())
+                    switch (PowerPlanLabel.ToString())
                     {
                         case " High Performance " when currentTimer > 0.6:
                             TimerResolutionTile_OnClick(sender, e);
@@ -684,15 +673,6 @@ namespace MiTL
         private void NavPerformance_Click(object sender, RoutedEventArgs e)
         {
             ReadSettings();
-
-            if (_closeAfterburner == "true")
-            {
-                ToggleCloseAfterburner.IsChecked = true;
-            }
-            else
-            {
-                ToggleCloseAfterburner.IsChecked = false;
-            }
 
             _viewGridName = GridPerformance;
             _viewIndicatorName = NavPerformanceIndicator;

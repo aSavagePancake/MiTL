@@ -17,9 +17,9 @@ namespace MiTL
         private static string _gpuClock;
         private static string _gpuMemClock;
         private static string _gpuLoad;
-        private static string _gpuMemLoad;
+        private static string _gpuBusLoad;
         private static string _gpuTemp;
-        private static string _gpuFan;
+        private static string _gpuPower;
         private static string _gpuIMC;
         private static string _gpuVE;
         private static string _netUpload;
@@ -36,11 +36,11 @@ namespace MiTL
 
             ThisPc = new Computer
             {
+                IsMotherboardEnabled = true,
                 IsMemoryEnabled = true,
                 IsCpuEnabled = true,
                 IsGpuEnabled = true,
-                IsNetworkEnabled = true,
-                IsMotherboardEnabled = true
+                IsNetworkEnabled = true
             };
             ThisPc.Open();
 
@@ -59,7 +59,7 @@ namespace MiTL
                                 // Memory data
                                 if (sensor.SensorType == SensorType.Load && sensor.Name.Equals("Memory", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _memLoad = roundValue + " %";
@@ -71,7 +71,7 @@ namespace MiTL
                                 }
                                 if (sensor.SensorType == SensorType.Data && sensor.Name.Equals("Memory Available", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         string value = string.Format("{0:.##}", sensor.Value.GetValueOrDefault());
                                         _memAvailable = value + " GB";
@@ -85,7 +85,7 @@ namespace MiTL
                                 // CPU data
                                 if (sensor.SensorType == SensorType.Clock && sensor.Name.Equals("CPU Core #1", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _cpuClock = roundValue + " Mhz";
@@ -97,7 +97,7 @@ namespace MiTL
                                 }
                                 if (sensor.SensorType == SensorType.Temperature && sensor.Name.Equals("Core Max", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _cpuTemp = roundValue + " °C";
@@ -109,7 +109,7 @@ namespace MiTL
                                 }
                                 if (sensor.SensorType == SensorType.Load && sensor.Name.Equals("CPU Total", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _cpuLoad = roundValue + " %";
@@ -121,7 +121,7 @@ namespace MiTL
                                 }
                                 if (sensor.SensorType == SensorType.Power && sensor.Name.Equals("CPU Package", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _cpuPower = roundValue + " W";
@@ -135,7 +135,7 @@ namespace MiTL
                                 // GPU data
                                 if (sensor.SensorType == SensorType.Clock && sensor.Name.Equals("GPU Core", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _gpuClock = roundValue + " Mhz";
@@ -147,7 +147,7 @@ namespace MiTL
                                 }
                                 if (sensor.SensorType == SensorType.Clock && sensor.Name.Equals("GPU Memory", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _gpuMemClock = roundValue + " Mhz";
@@ -159,7 +159,7 @@ namespace MiTL
                                 }
                                 if (sensor.SensorType == SensorType.Temperature && sensor.Name.Equals("GPU Core", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _gpuTemp = roundValue + " °C";
@@ -171,7 +171,7 @@ namespace MiTL
                                 }
                                 if (sensor.SensorType == SensorType.Load && sensor.Name.Equals("GPU Core", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _gpuLoad = roundValue + " %";
@@ -181,21 +181,21 @@ namespace MiTL
                                         _gpuLoad = " -no data- ";
                                     }
                                 }
-                                if (sensor.SensorType == SensorType.Load && sensor.Name.Equals("GPU Memory", StringComparison.OrdinalIgnoreCase))
+                                if (sensor.SensorType == SensorType.Load && sensor.Name.Equals("GPU Bus", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
-                                        _gpuMemLoad = roundValue + " %";
+                                        _gpuBusLoad = roundValue + " %";
                                     }
                                     else
                                     {
-                                        _gpuMemLoad = " -no data- ";
+                                        _gpuBusLoad = " -no data- ";
                                     }
                                 }
                                 if (sensor.SensorType == SensorType.Load && sensor.Name.Equals("GPU Memory Controller", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _gpuIMC = roundValue + " %";
@@ -207,7 +207,7 @@ namespace MiTL
                                 }
                                 if (sensor.SensorType == SensorType.Load && sensor.Name.Equals("GPU Video Engine", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         _gpuVE = roundValue + " %";
@@ -217,23 +217,23 @@ namespace MiTL
                                         _gpuVE = " -no data- ";
                                     }
                                 }
-                                if (sensor.SensorType == SensorType.Fan && sensor.Name.Equals("GPU Fan", StringComparison.OrdinalIgnoreCase))
+                                if (sensor.SensorType == SensorType.Power && sensor.Name.Equals("GPU Package", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
-                                        _gpuFan = roundValue + " RPM";
+                                        _gpuPower = roundValue + " W";
                                     }
                                     else
                                     {
-                                        _gpuFan = " -no data- ";
+                                        _gpuPower = " -no data- ";
                                     }
                                 }
 
                                 // Network data
                                 if (sensor.SensorType == SensorType.Throughput && sensor.Name.Equals("Upload Speed", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         if (roundValue >= 1000000000.0)
@@ -260,7 +260,7 @@ namespace MiTL
                                 }
                                 if (sensor.SensorType == SensorType.Throughput && sensor.Name.Equals("Download Speed", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    if (sensor.Value != null && sensor.Value.Value >= 0)
+                                    if (sensor.Value != null)
                                     {
                                         roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                         if (roundValue >= 1000000000.0)
@@ -299,7 +299,7 @@ namespace MiTL
                                 {
                                     if (sensor.SensorType == SensorType.Fan && sensor.Name.Equals("Fan #1", StringComparison.OrdinalIgnoreCase))
                                     {
-                                        if (sensor.Value != null && sensor.Value.Value >= 0)
+                                        if (sensor.Value != null)
                                         {
                                             roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                             _fan1Speed = roundValue + " RPM";
@@ -311,7 +311,7 @@ namespace MiTL
                                     }
                                     if (sensor.SensorType == SensorType.Fan && sensor.Name.Equals("Fan #2", StringComparison.OrdinalIgnoreCase))
                                     {
-                                        if (sensor.Value != null && sensor.Value.Value >= 0)
+                                        if (sensor.Value != null)
                                         {
                                             roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                             _fan2Speed = roundValue + " RPM";
@@ -323,7 +323,7 @@ namespace MiTL
                                     }
                                     if (sensor.SensorType == SensorType.Fan && sensor.Name.Equals("Fan #3", StringComparison.OrdinalIgnoreCase))
                                     {
-                                        if (sensor.Value != null && sensor.Value.Value >= 0)
+                                        if (sensor.Value != null)
                                         {
                                             roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                             _fan3Speed = roundValue + " RPM";
@@ -335,7 +335,7 @@ namespace MiTL
                                     }
                                     if (sensor.SensorType == SensorType.Fan && sensor.Name.Equals("Fan #4", StringComparison.OrdinalIgnoreCase))
                                     {
-                                        if (sensor.Value != null && sensor.Value.Value >= 0)
+                                        if (sensor.Value != null)
                                         {
                                             roundValue = (int)Math.Round(sensor.Value.GetValueOrDefault());
                                             _fan4Speed = roundValue + " RPM";
@@ -350,23 +350,19 @@ namespace MiTL
                         }
                     }
                     await Task.Delay(Delay).ConfigureAwait(false);
-                    UpdateHardwareData(_memLoad, _memAvailable, _cpuClock, _cpuLoad, _cpuTemp, _cpuPower
-                        , _gpuClock, _gpuMemClock, _gpuLoad, _gpuMemLoad, _gpuTemp, _gpuFan, _gpuIMC, _gpuVE, _netUpload, _netDownload
-                        , _fan1Speed, _fan2Speed, _fan3Speed, _fan4Speed);
+                    UpdateHardwareData();
                     await Task.Delay(Delay).ConfigureAwait(false);
                 }
             });
         }
 
-        private static void UpdateHardwareData(string memLoad, string _memAvailable, string cpuClock, string cpuLoad, string cpuTemp, string _cpuPower
-                , string gpuClock, string gpuMemClock, string gpuLoad, string gpuMemLoad, string gpuTemp, string gpuFan, string gpuIMC, string gpuVE, string _netUpload, string _netDownload
-                , string _fan1Speed, string _fan2Speed, string _fan3Speed, string _fan4Speed)
+        private static void UpdateHardwareData()
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                ViewUpdater.UpdateHardwareData(memLoad, _memAvailable, cpuClock, cpuLoad, cpuTemp, _cpuPower
-                    , gpuClock, gpuMemClock, gpuLoad, gpuMemLoad, gpuTemp, gpuFan, gpuIMC, gpuVE, _netUpload, _netDownload
-                    , _fan1Speed, _fan2Speed, _fan3Speed, _fan4Speed);
+                ViewUpdater.UpdateHardwareData(_memLoad, _memAvailable, _cpuClock, _cpuLoad, _cpuTemp, _cpuPower
+                        , _gpuClock, _gpuMemClock, _gpuLoad, _gpuBusLoad, _gpuTemp, _gpuPower, _gpuIMC, _gpuVE, _netUpload, _netDownload
+                        , _fan1Speed, _fan2Speed, _fan3Speed, _fan4Speed);
             });
         }
 

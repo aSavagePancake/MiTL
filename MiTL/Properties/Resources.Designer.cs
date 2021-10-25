@@ -115,24 +115,6 @@ namespace MiTL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2.
-        /// </summary>
-        internal static string DefaultGpuOCProfile {
-            get {
-                return ResourceManager.GetString("DefaultGpuOCProfile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 1.
-        /// </summary>
-        internal static string DefaultGpuStockProfile {
-            get {
-                return ResourceManager.GetString("DefaultGpuStockProfile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Image_About {
