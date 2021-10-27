@@ -117,23 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CloseAfterburner" xml:space="preserve">
-    <value>false</value>
-  </data>
   <data name="CloseOnQuicklaunch" xml:space="preserve">
     <value>false</value>
   </data>
   <data name="DefaultAppTheme" xml:space="preserve">
     <value>Dark.Blue</value>
-  </data>
-  <data name="DefaultAudioDeviceSwitchHotKey" xml:space="preserve">
-    <value>A</value>
-  </data>
-  <data name="DefaultExitAppHotkey" xml:space="preserve">
-    <value>Q</value>
-  </data>
-  <data name="DefaultGameModeHotKey" xml:space="preserve">
-    <value>G</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="Image_About" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -279,6 +267,9 @@
         Qi5CJt8J/xWyB+znR+gv2dvmzZu/4ZI9mzZtKsjPz1dvorD5fG7Tmby8vBUbN26sg8YhNcUle5C9ON/5
         gICAgICAgICA/xWh0D+lVX4LrT5YdQAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="KeyGameMode" xml:space="preserve">
+    <value>AutoGameModeEnabled</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="MiTL_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -690,5 +681,8 @@
   </data>
   <data name="MyConfigManager" xml:space="preserve">
     <value>MiTL.ini</value>
+  </data>
+  <data name="SubkeyGameMode" xml:space="preserve">
+    <value>SOFTWARE\Microsoft\GameBar</value>
   </data>
 </root>

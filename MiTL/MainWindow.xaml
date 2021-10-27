@@ -1050,32 +1050,39 @@
                 VerticalAlignment="Top"
                 Background="#FF202329"
                 BorderThickness="1"
-                CornerRadius="10">
-                <Label
-                    x:Name="TimerResolutionLabel"
-                    Width="215"
-                    Height="35"
-                    Margin="235.2,46.2,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                    BorderThickness="1"
-                    FontSize="13"
-                    Foreground="White" />
-            </Border>
+                CornerRadius="10" />
             <mah:Tile
-                x:Name="TimerResolutionTile"
-                Title="Change Timer"
-                Width="165"
+                x:Name="DefaultTimerTile"
+                Title="Default Timer"
+                Width="190"
                 Height="35"
                 Margin="73,478,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-                Background="{DynamicResource MahApps.Brushes.Accent}"
-                Click="TimerResolutionTile_OnClick"
+                Background="Transparent"
+                BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                BorderThickness="1"
+                Click="DefaultTimerTile_OnClick"
+                Cursor="Hand"
+                Foreground="White"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="13"
+                VerticalTitleAlignment="Top" />
+            <mah:Tile
+                x:Name="PerformanceTimerTile"
+                Title="0.5ms Timer"
+                Width="190"
+                Height="35"
+                Margin="278,478,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                Background="Transparent"
+                BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                BorderThickness="1"
+                Click="PerformanceTimerTile_OnClick"
                 Cursor="Hand"
                 Foreground="White"
                 HorizontalTitleAlignment="Center"
@@ -1113,16 +1120,37 @@
                     FontSize="15" />
             </Border>
             <mah:Tile
-                x:Name="PowerPlanTile"
-                Title="Change Power Plan"
-                Width="165"
+                x:Name="PowerPlanBalancedTile"
+                Title="Balanced"
+                Width="190"
                 Height="35"
                 Margin="73,252,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-                Background="{DynamicResource MahApps.Brushes.Accent}"
-                Click="PowerPlanTile_OnCLick"
+                Background="Transparent"
+                BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                BorderThickness="1"
+                Click="PowerPlanBalancedTile_OnCLick"
+                Cursor="Hand"
+                Foreground="White"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="13"
+                VerticalTitleAlignment="Top" />
+            <mah:Tile
+                x:Name="PowerPlanPerformanceTile"
+                Title="High Performance"
+                Width="190"
+                Height="35"
+                Margin="278,252,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                Background="Transparent"
+                BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                BorderThickness="1"
+                Click="PowerPlanPerformanceTile_OnCLick"
                 Cursor="Hand"
                 Foreground="White"
                 HorizontalTitleAlignment="Center"
@@ -1130,9 +1158,9 @@
                 TitleFontSize="13"
                 VerticalTitleAlignment="Top" />
             <TextBlock
-                Width="500"
+                Width="505"
                 Height="20"
-                Margin="23,225,0,0"
+                Margin="18,225,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 FontSize="12"
@@ -1140,19 +1168,6 @@
                 Opacity="0.6"
                 Text="- Switch between High Performance and Balanced power plans -"
                 TextAlignment="Center" />
-            <Label
-                x:Name="PowerPlanLabel"
-                Width="215"
-                Height="35"
-                Margin="253,252,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                BorderThickness="1"
-                FontSize="13"
-                Foreground="White" />
 
             <Border
                 Width="506"
@@ -1162,32 +1177,39 @@
                 VerticalAlignment="Top"
                 Background="#FF202329"
                 BorderThickness="1"
-                CornerRadius="10">
-                <Label
-                    x:Name="AudioDeviceLabel"
-                    Width="215"
-                    Height="36"
-                    Margin="236.2,46.2,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                    BorderThickness="1"
-                    FontSize="13"
-                    Foreground="White" />
-            </Border>
+                CornerRadius="10" />
             <mah:Tile
-                x:Name="AudioDeviceSwitchTile"
-                Title="Change Audio Output"
-                Width="165"
+                x:Name="GameModeDisableTile"
+                Title="Disabled"
+                Width="190"
                 Height="35"
                 Margin="73,365,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
-                Background="{DynamicResource MahApps.Brushes.Accent}"
-                Click="AudioDeviceSwitchTile_OnClick"
+                Background="Transparent"
+                BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                BorderThickness="1"
+                Click="GameModeDisableTile_OnClick"
+                Cursor="Hand"
+                Foreground="White"
+                HorizontalTitleAlignment="Center"
+                IsTabStop="False"
+                TitleFontSize="13"
+                VerticalTitleAlignment="Top" />
+            <mah:Tile
+                x:Name="GameModeEnableTile"
+                Title="Enabled"
+                Width="190"
+                Height="35"
+                Margin="278,365,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
+                Background="Transparent"
+                BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                BorderThickness="1"
+                Click="GameModeEnableTile_OnClick"
                 Cursor="Hand"
                 Foreground="White"
                 HorizontalTitleAlignment="Center"
@@ -1195,7 +1217,7 @@
                 TitleFontSize="13"
                 VerticalTitleAlignment="Top" />
             <TextBlock
-                Width="500"
+                Width="504"
                 Height="20"
                 Margin="18,338,0,0"
                 HorizontalAlignment="Left"
@@ -1203,7 +1225,7 @@
                 FontSize="12"
                 Foreground="White"
                 Opacity="0.6"
-                Text="- Switch between 2 output audio devices -"
+                Text="- Enable or Disable Windows Game Mode directly -"
                 TextAlignment="Center" />
 
             <mah:Tile
@@ -1261,13 +1283,13 @@
                 TitleFontSize="13"
                 VerticalTitleAlignment="Center" />
             <Label
-                Width="505"
+                Width="504"
                 Height="27"
-                Margin="13,315,0,0"
+                Margin="18,315,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
-                Content="Audio Output Device"
+                Content="Windows Game Mode"
                 FontSize="15" />
             <Label
                 Width="505"
@@ -1822,7 +1844,7 @@
                             <Label
                                 Margin="-6,0"
                                 HorizontalContentAlignment="Center"
-                                Content="Audio Devices"
+                                Content="placeholder"
                                 Cursor="Hand"
                                 FontSize="16"
                                 MouseDown="SettingsTab_MouseDown" />
@@ -1837,38 +1859,9 @@
                                 FontSize="12"
                                 Foreground="White"
                                 Opacity="0.7"
+                                Text="- placeholder -"
                                 TextAlignment="Center"
-                                TextWrapping="Wrap"><Run Text="Choose " /><Run Text="2 " /><Run Text="Audio output devices to be able to switch between below: " /></TextBlock>
-                            <ComboBox
-                                x:Name="AudioDevice1"
-                                Width="122"
-                                Margin="37,114,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                HorizontalContentAlignment="Center"
-                                Background="{DynamicResource MahApps.Brushes.Accent}"
-                                Cursor="Hand"
-                                IsTabStop="False"
-                                SelectionChanged="AudioDevice1_OnSelectionChanged" />
-                            <ComboBox
-                                x:Name="AudioDevice2"
-                                Width="122"
-                                Margin="37,145,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                HorizontalContentAlignment="Center"
-                                Background="{DynamicResource MahApps.Brushes.Accent}"
-                                Cursor="Hand"
-                                IsTabStop="False"
-                                SelectionChanged="AudioDevice2_OnSelectionChanged" />
-                            <TextBlock
-                                Width="262"
-                                Height="67"
-                                Margin="178,110,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Top"
-                                TextAlignment="Center"
-                                TextWrapping="Wrap"><Run Text="Select both Audio Output Devices" /><Run Text="." /><LineBreak /><Run Text="When having more than one Audio output, i.e. Speakers and Headset etc, you can " /><Run Text="use this " /><Run Text="to switch between" /><Run Text=" them both" /><Run Text=" on the fly" /><LineBreak /></TextBlock>
+                                TextWrapping="Wrap" />
                         </Grid>
                     </TabItem>
                     <TabItem

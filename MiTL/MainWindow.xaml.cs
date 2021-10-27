@@ -5,10 +5,8 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -21,15 +19,13 @@ namespace MiTL
     {
         private static readonly ListManager ListManager = new ListManager();
         private static readonly ConfigManager ConfigManager = new ConfigManager();
+        private static readonly RegistryManager RegistryManager = new RegistryManager();
         private static Grid _viewGridName = new Grid();
         private static Border _viewIndicatorName = new Border();
-        private static string _activePowerPlan;
+        private SolidColorBrush accentColor;
         private static string _powerPlanBalanced;
         private static string _powerPlanPerformance;
         private static string _appTheme;
-        private static string _audioDevice1;
-        private static string _audioDevice2;
-        private static string _defaultAudioDevice;
         private static string _closeOnQuicklaunch;
         private static string _quicklaunch1Name;
         private static string _quicklaunch1Path;
@@ -78,11 +74,10 @@ namespace MiTL
             //run startup checks, read all config settings and set corresponding UI elements
             Startup();
             ShowActivePowerPlan();
-            ShowDefaultAudioDevice();
-            SetupComboListSources();
+            ShowGameModeStatus();
+            ShowCurrentTimer();
 
             //start Monitoring
-            StartTimerMonitor();
             StartHardwareMonitor();
         }
 
@@ -110,9 +105,6 @@ namespace MiTL
             _powerPlanBalanced = ConfigManager.IniRead("PowerPlanBalanced");
             _powerPlanPerformance = ConfigManager.IniRead("PowerPlanPerformance");
             _appTheme = ConfigManager.IniRead("AppTheme");
-            _audioDevice1 = ConfigManager.IniRead("AudioDevice1");
-            _audioDevice2 = ConfigManager.IniRead("AudioDevice2");
-            _defaultAudioDevice = ConfigManager.IniRead("DefaultAudioDevice");
             _closeOnQuicklaunch = ConfigManager.IniRead("CloseOnQuicklaunch");
             _quicklaunch1Name = ConfigManager.IniRead("Quicklaunch1Name");
             _quicklaunch1Path = ConfigManager.IniRead("Quicklaunch1Path");
@@ -170,55 +162,68 @@ namespace MiTL
             string activePlan = getActivePowerPlan.StandardOutput.ReadToEnd();
             getActivePowerPlan.WaitForExit();
 
+            accentColor = TryFindResource("MahApps.Brushes.Accent") as SolidColorBrush;
+
             if (activePlan.Contains(_powerPlanBalanced))
             {
-                _activePowerPlan = " Balanced ";
+                PowerPlanBalancedTile.Background = accentColor;
+                PowerPlanPerformanceTile.Background = Brushes.Transparent;
             }
             if (activePlan.Contains(_powerPlanPerformance))
             {
-                _activePowerPlan = " High Performance ";
+                PowerPlanPerformanceTile.Background = accentColor;
+                PowerPlanBalancedTile.Background = Brushes.Transparent;
             }
-            if (PowerPlanLabel.ToString() != _activePowerPlan)
+        }
+
+        private void ShowGameModeStatus()
+        {
+            accentColor = TryFindResource("MahApps.Brushes.Accent") as SolidColorBrush;
+
+            string subKey = Properties.Resources.SubkeyGameMode;
+            string key = Properties.Resources.KeyGameMode;
+            string gameModeStatus = RegistryManager.RegKeyRead(subKey, key);
+
+            if (gameModeStatus == "0")
             {
-                PowerPlanLabel.Content = _activePowerPlan;
+                GameModeDisableTile.Background = accentColor;
+                GameModeEnableTile.Background = Brushes.Transparent;
             }
-        }
-
-        //show which Audio profile is active
-        private void ShowDefaultAudioDevice()
-        {
-            string defaultAudioDevice = " " + _defaultAudioDevice + " ";
-            string defaultAudioDeviceBadge = AudioDeviceLabel.ToString();
-
-            if (defaultAudioDeviceBadge != defaultAudioDevice)
+            else
             {
-                string formattedTitle = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(_defaultAudioDevice.ToLower());
-                AudioDeviceLabel.Content = " " + formattedTitle + " ";
+                GameModeEnableTile.Background = accentColor;
+                GameModeDisableTile.Background = Brushes.Transparent;
             }
         }
 
-        private void SetupComboListSources()
+        private void ShowCurrentTimer()
         {
-            //define List sources
-            AudioDevice1.ItemsSource = ListManager.AudioDevicesList;
-            AudioDevice2.ItemsSource = ListManager.AudioDevicesList;
+            accentColor = TryFindResource("MahApps.Brushes.Accent") as SolidColorBrush;
 
-            //show relative list indexes
-            SetComboListIndexes();
-        }
+            ServiceManager.MiTLService.Refresh();
 
-        private void SetComboListIndexes()
-        {
-            int audioDeviceSwitcher1 = ListManager.AudioDevicesList.FindIndex(a => a.Contains(_audioDevice1));
-            AudioDevice1.SelectedIndex = audioDeviceSwitcher1;
-            int audioDeviceSwitcher2 = ListManager.AudioDevicesList.FindIndex(a => a.Contains(_audioDevice2));
-            AudioDevice2.SelectedIndex = audioDeviceSwitcher2;
+            if (ServiceManager.ServiceExists())
+            {
+                if (ServiceManager.ServiceRunning())
+                {
+                    PerformanceTimerTile.Background = accentColor;
+                    DefaultTimerTile.Background = Brushes.Transparent;
+                }
+                else
+                {
+                    DefaultTimerTile.Background = accentColor;
+                    PerformanceTimerTile.Background = Brushes.Transparent;
+                }
+            }
+            else
+            {
+                DefaultTimerTile.Background = accentColor;
+                PerformanceTimerTile.Background = Brushes.Transparent;
+            }
         }
 
         private void ShowQuicklaunchTiles()
         {
-            //ReadSettings();
-
             string iconFolder = Environment.CurrentDirectory + @"\ql_icons\";
             string iconExtension = ".ico";
 
@@ -274,29 +279,19 @@ namespace MiTL
             return bitmap;
         }
 
-        private static void StartTimerMonitor()
-        {
-            SystemMonitor.StartTimerMonitor();
-        }
-
         public void StartHardwareMonitor()
         {
             SystemMonitor.StartHardwareMonitor();
         }
 
-        //set Power Plan Scheme
-        private void PowerPlanTile_OnCLick(object sender, RoutedEventArgs e)
+        private void PowerPlanBalancedTile_OnCLick(object sender, RoutedEventArgs e)
         {
-            string powerPlan = PowerPlanLabel.ToString();
+            ApplyPowerPlan(_powerPlanBalanced);
+        }
 
-            if (powerPlan.Contains(" Balanced "))
-            {
-                ApplyPowerPlan(_powerPlanPerformance);
-            }
-            if (powerPlan.Contains(" High Performance "))
-            {
-                ApplyPowerPlan(_powerPlanBalanced);
-            }
+        private void PowerPlanPerformanceTile_OnCLick(object sender, RoutedEventArgs e)
+        {
+            ApplyPowerPlan(_powerPlanPerformance);
         }
 
         //Apply selected profile
@@ -319,55 +314,27 @@ namespace MiTL
             ShowActivePowerPlan();
         }
 
-        //switch default audio device
-        private void AudioDeviceSwitchTile_OnClick(object sender, RoutedEventArgs e)
+        private void GameModeDisableTile_OnClick(object sender, RoutedEventArgs e)
         {
-            string device = "";
-            if (_defaultAudioDevice == _audioDevice1)
-            {
-                device = _audioDevice2;
-                if (device != "-")
-                {
-                    ConfigManager.IniWrite("DefaultAudioDevice", _audioDevice2);
-                }
-                else
-                {
-                    ShowMetroMessage("2nd Audio Device not assigned.", "If 2 or more Audio Devices then select it in the Settings Panel");
-                }
-            }
-            if (_defaultAudioDevice == _audioDevice2)
-            {
-                device = _audioDevice1;
-                ConfigManager.IniWrite("DefaultAudioDevice", _audioDevice1);
-            }
-
-            SetAudioDevice(device);
+            string subKey = Properties.Resources.SubkeyGameMode;
+            string key = Properties.Resources.KeyGameMode;
+            string value = "0";
+            RegistryValueKind kind = RegistryValueKind.DWord;
+            RegistryManager.RegKeyWrite(subKey, key, value, kind);
+            ShowGameModeStatus();
         }
 
-        private void SetAudioDevice(string device)
+        private void GameModeEnableTile_OnClick(object sender, RoutedEventArgs e)
         {
-            if (device != "-")
-            {
-                // set default audio output device
-                Process setDefaultAudioDevice = new Process
-                {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        CreateNoWindow = true,
-                        UseShellExecute = false,
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                        FileName = @"bin\nircmdc.exe",
-                        Arguments = " setdefaultsounddevice " + "\"" + device + "\""
-                    }
-                };
-                setDefaultAudioDevice.Start();
-                setDefaultAudioDevice.WaitForExit();
-                ReadSettings();
-                ShowDefaultAudioDevice();
-            }
+            string subKey = Properties.Resources.SubkeyGameMode;
+            string key = Properties.Resources.KeyGameMode;
+            string value = "1";
+            RegistryValueKind kind = RegistryValueKind.DWord;
+            RegistryManager.RegKeyWrite(subKey, key, value, kind);
+            ShowGameModeStatus();
         }
 
-        private void TimerResolutionTile_OnClick(object sender, RoutedEventArgs e)
+        private void PerformanceTimerTile_OnClick(object sender, RoutedEventArgs e)
         {
             ServiceManager.MiTLService.Refresh();
             if (!ServiceManager.ServiceExists())
@@ -376,7 +343,29 @@ namespace MiTL
             }
             else
             {
-                ServiceManager.StartStopService();
+                ServiceManager.StartService();
+                accentColor = TryFindResource("MahApps.Brushes.Accent") as SolidColorBrush;
+                PerformanceTimerTile.Background = accentColor;
+                DefaultTimerTile.Background = Brushes.Transparent;
+            }
+        }
+
+        private void DefaultTimerTile_OnClick(object sender, RoutedEventArgs e)
+        {
+            ServiceManager.MiTLService.Refresh();
+            if (!ServiceManager.ServiceExists())
+            {
+                return;
+            }
+            else
+            {
+                if (ServiceManager.ServiceRunning())
+                {
+                    ServiceManager.StopService();
+                }
+
+                ServiceManager.MiTLService.Refresh();
+                ShowCurrentTimer();
             }
         }
 
@@ -408,32 +397,11 @@ namespace MiTL
         //Apply selected profile
         private void ApplyProfile(string profile)
         {
-            string args = null;
+            string args = "/Profile" + profile + " /q";
 
-            args = "/Profile" + profile;
-
-            //start MSIAfterburner using appropriate /profile switch
+            //start MSIAfterburner using appropriate /profile switch and quit immediately using /q switch
             string _msiabFile = Properties.Resources.MSIAB_FilePath;
             Process.Start(_msiabFile, args);
-
-            Task.Factory.StartNew(async () =>
-            {
-                await Task.Delay(1500);
-                ProcessManager.TerminateApp("MSIAfterburner");
-                ProcessManager.TerminateApp("RTSS");
-                ProcessManager.TerminateApp("RTSSHooksLoader");
-                ProcessManager.TerminateApp("RTSSHooksLoader64");
-            });
-        }
-
-        private void ToggleCloseAfterburner_Checked(object sender, RoutedEventArgs e)
-        {
-            ConfigManager.IniWrite("CloseAfterburner", "true");
-        }
-
-        private void ToggleCloseAfterburner_Unchecked(object sender, RoutedEventArgs e)
-        {
-            ConfigManager.IniWrite("CloseAfterburner", "false");
         }
 
         private void QLTile_Click(object sender, RoutedEventArgs e)
@@ -514,20 +482,6 @@ namespace MiTL
             ConfigManager.IniWrite("AppTheme", _appTheme);
         }
 
-        private void AudioDevice1_OnSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            string audioDeviceSwitch1 = AudioDevice1.SelectedValue.ToString();
-            ConfigManager.IniWrite("AudioDevice1", audioDeviceSwitch1);
-            ReadSettings();
-        }
-
-        private void AudioDevice2_OnSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            string audioDeviceSwitch2 = AudioDevice2.SelectedValue.ToString();
-            ConfigManager.IniWrite("AudioDevice2", audioDeviceSwitch2);
-            ReadSettings();
-        }
-
         private void InstallServiceButton_OnClick(object sender, RoutedEventArgs e)
         {
             ServiceManager.MiTLService.Refresh();
@@ -549,8 +503,8 @@ namespace MiTL
         {
             ReadSettings();
             ShowActivePowerPlan();
-            ShowDefaultAudioDevice();
-            SetComboListIndexes();
+            ShowGameModeStatus();
+            ShowCurrentTimer();
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
@@ -578,9 +532,11 @@ namespace MiTL
         private void NavPerformance_Click(object sender, RoutedEventArgs e)
         {
             ReadSettings();
-
             _viewGridName = GridPerformance;
             _viewIndicatorName = NavPerformanceIndicator;
+            ShowActivePowerPlan();
+            ShowGameModeStatus();
+            ShowCurrentTimer();
             NavUpdateView();
         }
 
@@ -588,13 +544,15 @@ namespace MiTL
         {
             ReadSettings();
 
-            if (_closeOnQuicklaunch == "true")
+            switch (_closeOnQuicklaunch)
             {
-                ToggleCloseOnQuicklaunch.IsChecked = true;
-            }
-            else
-            {
-                ToggleCloseOnQuicklaunch.IsChecked = false;
+                case "true":
+                    ToggleCloseOnQuicklaunch.IsChecked = true;
+                    break;
+
+                default:
+                    ToggleCloseOnQuicklaunch.IsChecked = false;
+                    break;
             }
 
             ShowQuicklaunchTiles();

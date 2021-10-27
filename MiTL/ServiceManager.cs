@@ -23,7 +23,7 @@ namespace MiTL
             return ServiceController.GetServices().Any(serviceController => serviceController.ServiceName.Equals("MiTLTimerService"));
         }
 
-        private static bool ServiceRunning()
+        public static bool ServiceRunning()
         {
             bool isRunning = false;
             switch (MiTLService.Status)
@@ -94,7 +94,7 @@ namespace MiTL
                 return;
             }
 
-            StartStopService();
+            StopService();
             Process uninstallServiceProcess = new Process
             {
                 StartInfo = new ProcessStartInfo
@@ -112,7 +112,7 @@ namespace MiTL
             uninstallServiceProcess.WaitForExit(500);
         }
 
-        public static void StartStopService()
+        public static void StartService()
         {
             if (!ServiceExists())
             {
@@ -123,11 +123,37 @@ namespace MiTL
             {
                 MiTLService.Start();
             }
+        }
+
+        public static void StopService()
+        {
+            if (!ServiceExists())
+            {
+                return;
+            }
 
             if (ServiceRunning())
             {
                 MiTLService.Stop();
             }
         }
+
+        //public static void StartStopService()
+        //{
+        //    if (!ServiceExists())
+        //    {
+        //        return;
+        //    }
+
+        //    if (!ServiceRunning())
+        //    {
+        //        MiTLService.Start();
+        //    }
+
+        //    if (ServiceRunning())
+        //    {
+        //        MiTLService.Stop();
+        //    }
+        //}
     }
 }

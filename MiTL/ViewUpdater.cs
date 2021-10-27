@@ -40,13 +40,5 @@ namespace MiTL
             MainWindow.fan3SpeedLabel.Content = _fan3Speed;
             MainWindow.fan4SpeedLabel.Content = _fan4Speed;
         }
-
-        public static void UpdateTimerData(string timerResolution)
-        {
-            if (MainWindow.TimerResolutionLabel.ToString() != timerResolution)
-            {
-                MainWindow.TimerResolutionLabel.Content = timerResolution;
-            }
-        }
     }
 }

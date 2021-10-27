@@ -55,27 +55,6 @@ namespace MiTL
                 IniWrite("PowerPlanPerformance", powerPlanPerformance);
             }
 
-            if (ListManager.AudioDevicesList.Count == 1)
-            {
-                string audioDevice = ListManager.AudioDevicesList.ElementAt(0);
-                IniWrite("AudioDevice1", audioDevice);
-                IniWrite("AudioDevice2", "-");
-            }
-            else if (ListManager.AudioDevicesList.Count > 1)
-            {
-                foreach ((string value, int i) device in ListManager.AudioDevicesList.Select((value, i) => (value, i)))
-                {
-                    string value = device.value;
-                    int index = device.i + 1;
-                    string deviceNumber = "AudioDevice" + index.ToString();
-                    string audioDevice = ListManager.AudioDevicesList.ElementAt(index);
-                    IniWrite(deviceNumber, audioDevice);
-                }
-            }
-
-            string defaultAudioDevice = ListManager.DefaultAudioDevice;
-            IniWrite("DefaultAudioDevice", defaultAudioDevice);
-
             string closeOnQuicklaunch = Properties.Resources.CloseOnQuicklaunch;
             IniWrite("CloseOnQuicklaunch", closeOnQuicklaunch);
 

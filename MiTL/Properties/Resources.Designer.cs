@@ -63,15 +63,6 @@ namespace MiTL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to false.
         /// </summary>
-        internal static string CloseAfterburner {
-            get {
-                return ResourceManager.GetString("CloseAfterburner", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to false.
-        /// </summary>
         internal static string CloseOnQuicklaunch {
             get {
                 return ResourceManager.GetString("CloseOnQuicklaunch", resourceCulture);
@@ -84,33 +75,6 @@ namespace MiTL.Properties {
         internal static string DefaultAppTheme {
             get {
                 return ResourceManager.GetString("DefaultAppTheme", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A.
-        /// </summary>
-        internal static string DefaultAudioDeviceSwitchHotKey {
-            get {
-                return ResourceManager.GetString("DefaultAudioDeviceSwitchHotKey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Q.
-        /// </summary>
-        internal static string DefaultExitAppHotkey {
-            get {
-                return ResourceManager.GetString("DefaultExitAppHotkey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to G.
-        /// </summary>
-        internal static string DefaultGameModeHotKey {
-            get {
-                return ResourceManager.GetString("DefaultGameModeHotKey", resourceCulture);
             }
         }
         
@@ -165,6 +129,15 @@ namespace MiTL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AutoGameModeEnabled.
+        /// </summary>
+        internal static string KeyGameMode {
+            get {
+                return ResourceManager.GetString("KeyGameMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon MiTL_Icon {
@@ -209,6 +182,15 @@ namespace MiTL.Properties {
         internal static string MyConfigManager {
             get {
                 return ResourceManager.GetString("MyConfigManager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SOFTWARE\Microsoft\GameBar.
+        /// </summary>
+        internal static string SubkeyGameMode {
+            get {
+                return ResourceManager.GetString("SubkeyGameMode", resourceCulture);
             }
         }
     }

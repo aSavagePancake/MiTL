@@ -365,26 +365,5 @@ namespace MiTL
                         , _fan1Speed, _fan2Speed, _fan3Speed, _fan4Speed);
             });
         }
-
-        public static void StartTimerMonitor()
-        {
-            Task.Factory.StartNew(function: async () =>
-            {
-                while (true)
-                {
-                    string timerResolution = " " + Math.Round(ServiceManager.CurrentTimerRes() / 10000.0, 2) + " millisecond(s) ";
-                    UpdateTimerData(timerResolution);
-                    await Task.Delay(Delay).ConfigureAwait(false);
-                }
-            });
-        }
-
-        private static void UpdateTimerData(string timerResolution)
-        {
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                ViewUpdater.UpdateTimerData(timerResolution);
-            });
-        }
     }
 }

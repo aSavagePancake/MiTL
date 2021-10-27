@@ -1,5 +1,4 @@
 ﻿using MahApps.Metro.Controls;
-using NAudio.CoreAudioApi;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -11,35 +10,6 @@ namespace MiTL
     internal class ListManager
     {
         private static readonly MainWindow MainWindow = (MainWindow)Application.Current.MainWindow;
-        private static readonly MMDeviceEnumerator Enumerator = new MMDeviceEnumerator();
-
-        internal static List<string> AudioDevicesList
-        {
-            get
-            {
-                List<string> audioDevicesList = new List<string>();
-                foreach (MMDevice endpoint in
-                    Enumerator.EnumerateAudioEndPoints(DataFlow.Render, DeviceState.Active))
-                {
-                    string audioDevices = endpoint.FriendlyName;
-                    string input = audioDevices;
-                    input = input.Substring(0, input.IndexOf("(", StringComparison.Ordinal));
-                    audioDevicesList.Add(input);
-                }
-                return audioDevicesList;
-            }
-        }
-
-        internal static string DefaultAudioDevice
-        {
-            get
-            {
-                string defaultAudioOutput = Enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Multimedia).FriendlyName;
-                string input = defaultAudioOutput;
-                input = input.Substring(0, input.IndexOf("(", StringComparison.Ordinal));
-                return input;
-            }
-        }
 
         [DllImport("PowrProf.dll")]
         public static extern uint PowerEnumerate(IntPtr rootPowerKey, IntPtr schemeGuid,
