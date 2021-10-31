@@ -108,16 +108,6 @@ namespace MiTL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap MiTL_LogoName {
-            get {
-                object obj = ResourceManager.GetObject("MiTL_LogoName", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to C:\Program Files (x86)\MSI Afterburner\MSIAfterburner.exe.
         /// </summary>
         internal static string MSIAB_FilePath {
