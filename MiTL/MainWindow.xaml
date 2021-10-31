@@ -1,9 +1,10 @@
 ﻿<mah:MetroWindow
     x:Class="MiTL.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="785.31"
     Height="555.6"
@@ -58,12 +59,12 @@
                 HorizontalTitleAlignment="Center"
                 IsTabStop="False"
                 TitleFontSize="15">
-                <Image
+                <iconPacks:PackIconBoxIcons
                     Width="42"
                     Height="62"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="Resources/Image_Monitoring.png" />
+                    Kind="RegularPulse" />
             </mah:Tile>
             <Border
                 x:Name="NavMonitoringIndicator"
@@ -88,12 +89,12 @@
                 HorizontalTitleAlignment="Center"
                 IsTabStop="False"
                 TitleFontSize="15">
-                <Image
+                <iconPacks:PackIconBoxIcons
                     Width="42"
                     Height="62"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="Resources/Image_Performance.png" />
+                    Kind="RegularTachometer" />
             </mah:Tile>
             <Border
                 x:Name="NavPerformanceIndicator"
@@ -106,7 +107,7 @@
                 Visibility="Collapsed" />
             <mah:Tile
                 x:Name="NavQuickLaunch"
-                Title="Quick Launch"
+                Title="Quick-Launch"
                 Width="221"
                 Height="81"
                 Margin="0,278,0,0"
@@ -119,12 +120,12 @@
                 HorizontalTitleAlignment="Center"
                 IsTabStop="False"
                 TitleFontSize="15">
-                <Image
+                <iconPacks:PackIconBoxIcons
                     Width="42"
                     Height="62"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="Resources/Image_Quicklaunch.png" />
+                    Kind="RegularGridHorizontal" />
             </mah:Tile>
             <Border
                 x:Name="NavQuickLaunchIndicator"
@@ -150,12 +151,12 @@
                 HorizontalTitleAlignment="Center"
                 IsTabStop="False"
                 TitleFontSize="15">
-                <Image
+                <iconPacks:PackIconBoxIcons
                     Width="42"
                     Height="62"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="Resources/Image_Settings.png" />
+                    Kind="RegularSlider" />
             </mah:Tile>
             <Border
                 x:Name="NavSettingsIndicator"
@@ -181,12 +182,12 @@
                 HorizontalTitleAlignment="Center"
                 IsTabStop="False"
                 TitleFontSize="15">
-                <Image
+                <iconPacks:PackIconBoxIcons
                     Width="42"
                     Height="62"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Source="Resources/Image_About.png" />
+                    Kind="RegularCreditCardFront" />
             </mah:Tile>
             <Border
                 x:Name="NavAboutIndicator"

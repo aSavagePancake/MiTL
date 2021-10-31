@@ -52,7 +52,6 @@ namespace MiTL
                     return true;
                 }
             }
-
             return false;
         }
     }

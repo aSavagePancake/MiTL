@@ -137,23 +137,5 @@ namespace MiTL
                 MiTLService.Stop();
             }
         }
-
-        //public static void StartStopService()
-        //{
-        //    if (!ServiceExists())
-        //    {
-        //        return;
-        //    }
-
-        //    if (!ServiceRunning())
-        //    {
-        //        MiTLService.Start();
-        //    }
-
-        //    if (ServiceRunning())
-        //    {
-        //        MiTLService.Stop();
-        //    }
-        //}
     }
 }
