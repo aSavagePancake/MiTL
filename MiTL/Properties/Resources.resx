@@ -117,14 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CloseOnQuicklaunch" xml:space="preserve">
+  <data name="CloseOnLaunch" xml:space="preserve">
     <value>false</value>
   </data>
   <data name="DefaultAppTheme" xml:space="preserve">
     <value>Dark.Blue</value>
-  </data>
-  <data name="KeyGameMode" xml:space="preserve">
-    <value>AutoGameModeEnabled</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="MiTL_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -136,10 +133,13 @@
   <data name="MSIAB_FilePath" xml:space="preserve">
     <value>C:\Program Files (x86)\MSI Afterburner\MSIAfterburner.exe</value>
   </data>
-  <data name="MyConfigManager" xml:space="preserve">
-    <value>MiTL.ini</value>
+  <data name="RegGameModeKey" xml:space="preserve">
+    <value>AutoGameModeEnabled</value>
   </data>
-  <data name="SubkeyGameMode" xml:space="preserve">
+  <data name="RegGameModeSubkey" xml:space="preserve">
     <value>SOFTWARE\Microsoft\GameBar</value>
+  </data>
+  <data name="SettingsFile" xml:space="preserve">
+    <value>Settings.ini</value>
   </data>
 </root>

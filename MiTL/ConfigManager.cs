@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -10,7 +9,7 @@ namespace MiTL
     internal class ConfigManager
     {
         private readonly string _path;
-        private readonly string _exe = Assembly.GetExecutingAssembly().GetName().Name;
+        private readonly string _settingsFile = Properties.Resources.SettingsFile;
 
         [DllImport("kernel32", CharSet = CharSet.Unicode)]
         private static extern long WritePrivateProfileString(string section, string key, string value, string filePath);
@@ -21,19 +20,19 @@ namespace MiTL
         //ini file management ... >
         public ConfigManager(string iniPath = null)
         {
-            _path = new FileInfo(iniPath ?? _exe + ".ini").FullName;
+            _path = new FileInfo(iniPath ?? _settingsFile).FullName;
         }
 
         public string IniRead(string key, string section = null)
         {
             StringBuilder retVal = new StringBuilder(255);
-            GetPrivateProfileString(section ?? _exe, key, "", retVal, 255, _path);
+            GetPrivateProfileString(section ?? _settingsFile, key, "", retVal, 255, _path);
             return retVal.ToString();
         }
 
         public void IniWrite(string key, string value, string section = null)
         {
-            WritePrivateProfileString(section ?? _exe, key, value, _path);
+            WritePrivateProfileString(section ?? _settingsFile, key, value, _path);
         }
 
         public void WriteConfigDefaults()
@@ -55,8 +54,8 @@ namespace MiTL
                 IniWrite("PowerPlanPerformance", powerPlanPerformance);
             }
 
-            string closeOnQuicklaunch = Properties.Resources.CloseOnQuicklaunch;
-            IniWrite("CloseOnQuicklaunch", closeOnQuicklaunch);
+            string closeOnLaunch = Properties.Resources.CloseOnLaunch;
+            IniWrite("CloseOnLaunch", closeOnLaunch);
 
             List<string> qlConfigTitles = new List<string>
             {

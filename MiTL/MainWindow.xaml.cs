@@ -26,7 +26,7 @@ namespace MiTL
         private static string _powerPlanBalanced;
         private static string _powerPlanPerformance;
         private static string _appTheme;
-        private static string _closeOnQuicklaunch;
+        private static string _closeOnLaunch;
         private static string _quicklaunch1Name;
         private static string _quicklaunch1Path;
         private static string _quicklaunch2Name;
@@ -88,8 +88,8 @@ namespace MiTL
             ProcessManager.TerminateDuplicate();
 
             //check if config file exists, if not write default config file
-            string myConfigManager = Properties.Resources.MyConfigManager;
-            if (!File.Exists(myConfigManager))
+            string SettingsFile = Properties.Resources.SettingsFile;
+            if (!File.Exists(SettingsFile))
             {
                 ConfigManager.WriteConfigDefaults();
             }
@@ -105,7 +105,7 @@ namespace MiTL
             _powerPlanBalanced = ConfigManager.IniRead("PowerPlanBalanced");
             _powerPlanPerformance = ConfigManager.IniRead("PowerPlanPerformance");
             _appTheme = ConfigManager.IniRead("AppTheme");
-            _closeOnQuicklaunch = ConfigManager.IniRead("CloseOnQuicklaunch");
+            _closeOnLaunch = ConfigManager.IniRead("CloseOnLaunch");
             _quicklaunch1Name = ConfigManager.IniRead("Quicklaunch1Name");
             _quicklaunch1Path = ConfigManager.IniRead("Quicklaunch1Path");
             _quicklaunch2Name = ConfigManager.IniRead("Quicklaunch2Name");
@@ -180,8 +180,8 @@ namespace MiTL
         {
             accentColor = TryFindResource("MahApps.Brushes.Accent") as SolidColorBrush;
 
-            string subKey = Properties.Resources.SubkeyGameMode;
-            string key = Properties.Resources.KeyGameMode;
+            string subKey = Properties.Resources.RegGameModeSubkey;
+            string key = Properties.Resources.RegGameModeKey;
             string gameModeStatus = RegistryManager.RegKeyRead(subKey, key);
 
             if (gameModeStatus == "0")
@@ -316,8 +316,8 @@ namespace MiTL
 
         private void GameModeDisableTile_OnClick(object sender, RoutedEventArgs e)
         {
-            string subKey = Properties.Resources.SubkeyGameMode;
-            string key = Properties.Resources.KeyGameMode;
+            string subKey = Properties.Resources.RegGameModeSubkey;
+            string key = Properties.Resources.RegGameModeKey;
             string value = "0";
             RegistryValueKind kind = RegistryValueKind.DWord;
             RegistryManager.RegKeyWrite(subKey, key, value, kind);
@@ -326,8 +326,8 @@ namespace MiTL
 
         private void GameModeEnableTile_OnClick(object sender, RoutedEventArgs e)
         {
-            string subKey = Properties.Resources.SubkeyGameMode;
-            string key = Properties.Resources.KeyGameMode;
+            string subKey = Properties.Resources.RegGameModeSubkey;
+            string key = Properties.Resources.RegGameModeKey;
             string value = "1";
             RegistryValueKind kind = RegistryValueKind.DWord;
             RegistryManager.RegKeyWrite(subKey, key, value, kind);
@@ -419,7 +419,7 @@ namespace MiTL
             {
                 if (File.Exists(qlPath))
                 {
-                    if (ToggleCloseOnQuicklaunch.IsChecked == true)
+                    if (ToggleCloseOnLaunch.IsChecked == true)
                     {
                         ProcessManager.CloseAfterProcessStart(qlName);
                     }
@@ -428,14 +428,14 @@ namespace MiTL
             }
         }
 
-        private void ToggleCloseOnQuicklaunch_Checked(object sender, RoutedEventArgs e)
+        private void ToggleCloseOnLaunch_Checked(object sender, RoutedEventArgs e)
         {
-            ConfigManager.IniWrite("CloseOnQuicklaunch", "true");
+            ConfigManager.IniWrite("CloseOnLaunch", "true");
         }
 
-        private void ToggleCloseOnQuicklaunch_Unchecked(object sender, RoutedEventArgs e)
+        private void ToggleCloseOnLaunch_Unchecked(object sender, RoutedEventArgs e)
         {
-            ConfigManager.IniWrite("CloseOnQuicklaunch", "false");
+            ConfigManager.IniWrite("CloseOnLaunch", "false");
         }
 
         private void RadioRedTheme_OnChecked(object sender, RoutedEventArgs e)
@@ -540,25 +540,32 @@ namespace MiTL
             NavUpdateView();
         }
 
-        private void NavQuickLaunch_Click(object sender, RoutedEventArgs e)
+        private void NavLauncher_Click(object sender, RoutedEventArgs e)
         {
             ReadSettings();
 
-            switch (_closeOnQuicklaunch)
+            switch (_closeOnLaunch)
             {
                 case "true":
-                    ToggleCloseOnQuicklaunch.IsChecked = true;
+                    ToggleCloseOnLaunch.IsChecked = true;
                     break;
 
                 default:
-                    ToggleCloseOnQuicklaunch.IsChecked = false;
+                    ToggleCloseOnLaunch.IsChecked = false;
                     break;
             }
 
             ShowQuicklaunchTiles();
 
-            _viewGridName = GridQuickLaunch;
-            _viewIndicatorName = NavQuickLaunchIndicator;
+            _viewGridName = GridLauncher;
+            _viewIndicatorName = NavLauncherIndicator;
+            NavUpdateView();
+        }
+
+        private void NavOSTweaks_Click(object sender, RoutedEventArgs e)
+        {
+            _viewGridName = GridOSTweaks;
+            _viewIndicatorName = NavOSTweaksIndicator;
             NavUpdateView();
         }
 
@@ -639,7 +646,7 @@ namespace MiTL
             }
             if (tabName.Contains("Quick Launch"))
             {
-                SettingsQuickLaunchindicator.Visibility = Visibility.Visible;
+                SettingsLauncherindicator.Visibility = Visibility.Visible;
 
                 int index = 0;
 

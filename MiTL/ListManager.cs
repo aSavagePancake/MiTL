@@ -86,9 +86,10 @@ namespace MiTL
             {
                 List<Grid> navGrids = new List<Grid>
                 {
-                    MainWindow.GridPerformance,
                     MainWindow.GridMonitoring,
-                    MainWindow.GridQuickLaunch,
+                    MainWindow.GridPerformance,
+                    MainWindow.GridLauncher,
+                    MainWindow.GridOSTweaks,
                     MainWindow.GridSettings,
                     MainWindow.GridAbout
                 };
@@ -104,7 +105,8 @@ namespace MiTL
                 {
                     MainWindow.NavMonitoringIndicator,
                     MainWindow.NavPerformanceIndicator,
-                    MainWindow.NavQuickLaunchIndicator,
+                    MainWindow.NavLauncherIndicator,
+                    MainWindow.NavOSTweaksIndicator,
                     MainWindow.NavSettingsIndicator,
                     MainWindow.NavAboutIndicator
                 };
@@ -120,7 +122,7 @@ namespace MiTL
                 {
                     MainWindow.SettingsTimerServiceindicator,
                     MainWindow.SettingsAudioDevicesindicator,
-                    MainWindow.SettingsQuickLaunchindicator,
+                    MainWindow.SettingsLauncherindicator,
                     MainWindow.SettingsThemeindicator
                 };
                 return tabIndicators;

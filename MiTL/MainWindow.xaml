@@ -1,10 +1,10 @@
 ﻿<mah:MetroWindow
     x:Class="MiTL.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="785.31"
     Height="555.6"
@@ -48,158 +48,220 @@
                     Source="Resources/MiTL_Logo.png" />
             </Border>
             <mah:Tile
-                x:Name="NavMonitoring"
+                Width="105"
+                Height="26"
+                Margin="5,139,116,391"
+                Background="Transparent"
+                Click="NavMonitoring_Click"
+                Cursor="Hand">
+                <Grid>
+                    <iconPacks:PackIconBoxIcons
+                        Width="105"
+                        Height="26"
+                        Foreground="White"
+                        Kind="RegularPulse" />
+                </Grid>
+            </mah:Tile>
+            <mah:Tile
+                x:Name="NavMonitoringTile"
                 Title="Monitoring"
-                Width="221"
-                Height="81"
-                Margin="0,116,0,0"
+                Width="135"
+                Height="45"
+                Margin="85,130,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                VerticalContentAlignment="Top"
-                Background="#FF202329"
+                Background="Transparent"
                 Click="NavMonitoring_Click"
                 Cursor="Hand"
-                HorizontalTitleAlignment="Center"
+                HorizontalTitleAlignment="Left"
                 IsTabStop="False"
-                TitleFontSize="15">
-                <iconPacks:PackIconBoxIcons
-                    Width="42"
-                    Height="62"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Kind="RegularPulse" />
-            </mah:Tile>
+                VerticalTitleAlignment="Center" />
             <Border
                 x:Name="NavMonitoringIndicator"
-                Width="13"
-                Height="81"
-                Margin="0,116,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Background="{DynamicResource MahApps.Brushes.Accent}" />
+                Height="45"
+                Margin="0,130,0,381"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                Opacity="0.8"
+                Visibility="Visible" />
             <mah:Tile
-                x:Name="NavPerformance"
+                Width="105"
+                Height="26"
+                Margin="5,205,111,325"
+                Background="Transparent"
+                Click="NavPerformance_Click"
+                Cursor="Hand">
+                <Grid>
+                    <iconPacks:PackIconBoxIcons
+                        Width="105"
+                        Height="26"
+                        Foreground="White"
+                        Kind="RegularTachometer" />
+                </Grid>
+            </mah:Tile>
+            <mah:Tile
+                x:Name="NavPerformanceTile"
                 Title="Performance"
-                Width="221"
-                Height="81"
-                Margin="0,197,0,0"
+                Width="135"
+                Height="45"
+                Margin="85,195,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                VerticalContentAlignment="Top"
-                Background="#FF202329"
+                Background="Transparent"
                 Click="NavPerformance_Click"
                 Cursor="Hand"
-                HorizontalTitleAlignment="Center"
+                HorizontalTitleAlignment="Left"
                 IsTabStop="False"
-                TitleFontSize="15">
-                <iconPacks:PackIconBoxIcons
-                    Width="42"
-                    Height="62"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Kind="RegularTachometer" />
-            </mah:Tile>
+                VerticalTitleAlignment="Center" />
             <Border
                 x:Name="NavPerformanceIndicator"
-                Width="13"
-                Height="81"
-                Margin="0,197,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
+                Height="45"
+                Margin="0,195,0,316"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
+                Opacity="0.8"
                 Visibility="Collapsed" />
             <mah:Tile
-                x:Name="NavQuickLaunch"
-                Title="Quick-Launch"
-                Width="221"
-                Height="81"
-                Margin="0,278,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                VerticalContentAlignment="Top"
-                Background="#FF202329"
-                Click="NavQuickLaunch_Click"
-                Cursor="Hand"
-                HorizontalTitleAlignment="Center"
-                IsTabStop="False"
-                TitleFontSize="15">
-                <iconPacks:PackIconBoxIcons
-                    Width="42"
-                    Height="62"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Kind="RegularGridHorizontal" />
+                Width="105"
+                Height="28"
+                Margin="5,274,111,254"
+                Background="Transparent"
+                Click="NavOSTweaks_Click"
+                Cursor="Hand">
+                <Grid>
+                    <iconPacks:PackIconBoxIcons
+                        Width="105"
+                        Height="26"
+                        Foreground="White"
+                        Kind="SolidWrench" />
+                </Grid>
             </mah:Tile>
-            <Border
-                x:Name="NavQuickLaunchIndicator"
-                Width="13"
-                Height="81"
-                Margin="0,278,0,0"
+            <mah:Tile
+                x:Name="NavOSTweaksTile"
+                Title="OS Tweaks"
+                Width="135"
+                Height="45"
+                Margin="85,265,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
+                Background="Transparent"
+                Click="NavOSTweaks_Click"
+                Cursor="Hand"
+                HorizontalTitleAlignment="Left"
+                IsTabStop="False"
+                VerticalTitleAlignment="Center" />
+            <Border
+                x:Name="NavOSTweaksIndicator"
+                Height="45"
+                Margin="0,263,0,248"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
+                Opacity="0.8"
                 Visibility="Collapsed" />
             <mah:Tile
-                x:Name="NavSettings"
-                Title="Settings"
-                Width="221"
-                Height="81"
-                Margin="0,359,0,0"
+                Width="105"
+                Height="26"
+                Margin="5,339,116,191"
+                Background="Transparent"
+                Click="NavLauncher_Click"
+                Cursor="Hand">
+                <Grid>
+                    <iconPacks:PackIconBoxIcons
+                        Width="105"
+                        Height="26"
+                        Foreground="White"
+                        Kind="RegularGridAlt" />
+                </Grid>
+            </mah:Tile>
+            <mah:Tile
+                x:Name="NavLauncherTile"
+                Title="Launcher"
+                Width="135"
+                Height="45"
+                Margin="85,330,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                VerticalContentAlignment="Top"
-                Background="#FF202329"
+                Background="Transparent"
+                Click="NavLauncher_Click"
+                Cursor="Hand"
+                HorizontalTitleAlignment="Left"
+                IsTabStop="False"
+                VerticalTitleAlignment="Center" />
+            <Border
+                x:Name="NavLauncherIndicator"
+                Height="45"
+                Margin="0,330,0,181"
+                Background="{DynamicResource MahApps.Brushes.Accent}"
+                Opacity="0.8"
+                Visibility="Collapsed" />
+            <mah:Tile
+                Width="105"
+                Height="26"
+                Margin="5,405,111,125"
+                Background="Transparent"
+                Click="NavSettings_Click"
+                Cursor="Hand">
+                <Grid>
+                    <iconPacks:PackIconBoxIcons
+                        Width="105"
+                        Height="26"
+                        Foreground="White"
+                        Kind="RegularSlider" />
+                </Grid>
+            </mah:Tile>
+            <mah:Tile
+                x:Name="NavSettingsTile"
+                Title="Settings"
+                Width="135"
+                Height="45"
+                Margin="85,395,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="Transparent"
                 Click="NavSettings_Click"
                 Cursor="Hand"
-                HorizontalTitleAlignment="Center"
+                HorizontalTitleAlignment="Left"
                 IsTabStop="False"
-                TitleFontSize="15">
-                <iconPacks:PackIconBoxIcons
-                    Width="42"
-                    Height="62"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Kind="RegularSlider" />
-            </mah:Tile>
+                VerticalTitleAlignment="Center" />
             <Border
                 x:Name="NavSettingsIndicator"
-                Width="13"
-                Height="81"
-                Margin="0,359,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
+                Height="45"
+                Margin="-1,397,1,114"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
+                Opacity="0.8"
                 Visibility="Collapsed" />
             <mah:Tile
-                x:Name="NavAbout"
+                Width="105"
+                Height="26"
+                Margin="5,474,111,56"
+                Background="Transparent"
+                Click="NavAbout_Click"
+                Cursor="Hand">
+                <Grid>
+                    <iconPacks:PackIconBoxIcons
+                        Width="105"
+                        Height="26"
+                        Foreground="White"
+                        Kind="RegularCreditCardFront" />
+                </Grid>
+            </mah:Tile>
+            <mah:Tile
+                x:Name="NavAboutTile"
                 Title="About"
-                Width="221"
-                Height="81"
-                Margin="0,440,0,0"
+                Width="135"
+                Height="45"
+                Margin="85,465,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                VerticalContentAlignment="Top"
-                Background="#FF202329"
+                Background="Transparent"
                 Click="NavAbout_Click"
                 Cursor="Hand"
-                HorizontalTitleAlignment="Center"
+                HorizontalTitleAlignment="Left"
                 IsTabStop="False"
-                TitleFontSize="15">
-                <iconPacks:PackIconBoxIcons
-                    Width="42"
-                    Height="62"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Kind="RegularCreditCardFront" />
-            </mah:Tile>
+                VerticalTitleAlignment="Center" />
             <Border
                 x:Name="NavAboutIndicator"
-                Width="13"
-                Height="81"
-                Margin="0,440,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
+                Height="45"
+                Margin="0,465,0,46"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
+                Opacity="0.8"
                 Visibility="Collapsed" />
         </Grid>
 
@@ -1306,9 +1368,9 @@
                 FontSize="15" />
         </Grid>
 
-        <!--  quick launch grid view  -->
+        <!--  launcher grid view  -->
         <Grid
-            x:Name="GridQuickLaunch"
+            x:Name="GridLauncher"
             Width="544"
             Height="556"
             Margin="232,0,0,0"
@@ -1323,7 +1385,7 @@
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Right"
                 VerticalContentAlignment="Center"
-                Content="Quick Launch"
+                Content="Launcher"
                 FontSize="20" />
             <Border
                 Width="10"
@@ -1732,17 +1794,54 @@
                 </mah:Tile>
             </Grid>
             <CheckBox
-                x:Name="ToggleCloseOnQuicklaunch"
+                x:Name="ToggleCloseOnLaunch"
                 Width="auto"
                 Height="18"
                 Margin="176,492,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Left"
-                Checked="ToggleCloseOnQuicklaunch_Checked"
+                Checked="ToggleCloseOnLaunch_Checked"
                 Content="Close MiTL after launching application"
                 FontSize="10"
-                Unchecked="ToggleCloseOnQuicklaunch_Unchecked" />
+                Unchecked="ToggleCloseOnLaunch_Unchecked" />
+        </Grid>
+
+        <!--  about grid view  -->
+        <Grid
+            x:Name="GridOSTweaks"
+            Width="544"
+            Height="556"
+            Margin="232,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Visibility="Collapsed">
+            <Label
+                Width="Auto"
+                Height="41"
+                Margin="0,33,35,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Right"
+                VerticalContentAlignment="Center"
+                Content="OS Tweaks"
+                FontSize="20" />
+            <Border
+                Width="10"
+                Height="41"
+                Margin="514,33,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{DynamicResource MahApps.Brushes.Accent}" />
+            <Border
+                Width="506"
+                Height="432"
+                Margin="18,90,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#FF202329"
+                BorderThickness="1"
+                CornerRadius="10" />
         </Grid>
 
         <!--  settings grid view  -->
@@ -1869,14 +1968,14 @@
                         </Grid>
                     </TabItem>
                     <TabItem
-                        x:Name="SettingsTabQuickLaunch"
+                        x:Name="SettingsTabLauncher"
                         Width="auto"
                         Margin="66.6,0,-67,0">
                         <TabItem.Header>
                             <Label
                                 Margin="-6,0"
                                 HorizontalContentAlignment="Center"
-                                Content="Quick Launch"
+                                Content="Launcher"
                                 Cursor="Hand"
                                 FontSize="16"
                                 MouseDown="SettingsTab_MouseDown" />
@@ -1891,7 +1990,7 @@
                                 FontSize="12"
                                 Foreground="White"
                                 Opacity="0.7"
-                                Text="Add/Remove quick launch shortcuts:"
+                                Text="Add/Remove launcher shortcuts:"
                                 TextAlignment="Center"
                                 TextWrapping="Wrap" />
                             <ScrollViewer
@@ -2646,7 +2745,7 @@
                 </Border.RenderTransform>
             </Border>
             <Border
-                x:Name="SettingsQuickLaunchindicator"
+                x:Name="SettingsLauncherindicator"
                 Width="4"
                 Height="92"
                 Margin="359,90,0,0"

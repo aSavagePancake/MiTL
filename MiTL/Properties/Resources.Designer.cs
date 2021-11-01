@@ -63,9 +63,9 @@ namespace MiTL.Properties {
         /// <summary>
         ///   Looks up a localized string similar to false.
         /// </summary>
-        internal static string CloseOnQuicklaunch {
+        internal static string CloseOnLaunch {
             get {
-                return ResourceManager.GetString("CloseOnQuicklaunch", resourceCulture);
+                return ResourceManager.GetString("CloseOnLaunch", resourceCulture);
             }
         }
         
@@ -75,15 +75,6 @@ namespace MiTL.Properties {
         internal static string DefaultAppTheme {
             get {
                 return ResourceManager.GetString("DefaultAppTheme", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to AutoGameModeEnabled.
-        /// </summary>
-        internal static string KeyGameMode {
-            get {
-                return ResourceManager.GetString("KeyGameMode", resourceCulture);
             }
         }
         
@@ -117,20 +108,29 @@ namespace MiTL.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MiTL.ini.
+        ///   Looks up a localized string similar to AutoGameModeEnabled.
         /// </summary>
-        internal static string MyConfigManager {
+        internal static string RegGameModeKey {
             get {
-                return ResourceManager.GetString("MyConfigManager", resourceCulture);
+                return ResourceManager.GetString("RegGameModeKey", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to SOFTWARE\Microsoft\GameBar.
         /// </summary>
-        internal static string SubkeyGameMode {
+        internal static string RegGameModeSubkey {
             get {
-                return ResourceManager.GetString("SubkeyGameMode", resourceCulture);
+                return ResourceManager.GetString("RegGameModeSubkey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.ini.
+        /// </summary>
+        internal static string SettingsFile {
+            get {
+                return ResourceManager.GetString("SettingsFile", resourceCulture);
             }
         }
     }
