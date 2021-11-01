@@ -40,17 +40,17 @@ namespace MiTL
             string defaultAppTheme = Properties.Resources.DefaultAppTheme;
             IniWrite("AppTheme", defaultAppTheme);
 
-            if (ListManager.PowerPlanList.Count == 1)
+            if (MainWindow.PowerPlanList.Count == 1)
             {
-                string powerPlanBalanced = ListManager.PowerPlanList.ElementAt(0);
+                string powerPlanBalanced = MainWindow.PowerPlanList.ElementAt(0);
                 IniWrite("PowerPlanBalanced", powerPlanBalanced);
             }
 
-            if (ListManager.PowerPlanList.Count == 2)
+            if (MainWindow.PowerPlanList.Count == 2)
             {
-                string powerPlanBalanced = ListManager.PowerPlanList.ElementAt(0);
+                string powerPlanBalanced = MainWindow.PowerPlanList.ElementAt(0);
                 IniWrite("PowerPlanBalanced", powerPlanBalanced);
-                string powerPlanPerformance = ListManager.PowerPlanList.ElementAt(1);
+                string powerPlanPerformance = MainWindow.PowerPlanList.ElementAt(1);
                 IniWrite("PowerPlanPerformance", powerPlanPerformance);
             }
 
@@ -60,36 +60,52 @@ namespace MiTL
             List<string> qlConfigTitles = new List<string>
             {
                 "Quicklaunch1Name",
+                "Quicklaunch1ExeName",
                 "Quicklaunch1Path",
                 "Quicklaunch2Name",
+                "Quicklaunch2ExeName",
                 "Quicklaunch2Path",
                 "Quicklaunch3Name",
+                "Quicklaunch3ExeName",
                 "Quicklaunch3Path",
                 "Quicklaunch4Name",
+                "Quicklaunch4ExeName",
                 "Quicklaunch4Path",
                 "Quicklaunch5Name",
+                "Quicklaunch5ExeName",
                 "Quicklaunch5Path",
                 "Quicklaunch6Name",
+                "Quicklaunch6ExeName",
                 "Quicklaunch6Path",
                 "Quicklaunch7Name",
+                "Quicklaunch7ExeName",
                 "Quicklaunch7Path",
                 "Quicklaunch8Name",
+                "Quicklaunch8ExeName",
                 "Quicklaunch8Path",
                 "Quicklaunch9Name",
+                "Quicklaunch9ExeName",
                 "Quicklaunch9Path",
                 "Quicklaunch10Name",
+                "Quicklaunch10ExeName",
                 "Quicklaunch10Path",
                 "Quicklaunch11Name",
+                "Quicklaunch11ExeName",
                 "Quicklaunch11Path",
                 "Quicklaunch12Name",
+                "Quicklaunch12ExeName",
                 "Quicklaunch12Path",
                 "Quicklaunch13Name",
+                "Quicklaunch13ExeName",
                 "Quicklaunch13Path",
                 "Quicklaunch14Name",
+                "Quicklaunch14ExeName",
                 "Quicklaunch14Path",
                 "Quicklaunch15Name",
+                "Quicklaunch15ExeName",
                 "Quicklaunch15Path",
                 "Quicklaunch16Name",
+                "Quicklaunch16ExeName",
                 "Quicklaunch16Path",
             };
 

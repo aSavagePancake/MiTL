@@ -132,7 +132,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="IconManager.cs" />
-    <Compile Include="ListManager.cs" />
     <Compile Include="ProcessManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

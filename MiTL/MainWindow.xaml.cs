@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,7 +18,6 @@ namespace MiTL
 {
     public partial class MainWindow
     {
-        private static readonly ListManager ListManager = new ListManager();
         private static readonly ConfigManager ConfigManager = new ConfigManager();
         private static readonly RegistryManager RegistryManager = new RegistryManager();
         private static Grid _viewGridName = new Grid();
@@ -60,6 +60,19 @@ namespace MiTL
         private static string _quicklaunch16Name;
         private static string _quicklaunch16Path;
         private static string qlTileNumber = "";
+
+        [DllImport("PowrProf.dll")]
+        private static extern uint PowerEnumerate(IntPtr rootPowerKey, IntPtr schemeGuid,
+            IntPtr subGroupOfPowerSettingGuid, uint accessFlags, uint index, ref Guid buffer, ref uint bufferSize);
+
+        [DllImport("PowrProf.dll")]
+        private static extern uint PowerReadFriendlyName(IntPtr rootPowerKey, ref Guid schemeGuid,
+            IntPtr subGroupOfPowerSettingGuid, IntPtr powerSettingGuid, IntPtr buffer, ref uint bufferSize);
+
+        private enum AccessFlags : uint
+        {
+            AccessScheme = 16,
+        }
 
         public MainWindow()
         {
@@ -253,8 +266,8 @@ namespace MiTL
                 int index = qlIconNames.IndexOf(qlTileNumber);
 
                 string qlName = QlNames[index];
-                Tile qlTile = ListManager.QuicklaunchTiles[index];
-                Image qlImage = ListManager.QuicklaunchTileImages[index];
+                Tile qlTile = QuicklaunchTiles[index];
+                Image qlImage = QuicklaunchTileImages[index];
 
                 string iconPath = iconFolder + qlTileNumber + iconExtension;
 
@@ -575,12 +588,12 @@ namespace MiTL
             _viewIndicatorName = NavSettingsIndicator;
             NavUpdateView();
 
-            foreach (Image qlTileImage in ListManager.QuicklaunchTileImages)
+            foreach (Image qlTileImage in QuicklaunchTileImages)
             {
                 qlTileImage.Source = null;
             }
 
-            foreach (Tile qlTiles in ListManager.QuicklaunchTiles)
+            foreach (Tile qlTiles in QuicklaunchTiles)
             {
                 qlTiles.Title = null;
             }
@@ -610,12 +623,12 @@ namespace MiTL
 
         private void NavUpdateView()
         {
-            foreach (Border navIndicator in ListManager.NavigationIndicators)
+            foreach (Border navIndicator in NavigationIndicators)
             {
                 navIndicator.Visibility = Visibility.Collapsed;
             }
 
-            foreach (Grid navGrid in ListManager.NavigationGrids)
+            foreach (Grid navGrid in NavigationGrids)
             {
                 navGrid.Visibility = Visibility.Collapsed;
             }
@@ -631,7 +644,7 @@ namespace MiTL
             Label senderLabel = (Label)sender;
             string tabName = senderLabel.ToString();
 
-            foreach (Border tabIndicator in ListManager.SettingsTabIndicators)
+            foreach (Border tabIndicator in SettingsTabIndicators)
             {
                 tabIndicator.Visibility = Visibility.Collapsed;
             }
@@ -650,7 +663,7 @@ namespace MiTL
 
                 int index = 0;
 
-                foreach (TextBox qlTextBox in ListManager.QuicklaunchTexBoxes)
+                foreach (TextBox qlTextBox in QuicklaunchTexBoxes)
                 {
                     qlTextBox.Text = QlNames[index];
                     index++;
@@ -715,8 +728,10 @@ namespace MiTL
                 string friendlyFileName = Path.GetFileNameWithoutExtension(openFileDialog.SafeFileName);
                 string configPath = "Quicklaunch" + qlTileNumber + "Path";
                 string configName = "Quicklaunch" + qlTileNumber + "Name";
+                string configExeName = "Quicklaunch" + qlTileNumber + "ExeName";
                 ConfigManager.IniWrite(configPath, fullFilename);
                 ConfigManager.IniWrite(configName, friendlyFileName);
+                ConfigManager.IniWrite(configExeName, friendlyFileName);
                 string labelName = "QlTextBox" + qlTileNumber;
                 TextBox qlTextBox = (TextBox)FindName(labelName);
                 qlTextBox.Text = friendlyFileName;
@@ -749,7 +764,7 @@ namespace MiTL
 
                 int qlindexNumber = int.Parse(qlTileNumber) - 1;
                 string qlPath = QlPaths[qlindexNumber];
-                TextBox qlTexbBox = ListManager.QuicklaunchTexBoxes[qlindexNumber];
+                TextBox qlTexbBox = QuicklaunchTexBoxes[qlindexNumber];
 
                 if (qlPath.Length > 1)
                 {
@@ -769,12 +784,117 @@ namespace MiTL
             string configValue;
             int qlindexNumber = int.Parse(qlTileNumber) - 1;
             string qlPath = QlPaths[qlindexNumber];
-            TextBox qlTexbBox = ListManager.QuicklaunchTexBoxes[qlindexNumber];
+            TextBox qlTexbBox = QuicklaunchTexBoxes[qlindexNumber];
 
             if (qlPath.Length > 1)
             {
                 configValue = qlTexbBox.Text;
                 ConfigManager.IniWrite(configName, configValue);
+            }
+        }
+
+        private IEnumerable<Grid> NavigationGrids
+        {
+            get
+            {
+                List<Grid> navGrids = new List<Grid>
+                {
+                    GridMonitoring,
+                    GridPerformance,
+                    GridLauncher,
+                    GridOSTweaks,
+                    GridSettings,
+                    GridAbout
+                };
+                return navGrids;
+            }
+        }
+
+        private IEnumerable<Border> NavigationIndicators
+        {
+            get
+            {
+                List<Border> navIndicators = new List<Border>
+                {
+                    NavMonitoringIndicator,
+                    NavPerformanceIndicator,
+                    NavLauncherIndicator,
+                    NavOSTweaksIndicator,
+                    NavSettingsIndicator,
+                    NavAboutIndicator
+                };
+                return navIndicators;
+            }
+        }
+
+        private IEnumerable<Border> SettingsTabIndicators
+        {
+            get
+            {
+                List<Border> tabIndicators = new List<Border>
+                {
+                    SettingsTimerServiceindicator,
+                    SettingsAudioDevicesindicator,
+                    SettingsLauncherindicator,
+                    SettingsThemeindicator
+                };
+                return tabIndicators;
+            }
+        }
+
+        private static string ReadFriendlyName(Guid schemeGuid)
+        {
+            uint sizeName = 1024;
+            IntPtr pSizeName = Marshal.AllocHGlobal((int)sizeName);
+            string friendlyName;
+
+            try
+            {
+                PowerReadFriendlyName(IntPtr.Zero, ref schemeGuid, IntPtr.Zero, IntPtr.Zero, pSizeName, ref sizeName);
+                friendlyName = Marshal.PtrToStringUni(pSizeName);
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(pSizeName);
+            }
+
+            return friendlyName;
+        }
+
+        private static IEnumerable<Guid> GetAll()
+        {
+            Guid schemeGuid = Guid.Empty;
+            uint sizeSchemeGuid = (uint)Marshal.SizeOf(typeof(Guid));
+            uint schemeIndex = 0;
+
+            while (PowerEnumerate(IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, (uint)AccessFlags.AccessScheme, schemeIndex, ref schemeGuid, ref sizeSchemeGuid) == 0)
+            {
+                yield return schemeGuid;
+                schemeIndex++;
+            }
+        }
+
+        internal static List<string> PowerPlanList
+        {
+            get
+            {
+                List<string> powerPlanList = new List<string>();
+                IEnumerable<Guid> guidPlans = GetAll();
+
+                foreach (Guid guidPlan in guidPlans)
+                {
+                    string compareString = ReadFriendlyName(guidPlan).ToLower();
+
+                    if (compareString.Contains("balanced"))
+                    {
+                        powerPlanList.Insert(0, guidPlan.ToString());
+                    }
+                    if (compareString.Contains("performance"))
+                    {
+                        powerPlanList.Insert(1, guidPlan.ToString());
+                    }
+                }
+                return powerPlanList;
             }
         }
 
@@ -829,6 +949,87 @@ namespace MiTL
                     _quicklaunch16Path
                 };
                 return qlPaths;
+            }
+        }
+
+        private List<Tile> QuicklaunchTiles
+        {
+            get
+            {
+                List<Tile> qlTiles = new List<Tile>
+                {
+                    QLTile1,
+                    QLTile2,
+                    QLTile3,
+                    QLTile4,
+                    QLTile5,
+                    QLTile6,
+                    QLTile7,
+                    QLTile8,
+                    QLTile9,
+                    QLTile10,
+                    QLTile11,
+                    QLTile12,
+                    QLTile13,
+                    QLTile14,
+                    QLTile15,
+                    QLTile16
+                };
+                return qlTiles;
+            }
+        }
+
+        private List<Image> QuicklaunchTileImages
+        {
+            get
+            {
+                List<Image> qlTileImages = new List<Image>
+                {
+                    QLTile1Image,
+                    QLTile2Image,
+                    QLTile3Image,
+                    QLTile4Image,
+                    QLTile5Image,
+                    QLTile6Image,
+                    QLTile7Image,
+                    QLTile8Image,
+                    QLTile9Image,
+                    QLTile10Image,
+                    QLTile11Image,
+                    QLTile12Image,
+                    QLTile13Image,
+                    QLTile14Image,
+                    QLTile15Image,
+                    QLTile16Image
+                };
+                return qlTileImages;
+            }
+        }
+
+        private List<TextBox> QuicklaunchTexBoxes
+        {
+            get
+            {
+                List<TextBox> qlTextBoxes = new List<TextBox>
+                {
+                    QlTextBox1,
+                    QlTextBox2,
+                    QlTextBox3,
+                    QlTextBox4,
+                    QlTextBox5,
+                    QlTextBox6,
+                    QlTextBox7,
+                    QlTextBox8,
+                    QlTextBox9,
+                    QlTextBox10,
+                    QlTextBox11,
+                    QlTextBox12,
+                    QlTextBox13,
+                    QlTextBox14,
+                    QlTextBox15,
+                    QlTextBox16
+                };
+                return qlTextBoxes;
             }
         }
     }
