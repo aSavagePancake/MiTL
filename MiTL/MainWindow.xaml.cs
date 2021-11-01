@@ -766,19 +766,15 @@ namespace MiTL
             }
 
             string configName = "Quicklaunch" + qlTileNumber + "Name";
-            if (e.Key == Key.Enter)
+            string configValue;
+            int qlindexNumber = int.Parse(qlTileNumber) - 1;
+            string qlPath = QlPaths[qlindexNumber];
+            TextBox qlTexbBox = ListManager.QuicklaunchTexBoxes[qlindexNumber];
+
+            if (qlPath.Length > 1)
             {
-                string configValue;
-
-                int qlindexNumber = int.Parse(qlTileNumber) - 1;
-                string qlPath = QlPaths[qlindexNumber];
-                TextBox qlTexbBox = ListManager.QuicklaunchTexBoxes[qlindexNumber];
-
-                if (qlPath.Length > 1)
-                {
-                    configValue = qlTexbBox.Text;
-                    ConfigManager.IniWrite(configName, configValue);
-                }
+                configValue = qlTexbBox.Text;
+                ConfigManager.IniWrite(configName, configValue);
             }
         }
 
