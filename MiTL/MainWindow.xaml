@@ -1417,7 +1417,7 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 <mah:Tile
-                    x:Name="QLTile1"
+                    x:Name="LauncherTile1"
                     Title=""
                     Width="Auto"
                     Height="Auto"
@@ -1425,7 +1425,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1433,13 +1433,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile1Image"
+                        x:Name="LauncherTile1Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile2"
+                    x:Name="LauncherTile2"
                     Title=""
                     Grid.Column="1"
                     Width="Auto"
@@ -1448,7 +1448,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1456,13 +1456,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile2Image"
+                        x:Name="LauncherTile2Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile3"
+                    x:Name="LauncherTile3"
                     Title=""
                     Grid.Column="2"
                     Width="Auto"
@@ -1471,7 +1471,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1479,13 +1479,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile3Image"
+                        x:Name="LauncherTile3Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile4"
+                    x:Name="LauncherTile4"
                     Title=""
                     Grid.Column="3"
                     Width="Auto"
@@ -1494,7 +1494,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1502,13 +1502,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile4Image"
+                        x:Name="LauncherTile4Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile5"
+                    x:Name="LauncherTile5"
                     Title=""
                     Grid.Row="1"
                     Width="Auto"
@@ -1517,7 +1517,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1525,13 +1525,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile5Image"
+                        x:Name="LauncherTile5Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile6"
+                    x:Name="LauncherTile6"
                     Title=""
                     Grid.Row="1"
                     Grid.Column="1"
@@ -1541,7 +1541,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1549,13 +1549,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile6Image"
+                        x:Name="LauncherTile6Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile7"
+                    x:Name="LauncherTile7"
                     Title=""
                     Grid.Row="1"
                     Grid.Column="2"
@@ -1565,7 +1565,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1573,13 +1573,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile7Image"
+                        x:Name="LauncherTile7Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile8"
+                    x:Name="LauncherTile8"
                     Title=""
                     Grid.Row="1"
                     Grid.Column="3"
@@ -1589,7 +1589,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1597,13 +1597,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile8Image"
+                        x:Name="LauncherTile8Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile9"
+                    x:Name="LauncherTile9"
                     Title=""
                     Grid.Row="2"
                     Width="Auto"
@@ -1612,7 +1612,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1620,13 +1620,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile9Image"
+                        x:Name="LauncherTile9Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile10"
+                    x:Name="LauncherTile10"
                     Title=""
                     Grid.Row="2"
                     Grid.Column="1"
@@ -1636,7 +1636,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1644,13 +1644,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile10Image"
+                        x:Name="LauncherTile10Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile11"
+                    x:Name="LauncherTile11"
                     Title=""
                     Grid.Row="2"
                     Grid.Column="2"
@@ -1660,7 +1660,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1668,13 +1668,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile11Image"
+                        x:Name="LauncherTile11Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile12"
+                    x:Name="LauncherTile12"
                     Title=""
                     Grid.Row="2"
                     Grid.Column="3"
@@ -1684,7 +1684,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1692,13 +1692,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile12Image"
+                        x:Name="LauncherTile12Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile13"
+                    x:Name="LauncherTile13"
                     Title=""
                     Grid.Row="3"
                     Width="Auto"
@@ -1707,7 +1707,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1715,13 +1715,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile13Image"
+                        x:Name="LauncherTile13Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile14"
+                    x:Name="LauncherTile14"
                     Title=""
                     Grid.Row="3"
                     Grid.Column="1"
@@ -1731,7 +1731,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1739,13 +1739,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile14Image"
+                        x:Name="LauncherTile14Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile15"
+                    x:Name="LauncherTile15"
                     Title=""
                     Grid.Row="3"
                     Grid.Column="2"
@@ -1755,7 +1755,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1763,13 +1763,13 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile15Image"
+                        x:Name="LauncherTile15Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
                 </mah:Tile>
                 <mah:Tile
-                    x:Name="QLTile16"
+                    x:Name="LauncherTile16"
                     Title=""
                     Grid.Row="3"
                     Grid.Column="3"
@@ -1779,7 +1779,7 @@
                     VerticalContentAlignment="Top"
                     mah:ControlsHelper.MouseOverBorderBrush="{DynamicResource MahApps.Brushes.ThemeForeground}"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Click="QLTile_Click"
+                    Click="LauncherTile_Click"
                     Cursor="Hand"
                     HorizontalTitleAlignment="Center"
                     IsTabStop="False"
@@ -1787,7 +1787,7 @@
                     TitleFontSize="13"
                     VerticalTitleAlignment="Bottom">
                     <Image
-                        x:Name="QLTile16Image"
+                        x:Name="LauncherTile16Image"
                         Width="40"
                         Height="40"
                         Margin="0,8,0,0" />
@@ -2037,17 +2037,17 @@
                                         FontSize="10"
                                         Tag="1" />
                                     <TextBox
-                                        x:Name="QlTextBox1"
+                                        x:Name="LauncherTextBox1"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="1" />
                                     <Button
                                         Height="26"
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2069,11 +2069,11 @@
                                         FontSize="10"
                                         Tag="2" />
                                     <TextBox
-                                        x:Name="QlTextBox2"
+                                        x:Name="LauncherTextBox2"
                                         Grid.Row="1"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="2" />
                                     <Button
                                         Grid.Row="1"
@@ -2081,7 +2081,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2103,11 +2103,11 @@
                                         FontSize="10"
                                         Tag="3" />
                                     <TextBox
-                                        x:Name="QlTextBox3"
+                                        x:Name="LauncherTextBox3"
                                         Grid.Row="2"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="3" />
                                     <Button
                                         Grid.Row="2"
@@ -2115,7 +2115,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2137,11 +2137,11 @@
                                         FontSize="10"
                                         Tag="4" />
                                     <TextBox
-                                        x:Name="QlTextBox4"
+                                        x:Name="LauncherTextBox4"
                                         Grid.Row="3"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="4" />
                                     <Button
                                         Grid.Row="3"
@@ -2149,7 +2149,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2171,11 +2171,11 @@
                                         FontSize="10"
                                         Tag="5" />
                                     <TextBox
-                                        x:Name="QlTextBox5"
+                                        x:Name="LauncherTextBox5"
                                         Grid.Row="4"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="5" />
                                     <Button
                                         Grid.Row="4"
@@ -2183,7 +2183,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2205,11 +2205,11 @@
                                         FontSize="10"
                                         Tag="6" />
                                     <TextBox
-                                        x:Name="QlTextBox6"
+                                        x:Name="LauncherTextBox6"
                                         Grid.Row="5"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="6" />
                                     <Button
                                         Grid.Row="5"
@@ -2217,7 +2217,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2239,11 +2239,11 @@
                                         FontSize="10"
                                         Tag="7" />
                                     <TextBox
-                                        x:Name="QlTextBox7"
+                                        x:Name="LauncherTextBox7"
                                         Grid.Row="6"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="7" />
                                     <Button
                                         Grid.Row="6"
@@ -2251,7 +2251,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2273,11 +2273,11 @@
                                         FontSize="10"
                                         Tag="8" />
                                     <TextBox
-                                        x:Name="QlTextBox8"
+                                        x:Name="LauncherTextBox8"
                                         Grid.Row="7"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="8" />
                                     <Button
                                         Grid.Row="7"
@@ -2285,7 +2285,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2307,11 +2307,11 @@
                                         FontSize="10"
                                         Tag="9" />
                                     <TextBox
-                                        x:Name="QlTextBox9"
+                                        x:Name="LauncherTextBox9"
                                         Grid.Row="8"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="9" />
                                     <Button
                                         Grid.Row="8"
@@ -2319,7 +2319,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2341,11 +2341,11 @@
                                         FontSize="10"
                                         Tag="10" />
                                     <TextBox
-                                        x:Name="QlTextBox10"
+                                        x:Name="LauncherTextBox10"
                                         Grid.Row="9"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="10" />
                                     <Button
                                         Grid.Row="9"
@@ -2353,7 +2353,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2375,11 +2375,11 @@
                                         FontSize="10"
                                         Tag="11" />
                                     <TextBox
-                                        x:Name="QlTextBox11"
+                                        x:Name="LauncherTextBox11"
                                         Grid.Row="10"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="11" />
                                     <Button
                                         Grid.Row="10"
@@ -2387,7 +2387,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2409,11 +2409,11 @@
                                         FontSize="10"
                                         Tag="12" />
                                     <TextBox
-                                        x:Name="QlTextBox12"
+                                        x:Name="LauncherTextBox12"
                                         Grid.Row="11"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="12" />
                                     <Button
                                         Grid.Row="11"
@@ -2421,7 +2421,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2443,11 +2443,11 @@
                                         FontSize="10"
                                         Tag="13" />
                                     <TextBox
-                                        x:Name="QlTextBox13"
+                                        x:Name="LauncherTextBox13"
                                         Grid.Row="12"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="13" />
                                     <Button
                                         Grid.Row="12"
@@ -2455,7 +2455,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2477,11 +2477,11 @@
                                         FontSize="10"
                                         Tag="14" />
                                     <TextBox
-                                        x:Name="QlTextBox14"
+                                        x:Name="LauncherTextBox14"
                                         Grid.Row="13"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="14" />
                                     <Button
                                         Grid.Row="13"
@@ -2489,7 +2489,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2511,11 +2511,11 @@
                                         FontSize="10"
                                         Tag="15" />
                                     <TextBox
-                                        x:Name="QlTextBox15"
+                                        x:Name="LauncherTextBox15"
                                         Grid.Row="14"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="15" />
                                     <Button
                                         Grid.Row="14"
@@ -2523,7 +2523,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"
@@ -2545,11 +2545,11 @@
                                         FontSize="10"
                                         Tag="16" />
                                     <TextBox
-                                        x:Name="QlTextBox16"
+                                        x:Name="LauncherTextBox16"
                                         Grid.Row="15"
                                         Margin="108,0,50,4.4"
                                         HorizontalContentAlignment="Center"
-                                        KeyUp="QlNameEnter"
+                                        KeyUp="LauncherNameEnter"
                                         Tag="16" />
                                     <Button
                                         Grid.Row="15"
@@ -2557,7 +2557,7 @@
                                         Margin="343,0,8,0"
                                         VerticalAlignment="Top"
                                         Background="{DynamicResource MahApps.Brushes.Accent}"
-                                        Click="QlResetTile"
+                                        Click="LauncherResetTile"
                                         Content="x"
                                         Cursor="Hand"
                                         FontSize="10"

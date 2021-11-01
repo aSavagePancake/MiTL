@@ -27,39 +27,39 @@ namespace MiTL
         private static string _powerPlanPerformance;
         private static string _appTheme;
         private static string _closeOnLaunch;
-        private static string _quicklaunch1Name;
-        private static string _quicklaunch1Path;
-        private static string _quicklaunch2Name;
-        private static string _quicklaunch2Path;
-        private static string _quicklaunch3Name;
-        private static string _quicklaunch3Path;
-        private static string _quicklaunch4Name;
-        private static string _quicklaunch4Path;
-        private static string _quicklaunch5Name;
-        private static string _quicklaunch5Path;
-        private static string _quicklaunch6Name;
-        private static string _quicklaunch6Path;
-        private static string _quicklaunch7Name;
-        private static string _quicklaunch7Path;
-        private static string _quicklaunch8Name;
-        private static string _quicklaunch8Path;
-        private static string _quicklaunch9Name;
-        private static string _quicklaunch9Path;
-        private static string _quicklaunch10Name;
-        private static string _quicklaunch10Path;
-        private static string _quicklaunch11Name;
-        private static string _quicklaunch11Path;
-        private static string _quicklaunch12Name;
-        private static string _quicklaunch12Path;
-        private static string _quicklaunch13Name;
-        private static string _quicklaunch13Path;
-        private static string _quicklaunch14Name;
-        private static string _quicklaunch14Path;
-        private static string _quicklaunch15Name;
-        private static string _quicklaunch15Path;
-        private static string _quicklaunch16Name;
-        private static string _quicklaunch16Path;
-        private static string qlTileNumber = "";
+        private static string _launcher1Name;
+        private static string _launcher1Path;
+        private static string _launcher2Name;
+        private static string _launcher2Path;
+        private static string _launcher3Name;
+        private static string _launcher3Path;
+        private static string _launcher4Name;
+        private static string _launcher4Path;
+        private static string _launcher5Name;
+        private static string _launcher5Path;
+        private static string _launcher6Name;
+        private static string _launcher6Path;
+        private static string _launcher7Name;
+        private static string _launcher7Path;
+        private static string _launcher8Name;
+        private static string _launcher8Path;
+        private static string _launcher9Name;
+        private static string _launcher9Path;
+        private static string _launcher10Name;
+        private static string _launcher10Path;
+        private static string _launcher11Name;
+        private static string _launcher11Path;
+        private static string _launcher12Name;
+        private static string _launcher12Path;
+        private static string _launcher13Name;
+        private static string _launcher13Path;
+        private static string _launcher14Name;
+        private static string _launcher14Path;
+        private static string _launcher15Name;
+        private static string _launcher15Path;
+        private static string _launcher16Name;
+        private static string _launcher16Path;
+        private static string launcherTileNumber = "";
 
         [DllImport("PowrProf.dll")]
         private static extern uint PowerEnumerate(IntPtr rootPowerKey, IntPtr schemeGuid,
@@ -119,38 +119,38 @@ namespace MiTL
             _powerPlanPerformance = ConfigManager.IniRead("PowerPlanPerformance");
             _appTheme = ConfigManager.IniRead("AppTheme");
             _closeOnLaunch = ConfigManager.IniRead("CloseOnLaunch");
-            _quicklaunch1Name = ConfigManager.IniRead("Quicklaunch1Name");
-            _quicklaunch1Path = ConfigManager.IniRead("Quicklaunch1Path");
-            _quicklaunch2Name = ConfigManager.IniRead("Quicklaunch2Name");
-            _quicklaunch2Path = ConfigManager.IniRead("Quicklaunch2Path");
-            _quicklaunch3Name = ConfigManager.IniRead("Quicklaunch3Name");
-            _quicklaunch3Path = ConfigManager.IniRead("Quicklaunch3Path");
-            _quicklaunch4Name = ConfigManager.IniRead("Quicklaunch4Name");
-            _quicklaunch4Path = ConfigManager.IniRead("Quicklaunch4Path");
-            _quicklaunch5Name = ConfigManager.IniRead("Quicklaunch5Name");
-            _quicklaunch5Path = ConfigManager.IniRead("Quicklaunch5Path");
-            _quicklaunch6Name = ConfigManager.IniRead("Quicklaunch6Name");
-            _quicklaunch6Path = ConfigManager.IniRead("Quicklaunch6Path");
-            _quicklaunch7Name = ConfigManager.IniRead("Quicklaunch7Name");
-            _quicklaunch7Path = ConfigManager.IniRead("Quicklaunch7Path");
-            _quicklaunch8Name = ConfigManager.IniRead("Quicklaunch8Name");
-            _quicklaunch8Path = ConfigManager.IniRead("Quicklaunch8Path");
-            _quicklaunch9Name = ConfigManager.IniRead("Quicklaunch9Name");
-            _quicklaunch9Path = ConfigManager.IniRead("Quicklaunch9Path");
-            _quicklaunch10Name = ConfigManager.IniRead("Quicklaunch10Name");
-            _quicklaunch10Path = ConfigManager.IniRead("Quicklaunch10Path");
-            _quicklaunch11Name = ConfigManager.IniRead("Quicklaunch11Name");
-            _quicklaunch11Path = ConfigManager.IniRead("Quicklaunch11Path");
-            _quicklaunch12Name = ConfigManager.IniRead("Quicklaunch12Name");
-            _quicklaunch12Path = ConfigManager.IniRead("Quicklaunch12Path");
-            _quicklaunch13Name = ConfigManager.IniRead("Quicklaunch13Name");
-            _quicklaunch13Path = ConfigManager.IniRead("Quicklaunch13Path");
-            _quicklaunch14Name = ConfigManager.IniRead("Quicklaunch14Name");
-            _quicklaunch14Path = ConfigManager.IniRead("Quicklaunch14Path");
-            _quicklaunch15Name = ConfigManager.IniRead("Quicklaunch15Name");
-            _quicklaunch15Path = ConfigManager.IniRead("Quicklaunch15Path");
-            _quicklaunch16Name = ConfigManager.IniRead("Quicklaunch16Name");
-            _quicklaunch16Path = ConfigManager.IniRead("Quicklaunch16Path");
+            _launcher1Name = ConfigManager.IniRead("Launcher1Name");
+            _launcher1Path = ConfigManager.IniRead("Launcher1Path");
+            _launcher2Name = ConfigManager.IniRead("Launcher2Name");
+            _launcher2Path = ConfigManager.IniRead("Launcher2Path");
+            _launcher3Name = ConfigManager.IniRead("Launcher3Name");
+            _launcher3Path = ConfigManager.IniRead("Launcher3Path");
+            _launcher4Name = ConfigManager.IniRead("Launcher4Name");
+            _launcher4Path = ConfigManager.IniRead("Launcher4Path");
+            _launcher5Name = ConfigManager.IniRead("Launcher5Name");
+            _launcher5Path = ConfigManager.IniRead("Launcher5Path");
+            _launcher6Name = ConfigManager.IniRead("Launcher6Name");
+            _launcher6Path = ConfigManager.IniRead("Launcher6Path");
+            _launcher7Name = ConfigManager.IniRead("Launcher7Name");
+            _launcher7Path = ConfigManager.IniRead("Launcher7Path");
+            _launcher8Name = ConfigManager.IniRead("Launcher8Name");
+            _launcher8Path = ConfigManager.IniRead("Launcher8Path");
+            _launcher9Name = ConfigManager.IniRead("Launcher9Name");
+            _launcher9Path = ConfigManager.IniRead("Launcher9Path");
+            _launcher10Name = ConfigManager.IniRead("Launcher10Name");
+            _launcher10Path = ConfigManager.IniRead("Launcher10Path");
+            _launcher11Name = ConfigManager.IniRead("Launcher11Name");
+            _launcher11Path = ConfigManager.IniRead("Launcher11Path");
+            _launcher12Name = ConfigManager.IniRead("Launcher12Name");
+            _launcher12Path = ConfigManager.IniRead("Launcher12Path");
+            _launcher13Name = ConfigManager.IniRead("Launcher13Name");
+            _launcher13Path = ConfigManager.IniRead("Launcher13Path");
+            _launcher14Name = ConfigManager.IniRead("Launcher14Name");
+            _launcher14Path = ConfigManager.IniRead("Launcher14Path");
+            _launcher15Name = ConfigManager.IniRead("Launcher15Name");
+            _launcher15Path = ConfigManager.IniRead("Launcher15Path");
+            _launcher16Name = ConfigManager.IniRead("Launcher16Name");
+            _launcher16Path = ConfigManager.IniRead("Launcher16Path");
         }
 
         //show which Power Plan is active
@@ -235,46 +235,46 @@ namespace MiTL
             }
         }
 
-        private void ShowQuicklaunchTiles()
+        private void ShowLauncherTiles()
         {
-            string iconFolder = Environment.CurrentDirectory + @"\ql_icons\";
+            string iconFolder = Environment.CurrentDirectory + @"\launcher\";
             string iconExtension = ".ico";
 
-            List<string> qlIconNames = new List<string>
+            List<string> launcherIconNames = new List<string>
             {
-                "ql1",
-                "ql2",
-                "ql3",
-                "ql4",
-                "ql5",
-                "ql6",
-                "ql7",
-                "ql8",
-                "ql9",
-                "ql10",
-                "ql11",
-                "ql12",
-                "ql13",
-                "ql14",
-                "ql15",
-                "ql16"
+                "launcher1",
+                "launcher2",
+                "launcher3",
+                "launcher4",
+                "launcher5",
+                "launcher6",
+                "launcher7",
+                "launcher8",
+                "launcher9",
+                "launcher10",
+                "launcher11",
+                "launcher12",
+                "launcher13",
+                "launcher14",
+                "launcher15",
+                "launcher16"
             };
 
-            foreach (string qlIconName in qlIconNames)
+            foreach (string launcherIconName in launcherIconNames)
             {
-                string qlTileNumber = qlIconName;
-                int index = qlIconNames.IndexOf(qlTileNumber);
+                string launcherTileNumber = launcherIconName;
+                int index = launcherIconNames.IndexOf(launcherTileNumber);
 
-                string qlName = QlNames[index];
-                Tile qlTile = QuicklaunchTiles[index];
-                Image qlImage = QuicklaunchTileImages[index];
+                string launcherName = LauncherNames[index];
+                Tile launcherTile = LauncherTiles[index];
+                Image launcherImage = LauncherTileImages[index];
 
-                string iconPath = iconFolder + qlTileNumber + iconExtension;
+                string iconPath = iconFolder + launcherTileNumber + iconExtension;
 
-                if (qlName.Length > 1)
+                if (launcherName.Length > 1)
                 {
-                    qlImage.Source = BitmapFromFile(iconPath);
-                    qlTile.Title = qlName;
+                    launcherImage.Source = BitmapFromFile(iconPath);
+                    launcherTile.Title = launcherName;
                 }
             }
         }
@@ -410,33 +410,32 @@ namespace MiTL
         //Apply selected profile
         private void ApplyProfile(string profile)
         {
-            string args = "/Profile" + profile + " /q";
-
             //start MSIAfterburner using appropriate /profile switch and quit immediately using /q switch
+            string args = "/Profile" + profile + " /q";
             string _msiabFile = Properties.Resources.MSIAB_FilePath;
             Process.Start(_msiabFile, args);
         }
 
-        private void QLTile_Click(object sender, RoutedEventArgs e)
+        private void LauncherTile_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Tile SenderTile)
             {
-                qlTileNumber = SenderTile.Tag.ToString();
+                launcherTileNumber = SenderTile.Tag.ToString();
             }
 
-            int qlindexNumber = int.Parse(qlTileNumber) - 1;
-            string qlName = QlNames[qlindexNumber];
-            string qlPath = QlPaths[qlindexNumber];
+            int launcherindexNumber = int.Parse(launcherTileNumber) - 1;
+            string launcherPath = LauncherPaths[launcherindexNumber];
+            string launcherExeName = Path.GetFileNameWithoutExtension(launcherPath);
 
-            if (qlName.Length > 1)
+            if (launcherExeName.Length > 1)
             {
-                if (File.Exists(qlPath))
+                if (File.Exists(launcherPath))
                 {
                     if (ToggleCloseOnLaunch.IsChecked == true)
                     {
-                        ProcessManager.CloseAfterProcessStart(qlName);
+                        ProcessManager.CloseAfterProcessStart(launcherExeName);
                     }
-                    Process.Start(qlPath);
+                    Process.Start(launcherPath);
                 }
             }
         }
@@ -568,7 +567,7 @@ namespace MiTL
                     break;
             }
 
-            ShowQuicklaunchTiles();
+            ShowLauncherTiles();
 
             _viewGridName = GridLauncher;
             _viewIndicatorName = NavLauncherIndicator;
@@ -588,14 +587,14 @@ namespace MiTL
             _viewIndicatorName = NavSettingsIndicator;
             NavUpdateView();
 
-            foreach (Image qlTileImage in QuicklaunchTileImages)
+            foreach (Image launcherTileImage in LauncherTileImages)
             {
-                qlTileImage.Source = null;
+                launcherTileImage.Source = null;
             }
 
-            foreach (Tile qlTiles in QuicklaunchTiles)
+            foreach (Tile launcherTiles in LauncherTiles)
             {
-                qlTiles.Title = null;
+                launcherTiles.Title = null;
             }
 
             ServiceManager.MiTLService.Refresh();
@@ -657,15 +656,15 @@ namespace MiTL
             {
                 SettingsAudioDevicesindicator.Visibility = Visibility.Visible;
             }
-            if (tabName.Contains("Quick Launch"))
+            if (tabName.Contains("Launcher"))
             {
                 SettingsLauncherindicator.Visibility = Visibility.Visible;
 
                 int index = 0;
 
-                foreach (TextBox qlTextBox in QuicklaunchTexBoxes)
+                foreach (TextBox launcherTextBox in LauncherTexBoxes)
                 {
-                    qlTextBox.Text = QlNames[index];
+                    launcherTextBox.Text = LauncherNames[index];
                     index++;
                 }
             }
@@ -705,7 +704,7 @@ namespace MiTL
         {
             if (sender is Button SenderButton)
             {
-                qlTileNumber = SenderButton.Tag.ToString();
+                launcherTileNumber = SenderButton.Tag.ToString();
             }
 
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -726,34 +725,32 @@ namespace MiTL
             {
                 string fullFilename = openFileDialog.FileName;
                 string friendlyFileName = Path.GetFileNameWithoutExtension(openFileDialog.SafeFileName);
-                string configPath = "Quicklaunch" + qlTileNumber + "Path";
-                string configName = "Quicklaunch" + qlTileNumber + "Name";
-                string configExeName = "Quicklaunch" + qlTileNumber + "ExeName";
+                string configPath = "Launcher" + launcherTileNumber + "Path";
+                string configName = "Launcher" + launcherTileNumber + "Name";
                 ConfigManager.IniWrite(configPath, fullFilename);
                 ConfigManager.IniWrite(configName, friendlyFileName);
-                ConfigManager.IniWrite(configExeName, friendlyFileName);
-                string labelName = "QlTextBox" + qlTileNumber;
-                TextBox qlTextBox = (TextBox)FindName(labelName);
-                qlTextBox.Text = friendlyFileName;
-                IconManager.GrabAndSaveIcon(qlTileNumber, fullFilename);
+                string labelName = "LauncherTextBox" + launcherTileNumber;
+                TextBox launcherTextBox = (TextBox)FindName(labelName);
+                launcherTextBox.Text = friendlyFileName;
+                IconManager.GrabAndSaveIcon(launcherTileNumber, fullFilename);
                 ReadSettings();
             }
         }
 
-        private void QlResetTile(object sender, RoutedEventArgs e)
+        private void LauncherResetTile(object sender, RoutedEventArgs e)
         {
             if (sender is Button SenderButton)
             {
-                qlTileNumber = SenderButton.Tag.ToString();
+                launcherTileNumber = SenderButton.Tag.ToString();
             }
 
-            string messageString = "Reset Quicklaunch Tile " + qlTileNumber + " ?";
+            string messageString = "Reset Launcher Tile " + launcherTileNumber + " ?";
             if (MessageBox.Show(messageString, "Reset", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                string configPath = "Quicklaunch" + qlTileNumber + "Path";
-                string configName = "Quicklaunch" + qlTileNumber + "Name";
-                string iconPath = Environment.CurrentDirectory + @"\ql_icons\";
-                string iconFile = iconPath + "ql" + qlTileNumber + ".ico";
+                string configPath = "Launcher" + launcherTileNumber + "Path";
+                string configName = "Launcher" + launcherTileNumber + "Name";
+                string iconPath = Environment.CurrentDirectory + @"\launcher\";
+                string iconFile = iconPath + "launcher" + launcherTileNumber + ".ico";
                 ConfigManager.IniWrite(configPath, "");
                 ConfigManager.IniWrite(configName, "");
 
@@ -762,33 +759,33 @@ namespace MiTL
                     File.Delete(iconFile);
                 }
 
-                int qlindexNumber = int.Parse(qlTileNumber) - 1;
-                string qlPath = QlPaths[qlindexNumber];
-                TextBox qlTexbBox = QuicklaunchTexBoxes[qlindexNumber];
+                int launcherindexNumber = int.Parse(launcherTileNumber) - 1;
+                string launcherPath = LauncherPaths[launcherindexNumber];
+                TextBox launcherTexbBox = LauncherTexBoxes[launcherindexNumber];
 
-                if (qlPath.Length > 1)
+                if (launcherPath.Length > 1)
                 {
-                    qlTexbBox.Text = "";
+                    launcherTexbBox.Text = "";
                 }
             }
         }
 
-        private void QlNameEnter(object sender, KeyEventArgs e)
+        private void LauncherNameEnter(object sender, KeyEventArgs e)
         {
             if (sender is TextBox SenderTextBox)
             {
-                qlTileNumber = SenderTextBox.Tag.ToString();
+                launcherTileNumber = SenderTextBox.Tag.ToString();
             }
 
-            string configName = "Quicklaunch" + qlTileNumber + "Name";
+            string configName = "Launcher" + launcherTileNumber + "Name";
             string configValue;
-            int qlindexNumber = int.Parse(qlTileNumber) - 1;
-            string qlPath = QlPaths[qlindexNumber];
-            TextBox qlTexbBox = QuicklaunchTexBoxes[qlindexNumber];
+            int launcherindexNumber = int.Parse(launcherTileNumber) - 1;
+            string launcherPath = LauncherPaths[launcherindexNumber];
+            TextBox launcherTexbBox = LauncherTexBoxes[launcherindexNumber];
 
-            if (qlPath.Length > 1)
+            if (launcherPath.Length > 1)
             {
-                configValue = qlTexbBox.Text;
+                configValue = launcherTexbBox.Text;
                 ConfigManager.IniWrite(configName, configValue);
             }
         }
@@ -898,138 +895,138 @@ namespace MiTL
             }
         }
 
-        private List<string> QlNames
+        private List<string> LauncherNames
         {
             get
             {
-                List<string> qlNames = new List<string>
+                List<string> launcherNames = new List<string>
                 {
-                    _quicklaunch1Name,
-                    _quicklaunch2Name,
-                    _quicklaunch3Name,
-                    _quicklaunch4Name,
-                    _quicklaunch5Name,
-                    _quicklaunch6Name,
-                    _quicklaunch7Name,
-                    _quicklaunch8Name,
-                    _quicklaunch9Name,
-                    _quicklaunch10Name,
-                    _quicklaunch11Name,
-                    _quicklaunch12Name,
-                    _quicklaunch13Name,
-                    _quicklaunch14Name,
-                    _quicklaunch15Name,
-                    _quicklaunch16Name
+                    _launcher1Name,
+                    _launcher2Name,
+                    _launcher3Name,
+                    _launcher4Name,
+                    _launcher5Name,
+                    _launcher6Name,
+                    _launcher7Name,
+                    _launcher8Name,
+                    _launcher9Name,
+                    _launcher10Name,
+                    _launcher11Name,
+                    _launcher12Name,
+                    _launcher13Name,
+                    _launcher14Name,
+                    _launcher15Name,
+                    _launcher16Name
                 };
-                return qlNames;
+                return launcherNames;
             }
         }
 
-        private List<string> QlPaths
+        private List<string> LauncherPaths
         {
             get
             {
-                List<string> qlPaths = new List<string>
+                List<string> launcherPaths = new List<string>
                 {
-                    _quicklaunch1Path,
-                    _quicklaunch2Path,
-                    _quicklaunch3Path,
-                    _quicklaunch4Path,
-                    _quicklaunch5Path,
-                    _quicklaunch6Path,
-                    _quicklaunch7Path,
-                    _quicklaunch8Path,
-                    _quicklaunch9Path,
-                    _quicklaunch10Path,
-                    _quicklaunch11Path,
-                    _quicklaunch12Path,
-                    _quicklaunch13Path,
-                    _quicklaunch14Path,
-                    _quicklaunch15Path,
-                    _quicklaunch16Path
+                    _launcher1Path,
+                    _launcher2Path,
+                    _launcher3Path,
+                    _launcher4Path,
+                    _launcher5Path,
+                    _launcher6Path,
+                    _launcher7Path,
+                    _launcher8Path,
+                    _launcher9Path,
+                    _launcher10Path,
+                    _launcher11Path,
+                    _launcher12Path,
+                    _launcher13Path,
+                    _launcher14Path,
+                    _launcher15Path,
+                    _launcher16Path
                 };
-                return qlPaths;
+                return launcherPaths;
             }
         }
 
-        private List<Tile> QuicklaunchTiles
+        private List<Tile> LauncherTiles
         {
             get
             {
-                List<Tile> qlTiles = new List<Tile>
+                List<Tile> launcherTiles = new List<Tile>
                 {
-                    QLTile1,
-                    QLTile2,
-                    QLTile3,
-                    QLTile4,
-                    QLTile5,
-                    QLTile6,
-                    QLTile7,
-                    QLTile8,
-                    QLTile9,
-                    QLTile10,
-                    QLTile11,
-                    QLTile12,
-                    QLTile13,
-                    QLTile14,
-                    QLTile15,
-                    QLTile16
+                    LauncherTile1,
+                    LauncherTile2,
+                    LauncherTile3,
+                    LauncherTile4,
+                    LauncherTile5,
+                    LauncherTile6,
+                    LauncherTile7,
+                    LauncherTile8,
+                    LauncherTile9,
+                    LauncherTile10,
+                    LauncherTile11,
+                    LauncherTile12,
+                    LauncherTile13,
+                    LauncherTile14,
+                    LauncherTile15,
+                    LauncherTile16
                 };
-                return qlTiles;
+                return launcherTiles;
             }
         }
 
-        private List<Image> QuicklaunchTileImages
+        private List<Image> LauncherTileImages
         {
             get
             {
-                List<Image> qlTileImages = new List<Image>
+                List<Image> launcherTileImages = new List<Image>
                 {
-                    QLTile1Image,
-                    QLTile2Image,
-                    QLTile3Image,
-                    QLTile4Image,
-                    QLTile5Image,
-                    QLTile6Image,
-                    QLTile7Image,
-                    QLTile8Image,
-                    QLTile9Image,
-                    QLTile10Image,
-                    QLTile11Image,
-                    QLTile12Image,
-                    QLTile13Image,
-                    QLTile14Image,
-                    QLTile15Image,
-                    QLTile16Image
+                    LauncherTile1Image,
+                    LauncherTile2Image,
+                    LauncherTile3Image,
+                    LauncherTile4Image,
+                    LauncherTile5Image,
+                    LauncherTile6Image,
+                    LauncherTile7Image,
+                    LauncherTile8Image,
+                    LauncherTile9Image,
+                    LauncherTile10Image,
+                    LauncherTile11Image,
+                    LauncherTile12Image,
+                    LauncherTile13Image,
+                    LauncherTile14Image,
+                    LauncherTile15Image,
+                    LauncherTile16Image
                 };
-                return qlTileImages;
+                return launcherTileImages;
             }
         }
 
-        private List<TextBox> QuicklaunchTexBoxes
+        private List<TextBox> LauncherTexBoxes
         {
             get
             {
-                List<TextBox> qlTextBoxes = new List<TextBox>
+                List<TextBox> launcherTextBoxes = new List<TextBox>
                 {
-                    QlTextBox1,
-                    QlTextBox2,
-                    QlTextBox3,
-                    QlTextBox4,
-                    QlTextBox5,
-                    QlTextBox6,
-                    QlTextBox7,
-                    QlTextBox8,
-                    QlTextBox9,
-                    QlTextBox10,
-                    QlTextBox11,
-                    QlTextBox12,
-                    QlTextBox13,
-                    QlTextBox14,
-                    QlTextBox15,
-                    QlTextBox16
+                    LauncherTextBox1,
+                    LauncherTextBox2,
+                    LauncherTextBox3,
+                    LauncherTextBox4,
+                    LauncherTextBox5,
+                    LauncherTextBox6,
+                    LauncherTextBox7,
+                    LauncherTextBox8,
+                    LauncherTextBox9,
+                    LauncherTextBox10,
+                    LauncherTextBox11,
+                    LauncherTextBox12,
+                    LauncherTextBox13,
+                    LauncherTextBox14,
+                    LauncherTextBox15,
+                    LauncherTextBox16
                 };
-                return qlTextBoxes;
+                return launcherTextBoxes;
             }
         }
     }

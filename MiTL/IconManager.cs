@@ -8,10 +8,10 @@ namespace MiTL
 {
     internal class IconManager
     {
-        public static void GrabAndSaveIcon(string quickLaunchTile, string executablePath)
+        public static void GrabAndSaveIcon(string LauncherTile, string executablePath)
         {
-            string iconPath = Environment.CurrentDirectory + @"\ql_icons\";
-            string iconFile = "ql" + quickLaunchTile + ".ico";
+            string iconPath = Environment.CurrentDirectory + @"\launcher\";
+            string iconFile = "launcher" + LauncherTile + ".ico";
 
             if (!Directory.Exists(iconPath))
             {
